@@ -84,41 +84,6 @@ public class employee {
         this.wage = wage;
     }
 
-    public employee name(String name) {
-        setName(name);
-        return this;
-    }
-
-    public employee id(int id) {
-        setId(id);
-        return this;
-    }
-
-    public employee address(String address) {
-        setAddress(address);
-        return this;
-    }
-
-    public employee email(String email) {
-        setEmail(email);
-        return this;
-    }
-
-    public employee dateStarted(float dateStarted) {
-        setDateStarted(dateStarted);
-        return this;
-    }
-
-    public employee birthday(float birthday) {
-        setBirthday(birthday);
-        return this;
-    }
-
-    public employee wage(int wage) {
-        setWage(wage);
-        return this;
-    }
-
     /**
      * Automatically generated, commented out till needed
      */
