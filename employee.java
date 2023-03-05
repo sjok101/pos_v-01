@@ -8,6 +8,16 @@ public class employee {
     float birthday;
     int wage;
 
+    /**
+     * Default construtor. Sets the information of the employee.
+     * @param name 
+     * @param id 
+     * @param address 
+     * @param email
+     * @param dateStarted
+     * @param birthday
+     * @param wage
+     */
     public employee(String name, int id, String address, String email, float dateStarted, float birthday, int wage) {
         this.name = name;
         this.id = id;
