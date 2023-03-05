@@ -17,7 +17,7 @@ public class employeeInformation {
      * @param birthday
      * @param wage
      */
-    public employee(String name, int id, String address, String email, float dateStarted, float birthday, int wage) {
+    public employeeInformation(String name, int id, String address, String email, float dateStarted, float birthday, int wage) {
         this.name = name;
         this.id = id;
         this.address = address;
@@ -82,7 +82,7 @@ public class employeeInformation {
     public void setWage(int wage) {
         this.wage = wage;
     }
-    
+
     @Override
     public String toString() {
         return "{" +
