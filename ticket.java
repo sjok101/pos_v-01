@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 public class ticket {
     
-    ticket(){
+    public ticket(){
         int tableNum;
         int id;
         LinkedList orders;
