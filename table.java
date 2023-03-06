@@ -6,7 +6,7 @@ public class table {
     private int ticketID;
     private int queuePosition;
     private int seatNumber;
-    private HashMap<Integer,orders> table = new HashMap<Integer,orders>();
+    private HashMap<Integer,ticket> table = new HashMap<Integer,ticket>();
 
     public void makeTable() {
 

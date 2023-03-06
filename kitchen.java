@@ -1,9 +1,18 @@
+import java.util.*;
+
 public class kitchen {
-   /*  printorders()
-        completeTicket(ticketID) //order has been made
-        Kitchen variables:
-        Linked list of active orders
-    */
-    
+
+    private LinkedList<ticket> orders = new LinkedList<ticket>();
+    private int ticketID;
+
+    public void printOrders() {
+
+    }
+
+    public boolean completeTicket(int ticketID) {
+        Boolean completed = false;
+        return completed;
+    }
+
 
 }
