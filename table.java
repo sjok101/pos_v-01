@@ -30,4 +30,8 @@ public class table {
 
     }
 
+    public ticket getTicket(int seatNumber) {     
+        return table.get(seatNumber);
+    }
+
 }
