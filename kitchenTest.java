@@ -22,7 +22,7 @@ public class kitchenTest {
 
     @Test
     public void printOrderTest1() { //print out orders 1
-
+        //gets printed out order string and compares it to expected printout
     }
 
     @Test

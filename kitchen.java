@@ -5,8 +5,9 @@ public class kitchen {
     private LinkedList<ticket> orders = new LinkedList<ticket>();
     private int ticketID;
 
-    public void printOrders() {
-
+    public String printOrders() {
+        String printedOrders = "";
+        return printedOrders;
     }
 
     public boolean completeTicket(int ticketID) {
