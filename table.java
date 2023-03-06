@@ -8,6 +8,10 @@ public class table {
     private int seatNumber;
     private HashMap<Integer,ticket> table = new HashMap<Integer,ticket>();
 
+    public table() { //constructor?
+
+    }
+    
     public void makeTable() {
 
     }

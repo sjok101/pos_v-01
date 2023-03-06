@@ -5,6 +5,10 @@ public class kitchen {
     private LinkedList<ticket> orders = new LinkedList<ticket>();
     private int ticketID;
 
+    public kitchen() { //Constructor?
+
+    }
+
     public String printOrders() {
         String printedOrders = "";
         return printedOrders;
