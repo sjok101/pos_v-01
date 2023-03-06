@@ -41,52 +41,57 @@ public class tableTest {
     }
 
     @Test
-    public void adjustTableTest1() { //edit table 1 test
+    public void adjustTableTest1() { //edit table 1 test changes to empty table
 
     }
 
     @Test
-    public void adjustTableTest2() { // edit table 1 test
+    public void adjustTableTest2() { //edit table 1 test changes to full table
 
     }
 
     @Test
-    public void adjustTableTest3() { // edit table 2 test
+    public void adjustTableTest3() { // edit table 1 test changes to parital table
 
     }
 
     @Test
-    public void adjustTableTest4() { // edit table 2 test
+    public void adjustTableTest4() { // edit table 1 test other changes not test yet
 
     }
 
     @Test
-    public void adjustTableTest5() { // edit table 3 test
+    public void adjustTableTest5() { // edit table 2 test for both partial and full
+
+    }
+
+    @Test
+    public void adjustTableTest6() { // edit table 3 test 
 
     }
     
     @Test
-    public void makeTicketTest1() { //make ticket for table 1
+    public void makeTicketTest1() { //make ticket for table 1 to empty and partial table
 
     }
 
     @Test
-    public void makeTicketTest2() { //make ticket for table 1
+    public void makeTicketTest2() { //make ticket for table 1 to full table
 
     }
 
     @Test
-    public void makeTicketTest3() { //make ticket for table 2
+    public void makeTicketTest3() { //make ticket for table 2 to empty table
 
     }
 
     @Test
-    public void makeTicketTest4() { //make ticket for table 2
+    public void makeTicketTest4() { //make ticket for table 2 to full table
 
     }
 
     @Test
-    public void makeTicketTest5() { //fail to make ticket for table 3
+    public void makeTicketTest5() { //fail to make ticket for table 3 to no seat table
 
     }
 
@@ -101,17 +106,12 @@ public class tableTest {
     }
 
     @Test
-    public void removeCustomerTest3() { //pass to remove customer for table 2
+    public void removeCustomerTest3() { //pass then fail to remove customer 2 times for table 2 
 
     }
 
     @Test
-    public void removeCustomerTest4() { //fail to remove customer for table 2
-
-    }
-
-    @Test
-    public void removeCustomerTest5() { //fail to remove customer for table 3
+    public void removeCustomerTest4() { //fail to remove customer for table 3
 
     }
 
