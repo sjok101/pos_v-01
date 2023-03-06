@@ -1,12 +1,12 @@
 import java.util.*;
 public class table {
-    
-    int tableNumber;
-    int numberOfSeats;
-    int ticketID;
-    int queuePosition;
-    int seatNumber;
-    HashMap<Integer,orders> table = new HashMap<Integer,orders>();
+
+    private int tableNumber;
+    private int numberOfSeats;
+    private int ticketID;
+    private int queuePosition;
+    private int seatNumber;
+    private HashMap<Integer,orders> table = new HashMap<Integer,orders>();
 
     public void makeTable() {
 
