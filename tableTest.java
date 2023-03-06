@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.regex.*;
-import org.junit.*;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class tableTest {
 
