@@ -1,8 +1,11 @@
 
 import java.util.*;
 import java.util.regex.*;
-import org.junit.jupiter.api.Test.*;
-import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.Test.*;
+import static org.junit.Assert.*;
 
 public class kitchenTest {
     private LinkedList<ticket> orders = null;
@@ -17,7 +20,7 @@ public class kitchenTest {
 
     }
 
-    @Test(timeout = 2000)
+    @Test
     public void printOrderTest1() { //print out orders 1
 
     }
