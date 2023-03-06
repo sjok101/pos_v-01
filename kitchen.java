@@ -6,8 +6,13 @@ public class kitchen {
     private int ticketID;
 
     public kitchen() { //Constructor?
-
+        this.orders = orders;
     }
+
+    public void addTicketToOrders(ticket t) {
+        orders.add(t);
+    }
+
 
     public String printOrders() {
         String printedOrders = "";
