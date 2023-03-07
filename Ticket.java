@@ -10,7 +10,7 @@ enum Ticketstatus{
 
 class Ticket{
 
-    static final int TOGOTABLENUM = 0;
+    static final int TOGOTABLENUM = 99;
 
     private int tableNum;
     private int ticketID;
@@ -23,12 +23,21 @@ class Ticket{
     private Hashtable<Integer, LinkedList<Order>> orders;
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
 
+
+    //TODO: MAIN MUST CALCULATE UNIQUE TICKET ID
+
     //constructor for Ticket
     public Ticket(int tblnum){
         if(tblnum <= 0){
             throw new IndexOutOfBoundsException("Error: TablenNum must be greater than 0.");
         }
         else{
+            if(tblnum != TOGOTABLENUM){
+                togo = false;
+            }
+            else{
+                togo = true;
+            }
             this.tableNum = tblnum;
             LocalDateTime now = LocalDateTime.now();
             this.creationTime = dtf.format(now);
@@ -44,6 +53,12 @@ class Ticket{
             throw new NullPointerException("Error: order passed to constructor is null");
         }
         else{
+            if(tblnum != TOGOTABLENUM){
+                togo = false;
+            }
+            else{
+                togo = true;
+            }
             this.tableNum = tblnum;
             LocalDateTime now = LocalDateTime.now();
             this.creationTime = dtf.format(now);
@@ -127,6 +142,9 @@ class Ticket{
         return this.orders;
     }
 
+    public boolean getTogo(){
+        return this.togo;
+    }
 
 
     //adds order to ticket
