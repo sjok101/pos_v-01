@@ -1,6 +1,8 @@
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.time.format.DateTimeFormatter;
+import java.math.*;
+import java.text.NumberFormat;
 import java.time.LocalDateTime;
 
 enum Ticketstatus{
@@ -22,6 +24,7 @@ class Ticket{
     private int priority;
     private Hashtable<Integer, LinkedList<Order>> orders;
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
+    private NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
 
     //TODO: MAIN MUST CALCULATE UNIQUE TICKET ID
@@ -95,7 +98,7 @@ class Ticket{
 
     public void setTotal(double tot){
         if(tot >= 0){
-            this.total = tot;
+            this.total = round(tot, 2);
         }
         else{
             throw new IndexOutOfBoundsException("Error: Total must be greater than or equal to 0.");
@@ -175,6 +178,15 @@ class Ticket{
         LocalDateTime now = LocalDateTime.now();
         this.closingTime = dtf.format(now);
         this.status = Ticketstatus.CLOSED;
+    }
+
+    //helper function to round a price to 2 deciaml palces
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+    
+        BigDecimal bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
 }
