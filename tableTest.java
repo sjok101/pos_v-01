@@ -8,148 +8,87 @@ import static org.junit.Assert.*;
 
 public class tableTest {
 
-    private int tableNumber;
-    private int tableNumber2;
-    private int tableNumber3;
-    private int numberOfSeats;
-    private int numberOfSeats2;
-    private int numberOfSeats3;
-    private HashMap<Integer,ticket> table = null;
-    private HashMap<Integer,ticket> table2 = null;
-    private HashMap<Integer,ticket> table3 = null;
+    private table t1 = null;
+    private table t2 = null;
+    private table t3 = null;
+
 
     @Before
     public void setupTest() { //setup all variations of tables to test each one
-        table = new HashMap<Integer,ticket>();
-        table2 = new HashMap<Integer,ticket>();
-        table3 = new HashMap<Integer,ticket>();
+        t1 = new table(1,6); // normal table
+        t2 = new table(2,1); // 1 seat table
     }
 
-    @Test
-    public void makeTableTest1() { //test for making table 1 which is normal table
-
-    }
-
-    @Test
-    public void makeTableTest2() { //test for making table 2 which is 1 seat table
-
-    }
-
-    @Test
-    public void makeTableTest3() { //test for making table 3 which is no seat table
-
-    }
-
-    @Test
-    public void adjustTableTest1() { //edit table 1 test changes to empty table
-
-    }
-
-    @Test
-    public void adjustTableTest2() { //edit table 1 test changes to full table
-
-    }
-
-    @Test
-    public void adjustTableTest3() { // edit table 1 test changes to parital table
-
-    }
-
-    @Test
-    public void adjustTableTest4() { // edit table 1 test other changes not test yet
-
-    }
-
-    @Test
-    public void adjustTableTest5() { // edit table 2 test for both partial and full
-
-    }
-
-    @Test
-    public void adjustTableTest6() { // edit table 3 test 
-
-    }
     
     @Test
-    public void makeTicketTest1() { //make ticket for table 1 to empty and partial table
-
+    public void makeTicketTest1() { //make ticket for table to empty table
+        ticket t = new ticket();
+        //do ticket stuff
+        t1.makeTicket();
+        assertEquals(t1.getTicket(), t);
     }
 
     @Test
-    public void makeTicketTest2() { //make ticket for table 1 to full table
-
+    public void makeTicketTest2() { //make ticket for table to full table
+        String message = "";
+        ticket t = new ticket();
+        //ticket stuff
+        t2.setTicket(t);
+        t2.makeTicket(); //get error message
+        assertEquals(message, " "); //check message equals
     }
 
     @Test
-    public void makeTicketTest3() { //make ticket for table 2 to empty table
-
+    public void setCorrectTableNumberTest() { //checks table setting correctly   
+        
     }
 
     @Test
-    public void makeTicketTest4() { //make ticket for table 2 to full table
-
+    public void checksIfSettingTableNumberIsNegativeTest() { //checks invalid params 
+        
     }
 
     @Test
-    public void makeTicketTest5() { //fail to make ticket for table 3 to no seat table
-
+    public void correctNumberOfSeatedTest() { //checks seats setting correctly   
+        
     }
 
     @Test
-    public void removeCustomerTest1() { //pass to remove customer for table 1
-
+    public void atLeastOneSeatedAndNotTooManySeatedTest() { //checks invalid param  
+        
     }
 
     @Test
-    public void removeCustomerTest2() { //failto remove customer for table 1
-
+    public void tableHasRightTicketTest() { //checks ticket set correctly
+        
     }
 
     @Test
-    public void removeCustomerTest3() { //pass then fail to remove customer 2 times for table 2 
-
+    public void checkForNoTicket() { //checks invalid param with no ticket in it  
+        
     }
 
     @Test
-    public void removeCustomerTest4() { //fail to remove customer for table 3
-
+    public void checkForBadTicketVariablesBeforeSettingTicket() { //checks bad ticket param  
+        
     }
 
     @Test
-    public void addCustomerTest1() { //pass to add customer for table 1
-
+    public void getCorrectTableNumberTest() { //gets correct table#  
+        
     }
 
     @Test
-    public void addCustomerTest2() { //pass to add customer for table 1
-
+    public void getCorrectNumberOfSeatsTest() { //  gets correct number of seats 
+        
     }
 
     @Test
-    public void addCustomerTest3() { //pass to add customer for table 2
-
+    public void getCorrectTicketTest1() {   //get ticket
     }
 
     @Test
-    public void addCustomerTest4() { //failto remove customer for table 1 and 2
-
-    }
-
-    @Test
-    public void addCustomerTest5() { //pass and fail to add customer for table 3
-
-    }
-
-    @Test
-    public void getTicketTest1() {   //get ticket table 1 and then fail to get ticket out of range 
-    }
-
-    @Test
-    public void getTicketTest2() {   //get ticket table 2 and then fail to get ticket out of range  
-    }
-
-    @Test
-    public void getTicketTest3() {    //fail to get ticket from table 3 
+    public void checkNoTicketForTable() {   //get error if no ticket  
     }
     
     public static void main(String args[]) {
