@@ -27,14 +27,14 @@ public class table {
 
     public void setTicket(ticket t) {
         //check viab
-        this.ticket = t;
+        this.tableTicket = t;
     }
 
     public void makeTicket() {
         try {
             ticket newTicket = new ticket(); // this.tableNumber <- param
             //do stuff
-            this.ticket = newTicket;
+            this.tableTicket = newTicket;
         }
         catch(Exception e) {
             System.out.println(" something when wrong LOL");
@@ -42,7 +42,7 @@ public class table {
     }
 
     public ticket getTicket() { //maybe ask for table number aswell          
-        return this.ticket;
+        return this.tableTicket;
     }
 
     public int getTableNumber() {
