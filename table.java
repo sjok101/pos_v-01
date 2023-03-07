@@ -9,7 +9,7 @@ public class table {
     public table(int tNum, int sNum) { 
         this.tableNumber = tNum;
         this.numberOfSeats = sNum;
-        this.ticket = null;
+        this.tableTicket = null;
     }
 
     public void setTableNumber(int tableNum) {
