@@ -9,12 +9,16 @@ enum Ticketstatus{
 }
 
 class Ticket{
+
+    static final int TOGOTABLENUM = 0;
+
     private int tableNum;
     private int ticketID;
     private double total;
     private String creationTime;
     private String closingTime;
     private Ticketstatus status;
+    private boolean togo;
     private int priority;
     private Hashtable<Integer, LinkedList<Order>> orders;
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
@@ -38,8 +42,14 @@ class Ticket{
     // getters/setters
 
     public void setTableNum(int tn){
-        if(tn > 0){
+        if(tn >= 0){
             this.tableNum = tn;
+            if(tn == TOGOTABLENUM){
+                this.togo = true;
+            }
+            else{
+                this.togo = false;
+            }
         }
         else{
             throw new IndexOutOfBoundsException("Error: TablenNum must be greater than 0.");
@@ -103,6 +113,8 @@ class Ticket{
     public Hashtable<Integer, LinkedList<Order>> getOrders(){
         return this.orders;
     }
+
+
 
     //adds order to ticket
     public boolean addOrder(int seatnum, Order ordr){

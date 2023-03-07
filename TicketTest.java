@@ -33,20 +33,20 @@ public class TicketTest {
     @Test
     public void setTableNum2(){
         Ticket t = new Ticket(0);
-        t.setTableNum(1);
-        assertEquals(tik1.getTableNum(), t.getTableNum());
-
-    }
-
-    //negative value
-    @Test
-    public void setTableNum3(){
-        Ticket t = new Ticket(0);
         t.setTableNum(10);
         assertEquals(tik2.getTableNum(), t.getTableNum());
 
     }
 
+    //negative value
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void setTableNum3(){
+        Ticket t = new Ticket(0);
+        t.setTableNum(-10);
+
+    }
+
+    //table number 0
     @Test
     public void setTableNum4(){
         Ticket t = new Ticket(0);
