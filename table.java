@@ -1,9 +1,9 @@
 import java.util.*;
 public class table {
 
-    private int tableNumber;
-    private int numberOfSeats;
-    private ticket ticket;
+    public int tableNumber;
+    public int numberOfSeats;
+    public ticket tableTicket;
      // may change to priority queue for the queue position
 
     public table(int tNum, int sNum) { 
