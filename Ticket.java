@@ -38,15 +38,30 @@ class Ticket{
     // getters/setters
 
     public void setTableNum(int tn){
-        this.tableNum = tn;
+        if(tn > 0){
+            this.tableNum = tn;
+        }
+        else{
+            throw new IndexOutOfBoundsException("Error: TablenNum must be greater than 0.");
+        }
     }
 
     public void setTicketID(int id){
-        this.ticketID = id;
+        if(id >= 0){
+            this.ticketID = id; 
+        }
+        else{
+            throw new IndexOutOfBoundsException("Error: TicketID must be greater than or equal to 0.");
+        }
     }
 
     public void setTotal(double tot){
-        this.total = tot;
+        if(tot >= 0){
+            this.total = tot;
+        }
+        else{
+            throw new IndexOutOfBoundsException("Error: Total must be greater than or equal to 0.");
+        }
     }
 
     public void setpriority(int p){
