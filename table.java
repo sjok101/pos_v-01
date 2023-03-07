@@ -3,50 +3,53 @@ public class table {
 
     private int tableNumber;
     private int numberOfSeats;
-    private int numberOfCustomers;
-    private int ticketID;
-    private int queuePosition;
-    private HashMap<Integer,ticket> seats = null;
-    private LinkedList<table> tables = new LinkedList<table>(); // may change to priority queue for the queue position
+    private ticket ticket;
+     // may change to priority queue for the queue position
 
-    public table(int tNum, int sNum) { //constructor?
-
-        this.seats = new HashMap<Integer,ticket>();
+    public table(int tNum, int sNum) { 
         this.tableNumber = tNum;
         this.numberOfSeats = sNum;
-        this.numberOfCustomers = 0;
-        this.queuePosition = -1;
+        this.ticket = null;
     }
 
-    public void makeTable(int tNum,int sNum) {
-        table t = new table(tNum,sNum);
-        tables.add(t);
+    public void setTableNumber(int tableNum) {
+        this.tableNumber = tableNum;
     }
 
-    public void adjustTable(int tableNumber) { 
-        //get table from list
-        //loop for choice
-        //choices (change num of seat, table num, num of customers, or queue position)
-        //loop for increment, decrement, or exit out of the choice
-        //leave loop choice to leave editing mode
+    public void setNumberOfSeats(int numSeats) {
+        if(numSeats > 50 && numSeats < 1) {
+            
+        }
+        else {
+            this.numberOfSeats = numSeats;
+        }
     }
 
-    public ticket makeTicket(int seatNumber) {
-        ticket newTicket = new ticket();
-        //sends to ticket system and get the returned data for the table
-        return newTicket;
+    public void setTicket(ticket t) {
+        //check viab
+        this.ticket = t;
     }
 
-    public void removeCustomer(int tableNumber) {
-        //remove customer from table
+    public void makeTicket() {
+        try {
+            ticket newTicket = new ticket(); // this.tableNumber <- param
+            //do stuff
+            this.ticket = newTicket;
+        }
+        catch(Exception e) {
+            System.out.println(" something when wrong LOL");
+        }
     }
 
-    public void addCustomer(int tableNumber) {
-        //add customer to table
+    public ticket getTicket() { //maybe ask for table number aswell          
+        return this.ticket;
     }
 
-    public ticket getTicket(int seatNumber) { //maybe ask for table number aswell    
-        return seats.get(seatNumber);
+    public int getTableNumber() {
+        return this.tableNumber;
     }
 
+    public int getNumberOfSeats() {
+        return this.numberOfSeats;
+    }
 }
