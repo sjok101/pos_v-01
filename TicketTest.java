@@ -129,11 +129,11 @@ public class TicketTest {
         assertEquals(t.getTotal(),10.25, 0);
     }
 
-    //normal total
+    //normal total rounded
     @Test 
-    public void setTicketTotal1(){
+    public void setTicketTotal2(){
         Ticket t = new Ticket(10);
-        t.setTotal(10.25);
+        t.setTotal(10.251);
         assertEquals(t.getTotal(),10.25, 0);
     }
 
