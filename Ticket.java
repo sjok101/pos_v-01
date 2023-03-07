@@ -3,13 +3,18 @@ import java.util.LinkedList;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
-
+enum Ticketstatus{
+    OPEN,
+    CLOSED;
+}
 
 class Ticket{
     private int tableNum;
     private int ticketID;
     private double total;
     private String creationTime;
+    private String closingTime;
+    private Ticketstatus status;
     private int priority;
     private Hashtable<Integer, LinkedList<Order>> orders;
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
@@ -48,6 +53,10 @@ class Ticket{
         this.priority = p;
     }
 
+    public void setStatus(Ticketstatus ts){
+        this.status = ts;
+    }
+
     public int getTableNum(){
         return this.tableNum;
     }
@@ -66,6 +75,14 @@ class Ticket{
 
     public int getPriority(){
         return this.priority;
+    }
+
+    public Ticketstatus getStatus(){
+        return this.status;
+    }
+
+    public String getClosingTime(){
+        return this.closingTime;
     }
 
     public Hashtable<Integer, LinkedList<Order>> getOrders(){
@@ -95,6 +112,11 @@ class Ticket{
         return false;
     }
     
-
+    //method to close ticket. Sets closing time 
+    public void closeTicket(){
+        LocalDateTime now = LocalDateTime.now();
+        this.closingTime = dtf.format(now);
+        this.status = Ticketstatus.CLOSED;
+    }
 
 }
