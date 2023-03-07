@@ -3,14 +3,15 @@ import java.util.LinkedList;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
+
+
 class Ticket{
     private int tableNum;
-    private int ticketid;
+    private int ticketID;
     private double total;
     private String creationTime;
     private int priority;
     private Hashtable<Integer, LinkedList<Order>> orders;
-
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
 
     //constructor for Ticket
@@ -36,7 +37,7 @@ class Ticket{
     }
 
     public void setTicketID(int id){
-        this.ticketid = id;
+        this.ticketID = id;
     }
 
     public void setTotal(double tot){
@@ -52,7 +53,7 @@ class Ticket{
     }
 
     public int getTicketID(){
-        return this.ticketid;
+        return this.ticketID;
     }
 
     public double getTotal(){
@@ -71,19 +72,27 @@ class Ticket{
         return this.orders;
     }
 
+    //adds order to ticket
     public boolean addOrder(int seatnum, Order ordr){
         if(this.orders.get(seatnum).size() == 0){
             LinkedList<Order> orderlist = new LinkedList<>();
+            this.total += ordr.getTotal();
             return orderlist.add(ordr);
         }
+        this.total += ordr.getTotal();
         return this.orders.get(seatnum).add(ordr);
     }
 
+    //remove order for ticket (void) TODO: manager verification?
     public boolean removeOrder(int seatnum, Order ordr){
         if(this.orders.get(seatnum) == null){
             return false;
         }
-        return this.orders.get(seatnum).remove(ordr);
+        if(this.orders.get(seatnum).remove(ordr) == true){
+            this.total -= ordr.getTotal();
+            return true;
+        }
+        return false;
     }
     
 
