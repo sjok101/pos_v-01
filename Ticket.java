@@ -25,24 +25,37 @@ class Ticket{
 
     //constructor for Ticket
     public Ticket(int tblnum){
-        this.tableNum = tblnum;
-        LocalDateTime now = LocalDateTime.now();
-        this.creationTime = dtf.format(now);
-        this.orders = new Hashtable<>();
+        if(tblnum <= 0){
+            throw new IndexOutOfBoundsException("Error: TablenNum must be greater than 0.");
+        }
+        else{
+            this.tableNum = tblnum;
+            LocalDateTime now = LocalDateTime.now();
+            this.creationTime = dtf.format(now);
+            this.orders = new Hashtable<>();
+        }
     }
 
     public Ticket(int tblnum, Hashtable<Integer, LinkedList<Order>> ordrs){
-        this.tableNum = tblnum;
-        LocalDateTime now = LocalDateTime.now();
-        this.creationTime = dtf.format(now);
-        this.orders = ordrs;
-        this.orders = new Hashtable<>();
+        if(tblnum <= 0){
+            throw new IndexOutOfBoundsException("Error: TablenNum must be greater than 0.");
+        }
+        if(ordrs == null){
+            throw new NullPointerException("Error: order passed to constructor is null");
+        }
+        else{
+            this.tableNum = tblnum;
+            LocalDateTime now = LocalDateTime.now();
+            this.creationTime = dtf.format(now);
+            this.orders = ordrs;
+            this.orders = new Hashtable<>();
+        }
     }
 
     // getters/setters
 
     public void setTableNum(int tn){
-        if(tn >= 0){
+        if(tn > 0){
             this.tableNum = tn;
             if(tn == TOGOTABLENUM){
                 this.togo = true;
