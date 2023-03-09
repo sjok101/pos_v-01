@@ -152,10 +152,14 @@ class Ticket{
 
     //adds order to ticket
     public boolean addOrder(int seatnum, Order ordr){
-        if(this.orders.get(seatnum).size() == 0){
+        if(this.orders.get(seatnum) == null){
             LinkedList<Order> orderlist = new LinkedList<>();
             this.total += ordr.getTotal();
-            return orderlist.add(ordr);
+            if(orderlist.add(ordr)){
+                this.orders.put(seatnum, orderlist);
+                return true;
+            }
+            return false;
         }
         this.total += ordr.getTotal();
         return this.orders.get(seatnum).add(ordr);
