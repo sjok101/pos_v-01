@@ -8,7 +8,19 @@ public class TicketTest {
     
     private Ticket tik1 = null;
     private Ticket tik2 = null;
+    LinkedList<Order> ordrs1 = null;
+    Order order1 = null;
     private Hashtable<Integer, LinkedList<Order>> ticket_orders1 = null;
+
+    @Before
+    public void setupTest(){
+        tik1 = new Ticket(1);
+        tik2 = new Ticket(10);
+        order1 = new Order(1);
+        ordrs1.add(order1);
+    }
+
+    //TODO: FINISH CONSTRUCTOR TESTS WHEN DISH IS DONE
 
     //normal constructor just tablenum
     @Test 
@@ -50,12 +62,6 @@ public class TicketTest {
     @Test (expected = IndexOutOfBoundsException.class)
     public void ticketConstuctorTest5(){
         tik1 = new Ticket(-2);
-    }
-
-    @Before
-    public void setupTest(){
-        tik1 = new Ticket(1);
-        tik2 = new Ticket(10);
     }
 
     //normal value
@@ -158,6 +164,14 @@ public class TicketTest {
         t.setTotal(0);
         assertEquals(t.getTotal(),0.0, 0);
     }
+
+    //order with nothing inside
+    @Test 
+    public void addOrder1(){
+        Ticket t = new Ticket(10);
+        assertEquals(t.getTotal(),0.0, 0);
+    }
+
 
     public static void main(String args[]){
         org.junit.runner.JUnitCore.main("TicketTest");
