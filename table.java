@@ -3,7 +3,7 @@ public class table {
 
     public int tableNumber;
     public int numberOfSeats;
-    public ticket tableTicket;
+    public Ticket tableTicket;
      // may change to priority queue for the queue position
 
     public table(int tNum, int sNum) { 
@@ -14,6 +14,9 @@ public class table {
 
     public void setTableNumber(int tableNum) {
         this.tableNumber = tableNum;
+        if(this.tableTicket != null){
+            this.tableTicket.setTableNum(tableNum);
+        }
     }
 
     public void setNumberOfSeats(int numSeats) {
@@ -25,14 +28,14 @@ public class table {
         }
     }
 
-    public void setTicket(ticket t) {
+    public void setTicket(Ticket t) {
         //check viab
         this.tableTicket = t;
     }
 
     public void makeTicket() {
         try {
-            ticket newTicket = new ticket(); // this.tableNumber <- param
+            Ticket newTicket = new Ticket(this.tableNumber); // this.tableNumber <- param
             //do stuff
             this.tableTicket = newTicket;
         }
