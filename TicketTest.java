@@ -137,6 +137,27 @@ public class TicketTest {
         assertEquals(t.getTotal(),10.25, 0);
     }
 
+    //negative total
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void setTicketTotal3(){
+        Ticket t = new Ticket(10);
+        t.setTotal(-10);
+    }
+
+    //negative decimal total
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void setTicketTotal4(){
+        Ticket t = new Ticket(10);
+        t.setTotal(-10.50);
+    }
+
+    //zero total
+    @Test 
+    public void setTicketTotal5(){
+        Ticket t = new Ticket(10);
+        t.setTotal(0);
+        assertEquals(t.getTotal(),0.0, 0);
+    }
 
     public static void main(String args[]){
         org.junit.runner.JUnitCore.main("TicketTest");
