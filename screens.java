@@ -64,7 +64,7 @@ public class screens {
         while (exit == false){
             System.out.println("Clock-in Screen");
             System.out.println("1. Clock-In");
-            System.out.println("2. Clock-Out // Disabled");
+            System.out.println("2. Clock-Out");
             System.out.println("3. Return to main");
 
             choice = scan.nextInt();
@@ -74,7 +74,8 @@ public class screens {
                     clockingIn();
                     break;
                 case 2:
-                    System.out.println("Clock out disabled, fixing bugs");
+                    //System.out.println("Clock out disabled, fixing bugs");
+                    clockingOut();
                     break;
                 case 3:
                     exit = true;
@@ -98,9 +99,9 @@ public class screens {
         int id = scan.nextInt();
         scan.nextLine();
         
-        Employee retEmp = ui.returnEmpSample(id); //returns null for some reason, needs fixing
+        Employee retEmp = ui.returnEmpSample(id); //fixed
         
-        System.out.println("employee is: "+ retEmp.name);
+       // System.out.println("employee is: "+ retEmp.name);
         clockIO retClock = ui.findClockSample(retEmp);
         ui.clockOutSample(retClock);
         

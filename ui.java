@@ -25,7 +25,7 @@ public class ui {
     public static void clockInSample(clockIO clockInSample){
         //add new clockIO object, every clock in will be a new object
         clockSampleList.add(clockInSample);
-        System.out.println(clockInSample.employee + " is clocked in at :"+ clockInSample.clockIn);
+        System.out.println(clockInSample.employee.name + " is clocked in at :"+ clockInSample.clockIn);
     }
     
     public static void clockOutSample(clockIO clockOutSample){
@@ -34,7 +34,7 @@ public class ui {
         clockSampleList.remove(clockOutSample);
         clockOutSample.setClockout(LocalDateTime.now());
         clockSampleList.add(clockOutSample);
-        System.out.println(clockOutSample.employee + " is clocked out at :"+ clockOutSample.clockOut);
+        System.out.println(clockOutSample.employee.name + " is clocked out at :"+ clockOutSample.clockOut);
     }
 
     public static clockIO findClockSample(Employee employeeSample){
@@ -42,6 +42,7 @@ public class ui {
         clockIO ret = null;
         while(tempClockList.size()!=0){
             clockIO tempClock = tempClockList.removeFirst();
+            tempClockList.add(tempClock);
             if(tempClock.employee.equals(employeeSample)){
                 ret = tempClock;
                 break;
@@ -72,6 +73,7 @@ public class ui {
         Employee ret = null;
         while(temp.size()!=0){
             Employee tempEmp = temp.removeFirst();
+            temp.add(tempEmp);
             if(tempEmp.id==id){
                 ret = tempEmp;
                 return ret;
