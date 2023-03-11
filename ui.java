@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class ui {
     //sample variables
     private static Employee sampleEmployee;
-    private static LinkedList<Employee> sampleEmpList;
+    private static LinkedList<Employee> sampleEmpList = new LinkedList<Employee>();
     
     public static void main(String[] args){
         //this is an login example, users are added as samples upon scan, type "test" as user and "fail" as password to example a mismatched case
@@ -49,9 +49,11 @@ public class ui {
         System.out.println("2. Tables");
         System.out.println("3. Tickets");
         System.out.println("4. Kitchen");
-        System.out.println("5. Exit Software");
+        System.out.println("5. Add/Rem Employee");
+        System.out.println("9. Exit Software");
         
         int choice = scan.nextInt();
+        scan.nextLine();
         switch (choice){
             case 1:
                 screens.ClockIn();

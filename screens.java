@@ -7,13 +7,14 @@ public class screens {
 
     public static void editEmployee(){
         exit = false;
-        while (exit == false)
+        while (exit == false){
         System.out.println("Edit Employee Screen");
         System.out.println("1. Add employee");
         System.out.println("2. Remove employee");
         System.out.println("3. Return to main");
 
         choice = scan.nextInt();
+        scan.nextLine();
         switch (choice){
             case 1:
                 addEmployee();
@@ -27,6 +28,7 @@ public class screens {
             default:
                 System.out.println("Please enter a number from 1-3.");
         }
+        }
     }
 
     private static void addEmployee(){
@@ -37,8 +39,10 @@ public class screens {
         String position = scan.nextLine();
         System.out.println("Please enter employee ID");
         int id = scan.nextInt();
+        scan.nextLine();
         System.out.println("Please enter employee wage");
         double wage = scan.nextDouble();
+        scan.nextLine();
         Employee newEmployee = new Employee(name, position, id, wage, 0);
         ui.addEmpSample(newEmployee);
     }
@@ -47,6 +51,7 @@ public class screens {
         System.out.println("Removing employee");
         System.out.println("Please enter employee id");
         int id = scan.nextInt();
+        scan.nextLine();
         ui.removeEmpSample(id);
     }
 
