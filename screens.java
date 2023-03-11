@@ -97,13 +97,13 @@ public class screens {
         System.out.println("Please enter employee id");
         int id = scan.nextInt();
         scan.nextLine();
-        Employee retEmp = ui.returnEmpSample(id);
+        
+        Employee retEmp = ui.returnEmpSample(id); //returns null for some reason, needs fixing
+        
         System.out.println("employee is: "+ retEmp.name);
         clockIO retClock = ui.findClockSample(retEmp);
         ui.clockOutSample(retClock);
         
-
-
     }
 
 
