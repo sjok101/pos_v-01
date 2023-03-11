@@ -2,7 +2,6 @@ import java.util.Hashtable;
 import java.util.LinkedList;
 import java.time.format.DateTimeFormatter;
 import java.math.*;
-import java.text.NumberFormat;
 import java.time.LocalDateTime;
 
 enum Ticketstatus{
@@ -24,7 +23,6 @@ class Ticket{
     private int priority;
     private Hashtable<Integer, LinkedList<Order>> orders;
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
-    private NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
 
     //TODO: MAIN MUST CALCULATE UNIQUE TICKET ID
