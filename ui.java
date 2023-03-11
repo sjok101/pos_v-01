@@ -1,9 +1,11 @@
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.Scanner;
 public class ui {
     //sample variables
     private static Employee sampleEmployee;
     private static LinkedList<Employee> sampleEmpList = new LinkedList<Employee>();
+    private static LinkedList<clockIO> clockSampleList = new LinkedList<clockIO>();
     
     public static void main(String[] args){
         //this is an login example, users are added as samples upon scan, type "test" as user and "fail" as password to example a mismatched case
@@ -19,6 +21,35 @@ public class ui {
         
 
     }
+    //all samples will be replaced later when we have database
+    public static void clockInSample(clockIO clockInSample){
+        //add new clockIO object, every clock in will be a new object
+        clockSampleList.add(clockInSample);
+        System.out.println(clockInSample.employee + " is clocked in at :"+ clockInSample.clockIn);
+    }
+    
+    public static void clockOutSample(clockIO clockOutSample){
+        //removes clocked in to adjust time then add the same sample back in
+        
+        clockSampleList.remove(clockOutSample);
+        clockOutSample.setClockout(LocalDateTime.now());
+        clockSampleList.add(clockOutSample);
+        System.out.println(clockOutSample.employee + " is clocked out at :"+ clockOutSample.clockOut);
+    }
+
+    public static clockIO findClockSample(Employee employeeSample){
+        LinkedList<clockIO> tempClockList = clockSampleList;
+        clockIO ret = null;
+        while(tempClockList.size()!=0){
+            clockIO tempClock = tempClockList.removeFirst();
+            if(tempClock.employee.equals(employeeSample)){
+                ret = tempClock;
+                break;
+            }
+        }
+        return ret;
+    }
+
     public static void createSamples(){
         sampleEmployee = new Employee("John", "Server", 1, 7.25, 0);
         sampleEmpList.add(sampleEmployee);
@@ -28,12 +59,26 @@ public class ui {
     }
     public static void removeEmpSample(int id){
         LinkedList<Employee> temp = sampleEmpList;
-        for (int i =0; i<temp.size(); i++){
+        while(temp.size()!=0){
             Employee tempEmp = temp.removeFirst();
             if(tempEmp.id==id){
                 sampleEmpList.remove(tempEmp);
+                break;
             }
         }
+    }
+    public static Employee returnEmpSample(int id){
+        LinkedList<Employee> temp = sampleEmpList;
+        Employee ret = null;
+        while(temp.size()!=0){
+            Employee tempEmp = temp.removeFirst();
+            if(tempEmp.id==id){
+                ret = tempEmp;
+                return ret;
+            }
+        }
+        return ret;
+        
     }
 
     public static void pos(){
