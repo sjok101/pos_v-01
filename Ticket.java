@@ -43,6 +43,7 @@ class Ticket{
             LocalDateTime now = LocalDateTime.now();
             this.creationTime = dtf.format(now);
             this.orders = new Hashtable<>();
+            this.total = 0;
         }
     }
 
@@ -65,6 +66,7 @@ class Ticket{
             this.creationTime = dtf.format(now);
             this.orders = ordrs;
             this.orders = new Hashtable<>();
+            this.total = 0;
         }
     }
 
