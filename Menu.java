@@ -5,10 +5,16 @@ public class Menu {
 
     int numDishes;
     ArrayList<Dish> dishList;
+    Inventory inventory;
 
+    Menu(){
+        dishList = new ArrayList<>();
+        inventory = new Inventory();
+        numDishes = 0;
+    }
 
-    public Menu(){
-        int numDishes = 0;
+    public int getNumDishes(){
+        return dishList.size();
     }
 
     /**
@@ -18,12 +24,12 @@ public class Menu {
     public boolean createDish(){
         Scanner sc = new Scanner(System.in);
         boolean isNewDish = false;
-        String dish;
+        String dishName = "";
         while(isNewDish){
             System.out.println("Enter dish name: ");
-            dish = sc.nextLine();
+            dishName = sc.nextLine();
             // Checks if the dish is already in the database
-            if(checkDish(dish)){
+            if(checkDish(dishName)){
                 // If the dish existed, ask the user if they would like to create another dish
                 System.out.println("This dish exists in the data base. Would you like to add a new dish? Y/N");
                 String yn = sc.nextLine();
@@ -37,21 +43,61 @@ public class Menu {
         }
 
         // This will change in the UI, it will be buttons that the user can press
-        System.out.println("Enter ingredients: ");
+        System.out.println("Would you like to enter the ingredients now? (Y/N)");
+        String yn = sc.nextLine();
+        if(yn.equals("Y") || yn.equals("Yes")){
+            System.out.println("This will be buttons the user can press to add ingredients. Too lazy to implement this as a text thing.");
+        }
+        // System.out.println("Enter ingredients: (Example: tomato,pasta,cheese)");
+        // String uiingredients = sc.nextLine();
 
+        // ArrayList<Ingredient> ingredients = ingredientPopup(uiingredients);        
+
+        // Makes a new dish with the information given
+        System.out.println("Dish has been added to the database.");
+        Dish dish = new Dish(dishName, numDishes);
+        dishList.add(dish);
         numDishes++;
         sc.close();
         return true;
     }
 
-    private boolean checkDish(String dish) {
+    /**
+     * Gets the price of a dish.
+     * @return the price of the dish.
+     */
+    public double price(Dish dish){
+        return dish.price;
+    }
 
+    /**
+     * Implement later with the UI. Makes a little pop up that allows the user to press buttons of what ingredients belong in the dish
+     * when the create a new one. Also allows the user to make a new Ingredient in case the ingredient doesnt exist
+     * Makes an ingredient list for a dish.
+     * @param ingredients string format of ingredienets
+     * @return
+     */
+    private ArrayList<Ingredient> ingredientPopup(String ingredients){
+        ArrayList<Ingredient> toList = new ArrayList<>();
+        return toList;
+    }
+
+    /**
+     * Checks if the dish exists in the list of dishes already to prevent duplicate dishes from being made.
+     * @param dish
+     * @return
+     */
+    private boolean checkDish(String dish) {
+        if(dishList.size() == 0){
+            return false;
+        }
+
+        for(int i = 0; i < dishList.size(); i++){
+            if(dish.toLowerCase() == dishList.get(i).name.toLowerCase()){
+                return true;
+            }
+        }
 
         return false;
     }
-
-
-
-
-
 }
