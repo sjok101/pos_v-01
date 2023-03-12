@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class screens {
@@ -209,6 +208,7 @@ public class screens {
     }
 
     }
+    //Once tickets can successfully add orders, we can implement the edit function.
     //needs to be able to find the ticket via tableNum
     //needs to be able to find the table via ticket object
     //remove old ticket from both lists
@@ -224,6 +224,7 @@ public class screens {
     
 
     public static void Tables(){
+        //Once tickets can successfully add orders, we can implement tables screen.
         //Displays tables
         //can choose table from display
         //Displays ticket
@@ -239,6 +240,7 @@ public class screens {
     //============================================================================================================================//
     
     public static void Kitchen(){
+        //Once tickets can successfully add orders, we can display them via kitchen.printOrders() also in const.
         //Displays Orders
         //Can choose if Dish is out of stock
             System.out.println("Kitchen Screen");
