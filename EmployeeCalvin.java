@@ -107,17 +107,25 @@ public class EmployeeCalvin {
 		return EmployeeCalvinList;
 	}
 	
-	void clock_in() {
+	boolean clock_in() {
+		if(this.clocked == true)
+		{
+			return false;
+		}
 		this.clocked = true;
 		LocalTime currentTime = LocalTime.now();
 		this.timeIn = currentTime.toString();
-
+		return true;
 	}
-	void clock_out() {
+	boolean clock_out() {
+		if(clocked == false)
+		{
+			return false;
+		}
 		this.clocked = false;
 		LocalTime currentTime = LocalTime.now();
 		this.timeOut = currentTime.toString();
-
+		return true;
 	}
 	
 //	public static void main(String[] args) {
