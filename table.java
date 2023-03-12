@@ -13,10 +13,12 @@ public class table {
     }
 
     public void setTableNumber(int tableNum) {
-        this.tableNumber = tableNum;
-        if(this.tableTicket != null){
-            this.tableTicket.setTableNum(tableNum);
-        }
+        if(tableNum >= 0) {
+            this.tableNumber = tableNum;
+            if(this.tableTicket != null){
+                this.tableTicket.setTableNum(tableNum);
+            }
+        }  
     }
 
     public void setNumberOfSeats(int numSeats) {

@@ -19,7 +19,7 @@ public class kitchenTest {
         k2 = new kitchen(); // 1 ticket in kitchen
         k3 = new kitchen(); //< 1 ticket in kitchen
         //make tickets here
-        ticket t = null;
+        Ticket t = null;
         k1.tickets.add(t);
         k2.tickets.add(t);
         //add random other tickets to k1 here

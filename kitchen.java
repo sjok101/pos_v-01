@@ -12,12 +12,18 @@ public class kitchen {
 
     public String printOrders() {
         String printedOrders = "";
+        /* 
+        for(Ticket t: tickets) {
+            for(order o: t.getOrders();) {
+
+            }      
+        }
+        */
         return printedOrders;
     }
 
     public boolean completeTicket(Ticket t) {
-        //this.tickets.get(t);
-        Boolean completed = false;
+        Boolean completed = this.tickets.remove(t);
         return completed;
     }
 
