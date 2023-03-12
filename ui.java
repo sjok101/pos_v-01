@@ -4,9 +4,9 @@ import java.util.LinkedList;
 import java.util.Scanner;
 public class ui {
     //sample variables for testing
-    private static Employee sampleEmployee;
+    private static employee sampleEmployee;
     private static Dish sampleDish;
-    private static LinkedList<Employee> sampleEmpList = new LinkedList<Employee>();
+    private static LinkedList<employee> sampleEmpList = new LinkedList<employee>();
     private static LinkedList<clockIO> clockSampleList = new LinkedList<clockIO>();
     private static LinkedList<table> sampleTableList = new LinkedList<table>(); //can be used as final
     private static LinkedList<Dish> sampleDishList = new LinkedList<>();
@@ -71,7 +71,7 @@ public class ui {
         System.out.println(clockOutSample.employee.name + " is clocked out at :"+ clockTimeFormat);
     }
 
-    public static clockIO findClockSample(Employee employeeSample){
+    public static clockIO findClockSample(employee employeeSample){
         LinkedList<clockIO> tempClockList = clockSampleList;
         clockIO ret = null;
         while(tempClockList.size()!=0){
@@ -86,30 +86,30 @@ public class ui {
     }
 
     public static void createSamples(){
-        sampleEmployee = new Employee("John", "Server", 1, 7.25, 0);
+        sampleEmployee = new employee("John", "Server", 1, 7.25, 0);
         sampleEmpList.add(sampleEmployee);
         sampleDish = new Dish("Pancakes", 1);
         sampleDishList.add(sampleDish);
 
     }
-    public static void addEmpSample(Employee sample){
+    public static void addEmpSample(employee sample){
         sampleEmpList.add(sample);
     }
     public static void removeEmpSample(int id){
-        LinkedList<Employee> temp = sampleEmpList;
+        LinkedList<employee> temp = sampleEmpList;
         while(temp.size()!=0){
-            Employee tempEmp = temp.removeFirst();
+            employee tempEmp = temp.removeFirst();
             if(tempEmp.id==id){
                 sampleEmpList.remove(tempEmp);
                 break;
             }
         }
     }
-    public static Employee returnEmpSample(int id){
-        LinkedList<Employee> temp = sampleEmpList;
-        Employee ret = null;
+    public static employee returnEmpSample(int id){
+        LinkedList<employee> temp = sampleEmpList;
+        employee ret = null;
         while(temp.size()!=0){
-            Employee tempEmp = temp.removeFirst();
+            employee tempEmp = temp.removeFirst();
             temp.add(tempEmp);
             if(tempEmp.id==id){
                 ret = tempEmp;

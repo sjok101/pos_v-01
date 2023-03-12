@@ -48,7 +48,7 @@ public class screens {
         System.out.println("Please enter employee wage");
         double wage = scan.nextDouble();
         scan.nextLine();
-        Employee newEmployee = new Employee(name, position, id, wage, 0);
+        employee newEmployee = new employee(name, position, id, wage, 0);
         //below will be replaced with actual data imports
         ui.addEmpSample(newEmployee);
     }
@@ -102,7 +102,7 @@ public class screens {
         int id = scan.nextInt();
         scan.nextLine();
         
-        Employee retEmp = ui.returnEmpSample(id); //fixed
+        employee retEmp = ui.returnEmpSample(id); //fixed
         
        // System.out.println("employee is: "+ retEmp.name);
         clockIO retClock = ui.findClockSample(retEmp);

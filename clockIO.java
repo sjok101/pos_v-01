@@ -3,9 +3,9 @@ import java.time.LocalDateTime;
 public class clockIO {
     LocalDateTime clockIn = null;
     LocalDateTime clockOut = null;
-    Employee employee;
+    employee employee;
 
-    public clockIO(LocalDateTime clockInTime, Employee employee){
+    public clockIO(LocalDateTime clockInTime, employee employee){
         this.clockIn = clockInTime;
         this.employee = employee;
     }

@@ -43,7 +43,7 @@ public class mainMenuTester {
 
     @Test
     public void isClockCreated(){
-        clockIO testClock = new clockIO(LocalDateTime.now(), new Employee("John", "server", 1, 12, 0));    
+        clockIO testClock = new clockIO(LocalDateTime.now(), new employee("John", "server", 1, 12, 0));    
         if(testClock.clockIn==null){
             throw new NullPointerException("Clock in not instantiated");
         }
@@ -54,7 +54,7 @@ public class mainMenuTester {
 
     @Test
     public void isClockedOut(){
-        clockIO testClock = new clockIO(LocalDateTime.now(), new Employee("John", "server", 1, 12, 0));    
+        clockIO testClock = new clockIO(LocalDateTime.now(), new employee("John", "server", 1, 12, 0));    
         testClock.setClockout(LocalDateTime.now());
         if(testClock.clockOut==null){
             throw new NullPointerException("Clock in not instantiated");
