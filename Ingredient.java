@@ -1,5 +1,4 @@
 public class Ingredient {
-<<<<<<< HEAD
 
     int id;
     String name;
@@ -31,15 +30,4 @@ public class Ingredient {
         this.quantity = quantity;
     }
 
-=======
-    
-    int id;
-    String name;
-
-    public Ingredient(int id, String name){
-        this.id = id;
-        this.name = name;
-    }
-    
->>>>>>> basil
 }

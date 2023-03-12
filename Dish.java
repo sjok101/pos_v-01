@@ -3,10 +3,29 @@ import java.util.Properties;
 
 public class Dish {
 
-    ArrayList<Ingredient> ingredients;
+    /**
+     * Automatically assigned by the PC. User will not be able to update this value.
+     */
     int id;
-    String description;
+
+    /**
+     * The name of the dish.
+     */
     String name;
+
+    /**
+     * The description of the dish.
+     */
+    String description;
+
+    /**
+     * List of ingredients.
+     */
+    ArrayList<Ingredient> ingredients;
+
+    /**
+     * The price of the dish.
+     */
     double price;
 
     /**
@@ -14,31 +33,34 @@ public class Dish {
      */
     int type;
 
-    public Dish(String name, int id){
+    public Dish(String name, String desc, double price){
         this.name = name;
-        this.id = id;
-    }
-
-    public Dish(String name, double price, int id){
-        this.name = name;
+        this.description = desc;
         this.price = price;
-        this.id = id;
-    }
-
-    public Dish(String name, int id, ArrayList<Ingredient> ingredients){
-        this.name = name;
-        this.id = id;
         this.ingredients = new ArrayList<>();
     }
 
-    /**
-     * Default constructor for dish.
-     */
-    public Dish(String name, int id, ArrayList<Ingredient> ingredients, int price){
-        this.name = name;
+    public Dish(int id, String name, String desc, double price){
         this.id = id;
-        this.ingredients = new ArrayList<>();
+        this.name = name;
+        this.description = desc;
         this.price = price;
+        this.ingredients = new ArrayList<>();
+    }
+
+    public Dish(String name, String desc, double price, ArrayList<Ingredient> ingredients){
+        this.name = name;
+        this.description = desc;
+        this.price = price;
+        this.ingredients = ingredients;
+    }
+
+    public Dish(int id, String name, String desc, double price, ArrayList<Ingredient> ingredients){
+        this.id = id;
+        this.name = name;
+        this.description = desc;
+        this.price = price;
+        this.ingredients = ingredients;
     }
 
     public void updateDesc(String desc){
@@ -65,6 +87,10 @@ public class Dish {
      */
     public int getId() {
         return id;
+    }
+
+    public void setId(int id){
+        this.id = id;
     }
 
     public String getDescription() {
