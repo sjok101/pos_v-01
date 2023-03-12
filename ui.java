@@ -2,7 +2,7 @@ import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.Scanner;
 public class ui {
-    //sample variables
+    //sample variables for testing
     private static Employee sampleEmployee;
     private static Dish sampleDish;
     private static LinkedList<Employee> sampleEmpList = new LinkedList<Employee>();
@@ -24,6 +24,9 @@ public class ui {
         
 
     }
+
+
+    //======================================================================Below this line are functions to initialize samples for testing ===================================================================//
     //all samples will be replaced later when we have database
     public static Dish findDishSample(int dishID){
         LinkedList<Dish> tempDishList = sampleDishList;
@@ -109,7 +112,9 @@ public class ui {
         return ret;
         
     }
+    //================================================Above this line are functions to initialize samples for testing ui ================================================================================//
 
+    
     public static void pos(){
         while(true){
             mainMenu();
