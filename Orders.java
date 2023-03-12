@@ -14,7 +14,7 @@ public class Orders {
     private LinkedList<Dish> dishes;
 
     //constructor for Ticket
-    public Order(int tblnum){
+    public Order(int tblnum) {
         if(tblnum < 0){
             throw new IndexOutOfBoundsException("Error! tablenum for order must be >= 0");
         }
