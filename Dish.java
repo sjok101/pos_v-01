@@ -33,21 +33,11 @@ public class Dish {
      */
     int type;
 
-    /**
-     * Default constructor.
-     */
-    public Dish(int id){
-        this.id = id;
-        this.name = "No name given";
-        this.description = "Empty description";
-        this.ingredients = null;
-        this.price = 0.0;
-    }
-
-    public Dish(int id, String name){
+    public Dish(String name, String desc, double price){
         this.name = name;
-        this.id = id;
-        description = "Empty description";
+        this.description = desc;
+        this.price = price;
+        this.ingredients = new ArrayList<>();
     }
 
     public Dish(int id, String name, String desc, double price){
@@ -55,6 +45,14 @@ public class Dish {
         this.name = name;
         this.description = desc;
         this.price = price;
+        this.ingredients = new ArrayList<>();
+    }
+
+    public Dish(String name, String desc, double price, ArrayList<Ingredient> ingredients){
+        this.name = name;
+        this.description = desc;
+        this.price = price;
+        this.ingredients = ingredients;
     }
 
     public Dish(int id, String name, String desc, double price, ArrayList<Ingredient> ingredients){
@@ -89,6 +87,10 @@ public class Dish {
      */
     public int getId() {
         return id;
+    }
+
+    public void setId(int id){
+        this.id = id;
     }
 
     public String getDescription() {

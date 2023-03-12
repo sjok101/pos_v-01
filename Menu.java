@@ -17,51 +17,67 @@ public class Menu {
         return dishList.size();
     }
 
-    /**
+/**
      * Creates a dish for the menu
      * @return
      */
-    public boolean createDish(){
-        Scanner sc = new Scanner(System.in);
-        boolean isNewDish = false;
-        String dishName = "";
-        while(!isNewDish){
-            System.out.println("Enter dish name: ");
-            dishName = sc.nextLine();
-            // Checks if the dish is already in the database
-            if(checkDish(dishName)){
-                // If the dish existed, ask the user if they would like to create another dish
-                System.out.println("This dish exists in the data base. Would you like to add a new dish? Y/N");
-                String yn = sc.nextLine();
-                if(yn.equals("N") || yn.equals("No")){
-                    System.out.println("Dish was not created");
-                    return false;
-                }
-            }else{
-                break;
-            }
+    public boolean createDish(Dish dish){        
+        if(checkDish(dish.name)){
+            return false;
         }
-        System.out.print("Enter description: ");
-        String desc = sc.nextLine();
-        // This will change in the UI, it will be buttons that the user can press
-        System.out.println("Would you like to enter the ingredients now? (Y/N)");
-        String yn = sc.nextLine();
-        if(yn.equals("Y") || yn.equals("Yes")){
-            System.out.println("This will be buttons the user can press to add ingredients. Too lazy to implement this as a text thing.");
-        }
-        // System.out.println("Enter ingredients: (Example: tomato,pasta,cheese)");
-        // String uiingredients = sc.nextLine();
-
-        // ArrayList<Ingredient> ingredients = ingredientPopup(uiingredients);        
 
         // Makes a new dish with the information given
-        System.out.println("Dish has been added to the database.");
-        Dish dish = new Dish(numDishes, dishName);
+        dish.setId(numDishes);
         dishList.add(dish);
         numDishes++;
-        sc.close();
         return true;
     }
+
+    // /**
+    //  * Creates a dish for the menu
+    //  * @return
+    //  */
+    // public boolean createDish(){
+    //     Scanner sc = new Scanner(System.in);
+    //     boolean isNewDish = false;
+    //     String dishName = "";
+    //     while(!isNewDish){
+    //         System.out.println("Enter dish name: ");
+    //         dishName = sc.nextLine();
+    //         // Checks if the dish is already in the database
+    //         if(checkDish(dishName)){
+    //             // If the dish existed, ask the user if they would like to create another dish
+    //             System.out.println("This dish exists in the data base. Would you like to add a new dish? Y/N");
+    //             String yn = sc.nextLine();
+    //             if(yn.equals("N") || yn.equals("No")){
+    //                 System.out.println("Dish was not created");
+    //                 return false;
+    //             }
+    //         }else{
+    //             break;
+    //         }
+    //     }
+    //     System.out.print("Enter description: ");
+    //     String desc = sc.nextLine();
+    //     // This will change in the UI, it will be buttons that the user can press
+    //     System.out.println("Would you like to enter the ingredients now? (Y/N)");
+    //     String yn = sc.nextLine();
+    //     if(yn.equals("Y") || yn.equals("Yes")){
+    //         System.out.println("This will be buttons the user can press to add ingredients. Too lazy to implement this as a text thing.");
+    //     }
+    //     // System.out.println("Enter ingredients: (Example: tomato,pasta,cheese)");
+    //     // String uiingredients = sc.nextLine();
+
+    //     // ArrayList<Ingredient> ingredients = ingredientPopup(uiingredients);        
+
+    //     // Makes a new dish with the information given
+    //     System.out.println("Dish has been added to the database.");
+    //     Dish dish = new Dish(numDishes, dishName);
+    //     dishList.add(dish);
+    //     numDishes++;
+    //     sc.close();
+    //     return true;
+    // }
 
     /**
      * Gets the price of a dish.
@@ -69,6 +85,20 @@ public class Menu {
      */
     public double price(Dish dish){
         return dish.price;
+    }
+
+    /**
+     * Deletes a dish. If dish does not exist, return false
+     * @return
+     */
+    public boolean deleteDish(Dish dish){
+
+        if(!checkDish(dish.name)){
+            return false;
+        }
+
+        dishList.remove(dish);
+        return true;
     }
 
     /**
@@ -94,7 +124,7 @@ public class Menu {
         }
 
         for(int i = 0; i < dishList.size(); i++){
-            if(dish.toLowerCase() == dishList.get(i).name.toLowerCase()){
+            if(dish == dishList.get(i).name){
                 return true;
             }
         }
