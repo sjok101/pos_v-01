@@ -11,7 +11,8 @@ public class TicketTest {
     private Ticket tik1 = null;
     private Ticket tik2 = null;
     private LinkedList<Order> ordrs1 = new LinkedList<>();
-    private Order order1 = null;
+    private Order o1 = null;
+    private Order o2 = null;
     private Hashtable<Integer, LinkedList<Order>> ticket_orders1 = new Hashtable<>();
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
     private LocalDateTime now = LocalDateTime.now();
@@ -21,8 +22,19 @@ public class TicketTest {
     public void setupTest(){
         tik1 = new Ticket(1);
         tik2 = new Ticket(10);
-        Order order1 = new Order(1);
-        ordrs1.add(order1);
+        o1 = new Order(1);
+        o1.setOrderID(11);
+        o2 = new Order(1);
+        o2.setOrderID(12);
+        Dish d1 = new Dish("Green Beans", 10);
+        d1.setPrice(25.25);
+        d1.setDescription("Some tasty green beans");
+        Dish d2 = new Dish("mashed potatoes", 15);
+        d2.setPrice(50.25);
+        d2.setDescription("Some tasty potatoes");
+        o1.addDish(d1);
+        o2.addDish(d2);
+        ordrs1.add(o1);
     }
 
     //normal constructor normal tablenum
@@ -249,6 +261,66 @@ public class TicketTest {
         Ticket t = new Ticket(10);
         assertEquals(t.getTotal(),0.0, 0);
     }
+
+    //order with one dish inside
+    @Test 
+    public void addOrder2(){
+        Ticket t = new Ticket(10);
+        t.addOrder(1, o1);
+        assertEquals(t.getTotal(),25.25, 0);
+    }
+
+    //order with one dish inside
+    @Test 
+    public void addOrder3(){
+        Ticket t = new Ticket(10);
+        t.addOrder(1, o1);
+        t.addOrder(2, o2);
+        assertEquals(t.getTotal(),75.50, 0);
+    }
+
+    //remove one order
+    @Test 
+    public void removeOrder1(){
+        Ticket t = new Ticket(10);
+        t.addOrder(1, o1);
+        t.addOrder(2, o2);
+        t.removeOrder(1, o1);
+        assertEquals(t.getTotal(),50.25, 0);
+    }
+
+    //remove other order
+    @Test 
+    public void removeOrder2(){
+        Ticket t = new Ticket(10);
+        t.addOrder(1, o1);
+        t.addOrder(2, o2);
+        t.removeOrder(1, o1);
+        assertEquals(t.getTotal(),50.25, 0);
+    }
+
+     //remove last order
+     @Test 
+     public void removeOrder3(){
+         Ticket t = new Ticket(10);
+         t.addOrder(1, o1);
+         t.removeOrder(1, o1);
+         assertEquals(t.getTotal(),0.0, 0);
+     }
+
+     //test closing time
+     @Test 
+     public void closeTicket(){
+         Ticket t = new Ticket(10);
+         t.closeTicket();
+         now = LocalDateTime.now();
+        timenow = dtf.format(now);
+        if(t.getClosingTime().equals(timenow)){
+            assertEquals(t.getTableNum(), 10);
+            return;
+        }
+        fail();
+     }
 
 
     public static void main(String args[]){
