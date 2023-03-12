@@ -5,9 +5,9 @@ public class userLogin{
         public static boolean initLogin(){
             Scanner scan = new Scanner(System.in);
             System.out.println("Please enter you username.. then press enter.");
-            user = scan.next();
+            user = scan.nextLine();
             System.out.println("Now enter you password.. then press enter.");
-            pass = scan.next();
+            pass = scan.nextLine();
 
             //test trigger to test fail
             if(user.equals("test")&&pass.equals("fail"))

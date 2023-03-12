@@ -3,20 +3,20 @@ public class userAccounts {
     private String username;
     private String password;
     
-    public LinkedList<userAccounts> sampleList= new LinkedList<userAccounts>();
+    public static LinkedList<userAccounts> sampleList= new LinkedList<userAccounts>();
     //sample, to be replaced with json
     public userAccounts(String user, String pass){
         this.username = user;
         this.password = pass;
     }
 
-    public void initializeSample(userAccounts sampleAccount){
+    public static void initializeSample(userAccounts sampleAccount){
         //to be replaced, for example purposes in creating a sample account
         sampleList.add(sampleAccount);
     }
     
     
-    public boolean checkUsers(userAccounts checkAccount){
+    public static boolean checkUsers(userAccounts checkAccount){
         if(sampleList.contains(checkAccount)){
             System.out.println("Login Successful");
             return true;

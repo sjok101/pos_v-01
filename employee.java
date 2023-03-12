@@ -1,7 +1,6 @@
-import java.util.Scanner;
-import java.util.ArrayList;
-//import java.text.SimpleDateFormat;  
-//import java.util.Date; 
+import java.util.*;
+import java.time.LocalTime;
+ 
 
 public class Employee {
 	
@@ -14,7 +13,7 @@ public class Employee {
 	boolean clocked;
 	String timeIn, timeOut;
 	
-	ArrayList<Employee> employeeList = new ArrayList<>();
+	ArrayList<Employee> EmployeeCalvinList = new ArrayList<>();
 	
 	Scanner scan = new Scanner(System.in);
 	
@@ -60,27 +59,78 @@ public class Employee {
 		if(newWage != "")
 			this.wage = Double.parseDouble(newWage);
 
+	//SET METHODS----------------------------------------------------------------
 	}
+	void setName(String name){
+		this.name = name;
+	}
+	void setID(int id) {
+		this.id = id;
+	}
+	void setPosition(String position) {
+		this.position = position;
+	}
+	void setWage(double wage) {
+		this.wage = wage;
+	}
+	void setHour(double hour)
+	{
+		this.hour = hour;
+	}
+	//GET METHODS -----------------------------------------------------------------
+	String getName() {
+		return this.name;
+	}
+	int getID() {
+		return this.id;
+	}
+	String getPosition() {
+		return this.position;
+	}
+	Double getWage() {
+		return this.wage;
+	}
+	Double getHour() {
+		return this.hour;
+	}
+	
+	void addEmp(Employee newEmp) {
+		EmployeeCalvinList.add(newEmp);
+	}
+	
+	void removeEmp(Employee emp) {
+		EmployeeCalvinList.remove(emp);
+	}
+	
+	ArrayList<Employee> empList()
+	{
+		return EmployeeCalvinList;
+	}
+	
 	void clock_in() {
 		this.clocked = true;
-//		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); 
-//		timeIn = formatter.format(new Date());
+		LocalTime currentTime = LocalTime.now();
+		this.timeIn = currentTime.toString();
+
 	}
 	void clock_out() {
 		this.clocked = false;
-//		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); 
-//		timeOut = formatter.format(new Date());
+		LocalTime currentTime = LocalTime.now();
+		this.timeOut = currentTime.toString();
+
 	}
 	
-	public static void main(String[] args) {
-		Employee A = new Employee();
-		A.clock_in();
-		A.updateProfile();
-		System.out.println("emplyee");
-		A.clock_out();
-		
-		
-	}
+//	public static void main(String[] args) {
+//		EmployeeCalvin A = new EmployeeCalvin();
+//		A.clock_in();
+//
+//		System.out.println("emplyee");
+//		A.clock_out();
+//		System.out.println(A.timeIn);
+//		System.out.println(A.timeOut);
+//		
+//		
+//	}
 	
 	
 }

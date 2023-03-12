@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.Scanner;
 public class ui {
@@ -43,16 +44,20 @@ public class ui {
     }
     
     public static void addSampleTable(table sampleTable){
-        
+        sampleTableList.add(sampleTable);
     }
     public static void addSampleTicket(Ticket sampleTicket){
-
+        sampleticketList.add(sampleTicket);
     }
+
+    
 
     public static void clockInSample(clockIO clockInSample){
         //add new clockIO object, every clock in will be a new object
         clockSampleList.add(clockInSample);
-        System.out.println(clockInSample.employee.name + " is clocked in at :"+ clockInSample.clockIn);
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String clockTimeFormat = clockInSample.clockIn.format(format);
+        System.out.println(clockInSample.employee.name + " is clocked in at :"+ clockTimeFormat);
     }
     
     public static void clockOutSample(clockIO clockOutSample){
@@ -61,7 +66,9 @@ public class ui {
         clockSampleList.remove(clockOutSample);
         clockOutSample.setClockout(LocalDateTime.now());
         clockSampleList.add(clockOutSample);
-        System.out.println(clockOutSample.employee.name + " is clocked out at :"+ clockOutSample.clockOut);
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String clockTimeFormat = clockOutSample.clockIn.format(format);
+        System.out.println(clockOutSample.employee.name + " is clocked out at :"+ clockTimeFormat);
     }
 
     public static clockIO findClockSample(Employee employeeSample){

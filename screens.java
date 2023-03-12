@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.time.LocalDateTime;
 
+
 public class screens {
     private static boolean exit;
     private static Scanner scan = new Scanner(System.in);
@@ -194,10 +195,9 @@ public class screens {
                 newOrder.addDish(dish);  // either reimplement function above or
                                         //change to hash tree <Integer, LinkedList<Order>>
             }
-
             
         }
-            if(dishID == 119){ //adds to tables and tickets list
+            if(seatNumber == 119){ //adds to tables and tickets list
                 exit = true;
                 setTable.setTicket(newTicket);
                 ui.addSampleTicket(newTicket);
