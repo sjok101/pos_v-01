@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 //node of ticket linked list
 
-public class Orders {
+public class Order {
     private int tableNum;
     private int orderID;
     private double total;

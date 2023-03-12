@@ -27,7 +27,7 @@ public class table {
     }
 
     public void setTicket(Ticket t) {
-        if(t.tableNum == this.tableNumber) {
+        if(t.getTableNum() == this.tableNumber) {
             this.tableTicket = t;
         }
     }
