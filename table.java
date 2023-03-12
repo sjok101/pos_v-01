@@ -20,10 +20,7 @@ public class table {
     }
 
     public void setNumberOfSeats(int numSeats) {
-        if(numSeats > 50 && numSeats < 1) {
-            
-        }
-        else {
+        if(numSeats <= 50 && numSeats > 0) {
             this.numberOfSeats = numSeats;
         }
     }
