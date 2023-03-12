@@ -25,7 +25,7 @@ public class Menu {
         Scanner sc = new Scanner(System.in);
         boolean isNewDish = false;
         String dishName = "";
-        while(isNewDish){
+        while(!isNewDish){
             System.out.println("Enter dish name: ");
             dishName = sc.nextLine();
             // Checks if the dish is already in the database
@@ -41,7 +41,8 @@ public class Menu {
                 break;
             }
         }
-
+        System.out.print("Enter description: ");
+        String desc = sc.nextLine();
         // This will change in the UI, it will be buttons that the user can press
         System.out.println("Would you like to enter the ingredients now? (Y/N)");
         String yn = sc.nextLine();
@@ -55,7 +56,7 @@ public class Menu {
 
         // Makes a new dish with the information given
         System.out.println("Dish has been added to the database.");
-        Dish dish = new Dish(dishName, numDishes);
+        Dish dish = new Dish(numDishes, dishName);
         dishList.add(dish);
         numDishes++;
         sc.close();
@@ -100,4 +101,18 @@ public class Menu {
 
         return false;
     }
+
+    @Override
+    public String toString() {
+        String s = "---------------------------------";
+        s += "Menu:\n";
+        for(int i = 0; i < dishList.size(); i++){
+            s += dishList.get(i).name + "\n";
+            s += dishList.get(i).description + "\n";
+            s += "$" + dishList.get(i).price + "\n";
+            s += "---------------------------------";
+        }
+        return s;
+    }  
+
 }

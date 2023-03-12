@@ -1,7 +1,8 @@
 public class MenuTester {
-    public void main (String args[]){
+    public static void main (String args[]){
         Menu menu = new Menu();
-
+        menu.createDish();
+        System.out.println(menu.toString());
 
     }
 }

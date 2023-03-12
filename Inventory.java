@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import org.omg.CORBA.INITIALIZE;
-
 public class Inventory {
 
     int numItems;
