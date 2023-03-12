@@ -1,6 +1,7 @@
 import java.util.*;
 import java.time.LocalTime;
  
+<<<<<<< HEAD
 
 public class employee {
 	
@@ -72,6 +73,66 @@ public class employee {
 		if(newWage != "")
 			this.wage = Double.parseDouble(newWage);
 
+=======
+
+public class Employee {
+	
+	int id;
+	String name;
+	String position;
+	double wage;
+	double hour;
+	
+	boolean clocked;
+	String timeIn, timeOut;
+	
+	ArrayList<Employee> EmployeeCalvinList = new ArrayList<>();
+	
+	Scanner scan = new Scanner(System.in);
+	
+	Employee(){
+		name = "";
+		position = "";
+		id = 0; 
+		wage = 0;
+		hour = 0;
+		
+	}
+	Employee(String name,String position, int id, double wage, double hour){
+		this.name = name;
+		this.position = position;
+		this.id = id;
+		this.wage = wage;
+		this.hour = hour;
+		
+	}
+	
+	void updateProfile() {
+		
+		String newName, newPosition, newID, newWage;
+		
+		System.out.println("Update empolyee's name:");
+		newName = scan.nextLine();
+		
+		System.out.println("Update empolyee's position:");
+		newPosition = scan.nextLine();
+		
+		System.out.println("Update empolyee's ID:");
+		newID = scan.nextLine();
+		
+		System.out.println("Update empolyee's wage:");
+		newWage = scan.nextLine();
+		
+		if(newName != "")
+			this.name = newName;
+		if(newPosition != "")
+			this.position = newPosition;
+		if(newID != "")
+			this.id = Integer.parseInt(newID);
+		if(newWage != "")
+			this.wage = Double.parseDouble(newWage);
+
+>>>>>>> basil
 	//SET METHODS----------------------------------------------------------------
 	}
 	void setName(String name){
@@ -90,6 +151,7 @@ public class employee {
 	{
 		this.hour = hour;
 	}
+<<<<<<< HEAD
     void setBirthday(String birthday)
     {
         this.birthday = birthday;
@@ -105,6 +167,8 @@ public class employee {
     {
         this.dateStarted = dateStarted;
     }
+=======
+>>>>>>> basil
 	//GET METHODS -----------------------------------------------------------------
 	String getName() {
 		return this.name;
@@ -121,6 +185,7 @@ public class employee {
 	Double getHour() {
 		return this.hour;
 	}
+<<<<<<< HEAD
     String getBirthday()
     {
         return this.birthday; 
@@ -177,6 +242,37 @@ public class employee {
 	
 //	public static void main(String[] args) {
 //		employee A = new employee();
+=======
+	
+	void addEmp(Employee newEmp) {
+		EmployeeCalvinList.add(newEmp);
+	}
+	
+	void removeEmp(Employee emp) {
+		EmployeeCalvinList.remove(emp);
+	}
+	
+	ArrayList<Employee> empList()
+	{
+		return EmployeeCalvinList;
+	}
+	
+	void clock_in() {
+		this.clocked = true;
+		LocalTime currentTime = LocalTime.now();
+		this.timeIn = currentTime.toString();
+
+	}
+	void clock_out() {
+		this.clocked = false;
+		LocalTime currentTime = LocalTime.now();
+		this.timeOut = currentTime.toString();
+
+	}
+	
+//	public static void main(String[] args) {
+//		EmployeeCalvin A = new EmployeeCalvin();
+>>>>>>> basil
 //		A.clock_in();
 //
 //		System.out.println("emplyee");
@@ -188,4 +284,8 @@ public class employee {
 //	}
 	
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> basil

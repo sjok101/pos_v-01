@@ -192,4 +192,8 @@ class Ticket{
         return bd.doubleValue();
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> basil

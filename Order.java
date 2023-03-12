@@ -1,5 +1,6 @@
 import java.time.format.DateTimeFormatter;
 import java.math.*;
+import java.math.*;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 
@@ -23,6 +24,7 @@ public class Order {
         this.creationTime = dtf.format(now);
         this.dishes = new LinkedList<>();
         this.total = 0;
+        this.total = 0;
     }
 
     //getters and setters
@@ -37,6 +39,10 @@ public class Order {
 
     public int getOrderID(){
         return this.orderID;
+    }
+
+    public String getCreationTime(){
+        return this.creationTime;
     }
 
     public String getCreationTime(){
@@ -99,6 +105,13 @@ public class Order {
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
+
+    //helper function to round a price to 2 deciaml palces
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+    
+        BigDecimal bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
 }
-
-
