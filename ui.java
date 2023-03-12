@@ -132,9 +132,9 @@ public class ui {
         Scanner scan = new Scanner(System.in);
         System.out.println("Please enter a menu choice 1-3");
         System.out.println("1. Clock in");
-        System.out.println("2. Tables");
+        System.out.println("2. Tables //in progress");
         System.out.println("3. Tickets");
-        System.out.println("4. Kitchen");
+        System.out.println("4. Kitchen //in progress");
         System.out.println("5. Add/Rem Employee");
         System.out.println("9. Exit Software");
         
