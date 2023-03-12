@@ -22,7 +22,7 @@ class Ticket{
     private boolean togo;
     private int priority;
     private Hashtable<Integer, LinkedList<Order>> orders;
-    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
+    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");  
 
 
     //TODO: MAIN MUST CALCULATE UNIQUE TICKET ID
@@ -65,7 +65,6 @@ class Ticket{
             LocalDateTime now = LocalDateTime.now();
             this.creationTime = dtf.format(now);
             this.orders = ordrs;
-            this.orders = new Hashtable<>();
             this.total = 0;
         }
     }
@@ -105,7 +104,7 @@ class Ticket{
         }
     }
 
-    public void setpriority(int p){
+    public void setPriority(int p){
         this.priority = p;
     }
 

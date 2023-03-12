@@ -10,11 +10,14 @@ public class Order {
     private int orderID;
     private double total;
     private String creationTime;
-    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
+    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");  
     private LinkedList<Dish> dishes;
 
     //constructor for Ticket
     public Order(int tblnum){
+        if(tblnum < 0){
+            throw new IndexOutOfBoundsException("Error! tablenum for order must be >= 0");
+        }
         this.tableNum = tblnum;
         LocalDateTime now = LocalDateTime.now();
         this.creationTime = dtf.format(now);
@@ -44,6 +47,13 @@ public class Order {
         return this.dishes;
     }
 
+    public void setOrderID(int ID){
+        if(ID < 0){
+            throw new IndexOutOfBoundsException("Error! ID must be >= 0");
+        }
+        this.orderID = ID;
+    }
+
     public void setToatl(double tot){
         if(tot >= 0){
             this.total = round(tot, 2);
@@ -53,8 +63,18 @@ public class Order {
         }
     }
 
+    public void setTableNum(int tblnum){
+        if(tblnum <= 0){
+            throw new IndexOutOfBoundsException("Error! table number must be >=0");
+        }
+        this.tableNum = tblnum;
+    }
+
     //add dish to order
     public boolean addDish(Dish d){
+        if(d == null){
+            throw new NullPointerException("Error! dish passed is null!");
+        }
         if(this.dishes.add(d) == true){
             this.total += d.getPrice();
             return true;

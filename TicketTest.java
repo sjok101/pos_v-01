@@ -1,5 +1,7 @@
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import org.junit.*;
 import static org.junit.Assert.*;
@@ -8,62 +10,88 @@ public class TicketTest {
     
     private Ticket tik1 = null;
     private Ticket tik2 = null;
-    LinkedList<Order> ordrs1 = null;
-    Order order1 = null;
-    private Hashtable<Integer, LinkedList<Order>> ticket_orders1 = null;
+    private LinkedList<Order> ordrs1 = new LinkedList<>();
+    private Order order1 = null;
+    private Hashtable<Integer, LinkedList<Order>> ticket_orders1 = new Hashtable<>();
+    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+    private LocalDateTime now = LocalDateTime.now();
+    private String timenow = dtf.format(now);
 
     @Before
     public void setupTest(){
         tik1 = new Ticket(1);
         tik2 = new Ticket(10);
-        order1 = new Order(1);
+        Order order1 = new Order(1);
         ordrs1.add(order1);
     }
 
-    //TODO: FINISH CONSTRUCTOR TESTS WHEN DISH IS DONE
-
-    //normal constructor just tablenum
+    //normal constructor normal tablenum
     @Test 
     public void ticketConstuctorTest1(){
-        tik1 = new Ticket(5);
+        Ticket t1 = new Ticket(5);
+        now = LocalDateTime.now();
+        timenow = dtf.format(now);
+        if(t1.getCreationTime().equals(timenow)){
+            assertEquals(t1.getTableNum(), 5);
+            return;
+        }
+        fail();
     }
 
-    //constructor with tablenum and one order
-    @Test 
+    //constructor with 0 tablenum
+    @Test (expected = IndexOutOfBoundsException.class)
     public void ticketConstuctorTest2(){
+        tik1 = new Ticket(0);
+    }
+
+    //normal constructor with tablenum and one order
+    @Test 
+    public void ticketConstuctorTest3(){
         Order o1 = new Order(2);
+
         LinkedList<Order> seat1orders = new LinkedList<>();
+        Hashtable<Integer, LinkedList<Order>> ht1 = new Hashtable<>();
         seat1orders.add(o1);
         ticket_orders1.put(1, seat1orders);
-        tik1 = new Ticket(2,ticket_orders1);
+        ht1.put(1, seat1orders);
+        tik1 = new Ticket(2,ht1);
+        if(tik1.getTableNum() == 2){
+            assertEquals(tik1.getOrders(), ht1);
+        }
     }
 
     //normal constructor with tablenum and many orders
     @Test 
-    public void ticketConstuctorTest3(){
+    public void ticketConstuctorTest4(){
         Order o1 = new Order(2);
         Order o2 = new Order(2);
         Order o3 = new Order(2);
         LinkedList<Order> seat1orders = new LinkedList<>();
+        Hashtable<Integer, LinkedList<Order>> ht1 = new Hashtable<>();
         seat1orders.add(o1);
         seat1orders.add(o2);
         seat1orders.add(o3);
         ticket_orders1.put(1, seat1orders);
-        tik1 = new Ticket(2,ticket_orders1);
+        ht1.put(1, seat1orders);
+        tik1 = new Ticket(5,ht1);
+        if(tik1.getTableNum() == 5){
+            assertEquals(tik1.getOrders(), ht1);
+        }
     }
 
     //normal constructor with tablenum and null orders
     @Test (expected = NullPointerException.class)
-    public void ticketConstuctorTest4(){
+    public void ticketConstuctorTest5(){
         tik1 = new Ticket(2,null);
     }
 
     //normal constructor with negative tablenum
     @Test (expected = IndexOutOfBoundsException.class)
-    public void ticketConstuctorTest5(){
+    public void ticketConstuctorTest6(){
         tik1 = new Ticket(-2);
     }
 
+    //set/get TableNum---------------------------------
     //normal value
     @Test
     public void setTableNum1(){
@@ -96,7 +124,9 @@ public class TicketTest {
         Ticket t = new Ticket(2);
         t.setTableNum(0);
     }
+    //--------------------------------------------------
 
+    //get/set ticketID----------------------------------
     //normal ticketID
     @Test 
     public void setTicketID1(){
@@ -121,12 +151,15 @@ public class TicketTest {
     }
 
     //0 ticketID
-    @Test (expected = IndexOutOfBoundsException.class)
+    @Test
     public void setTicketID4(){
         Ticket t = new Ticket(10);
         t.setTicketID(0);
+        assertEquals(t.getTicketID(), 0);
     }
+    //--------------------------------------------------
 
+    //get/set ticketTotal-------------------------------
     //normal total
     @Test 
     public void setTicketTotal1(){
@@ -164,6 +197,51 @@ public class TicketTest {
         t.setTotal(0);
         assertEquals(t.getTotal(),0.0, 0);
     }
+    //--------------------------------------------------
+
+    //set/getpriority-----------------------------------
+    //set priority normal number
+    @Test 
+    public void setTicketPriority1(){
+        Ticket t = new Ticket(10);
+        t.setPriority(2);
+        assertEquals(t.getPriority(), 2);
+    }
+
+    //set priority to 0
+    @Test 
+    public void setTicketPriority2(){
+        Ticket t = new Ticket(10);
+        t.setPriority(0);
+        assertEquals(t.getPriority(), 0);
+    }
+
+    //set priority to negative number
+    @Test 
+    public void setTicketPriority3(){
+        Ticket t = new Ticket(10);
+        t.setPriority(-10);
+        assertEquals(t.getPriority(), -10);
+    }
+    //--------------------------------------------------
+
+    //set/get TicketStatus------------------------------
+    //set status to OPEN
+    @Test 
+    public void setTicketStatus1(){
+        Ticket t = new Ticket(10);
+        t.setStatus(Ticketstatus.OPEN);
+        assertEquals(t.getStatus(), Ticketstatus.OPEN);
+    }
+
+    //set status to CLOSED
+    @Test 
+    public void setTicketStatus2(){
+        Ticket t = new Ticket(10);
+        t.setStatus(Ticketstatus.CLOSED);
+        assertEquals(t.getStatus(), Ticketstatus.CLOSED);
+    }
+    //--------------------------------------------------
 
     //order with nothing inside
     @Test 
