@@ -64,7 +64,7 @@ class employeedTest {
 		assertEquals("1/1/2000", employee.birthday);
 	}
 	//------------------------
-	employee employee = new employee("Calvin", "Waiter","HayMarket", "abc@gmail.com", "1/1/2023", "1/1/2000", 47, 13.5, 2);
+	employee employee = new employee("Calvin", "Waiter","1/1/2000","Haymarket", "abc@gmail.com",  "1/1/2023", 47, 13.5, 2);
 	@Test
 	void getName() {	
 		assertEquals("Calvin", employee.getName());
