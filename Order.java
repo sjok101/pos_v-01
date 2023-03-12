@@ -45,10 +45,6 @@ public class Order {
         return this.creationTime;
     }
 
-    public String getCreationTime(){
-        return this.creationTime;
-    }
-
     public LinkedList<Dish> getDishes(){
         return this.dishes;
     }
@@ -106,12 +102,5 @@ public class Order {
         return bd.doubleValue();
     }
 
-    //helper function to round a price to 2 deciaml palces
-    public static double round(double value, int places) {
-        if (places < 0) throw new IllegalArgumentException();
     
-        BigDecimal bd = BigDecimal.valueOf(value);
-        bd = bd.setScale(places, RoundingMode.HALF_UP);
-        return bd.doubleValue();
-    }
 }
