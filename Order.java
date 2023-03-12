@@ -1,4 +1,5 @@
 import java.time.format.DateTimeFormatter;
+import java.math.*;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 
@@ -18,6 +19,7 @@ public class Order {
         LocalDateTime now = LocalDateTime.now();
         this.creationTime = dtf.format(now);
         this.dishes = new LinkedList<>();
+        this.total = 0;
     }
 
     //getters and setters
@@ -34,14 +36,26 @@ public class Order {
         return this.orderID;
     }
 
+    public String getCreationTime(){
+        return this.creationTime;
+    }
+
     public LinkedList<Dish> getDishes(){
         return this.dishes;
+    }
+
+    public void setToatl(double tot){
+        if(tot >= 0){
+            this.total = round(tot, 2);
+        }
+        else{
+            throw new IndexOutOfBoundsException("Error: Total must be greater than or equal to 0.");
+        }
     }
 
     //add dish to order
     public boolean addDish(Dish d){
         if(this.dishes.add(d) == true){
-            //TODO: NEED INTEGRATION WITH dish.java HERE
             this.total += d.getPrice();
             return true;
         }
@@ -51,12 +65,18 @@ public class Order {
     //remove dish from order
     public boolean removeDish(Dish d){
         if(this.dishes.remove(d) == true){
-            //TODO: NEED INTEGRATION WITH dish.java HERE
             this.total -= d.getPrice();
             return true;
         }
         return false;
     }
+
+    //helper function to round a price to 2 deciaml palces
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+    
+        BigDecimal bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
 }
-
-

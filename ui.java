@@ -4,9 +4,12 @@ import java.util.Scanner;
 public class ui {
     //sample variables
     private static Employee sampleEmployee;
+    private static Dish sampleDish;
     private static LinkedList<Employee> sampleEmpList = new LinkedList<Employee>();
     private static LinkedList<clockIO> clockSampleList = new LinkedList<clockIO>();
-    
+    private static LinkedList<table> sampleTableList = new LinkedList<table>(); //can be used as final
+    private static LinkedList<Dish> sampleDishList = new LinkedList<>();
+    private static LinkedList<Ticket> sampleticketList = new LinkedList<Ticket>();
     public static void main(String[] args){
         //this is an login example, users are added as samples upon scan, type "test" as user and "fail" as password to example a mismatched case
         login();
@@ -22,6 +25,27 @@ public class ui {
 
     }
     //all samples will be replaced later when we have database
+    public static Dish findDishSample(int dishID){
+        LinkedList<Dish> tempDishList = sampleDishList;
+        Dish ret = null;
+        while(sampleDishList.size()!=0){
+            ret = sampleDishList.removeFirst();
+            sampleDishList.add(ret);
+                if(ret.id == dishID){
+                    System.out.println("Dish has been found: "+ ret.name);
+                    break;
+                }
+        }
+        return ret;
+    }
+    
+    public static void addSampleTable(table sampleTable){
+        
+    }
+    public static void addSampleTicket(Ticket sampleTicket){
+
+    }
+
     public static void clockInSample(clockIO clockInSample){
         //add new clockIO object, every clock in will be a new object
         clockSampleList.add(clockInSample);
@@ -54,6 +78,9 @@ public class ui {
     public static void createSamples(){
         sampleEmployee = new Employee("John", "Server", 1, 7.25, 0);
         sampleEmpList.add(sampleEmployee);
+        sampleDish = new Dish("Pancakes", 1);
+        sampleDishList.add(sampleDish);
+
     }
     public static void addEmpSample(Employee sample){
         sampleEmpList.add(sample);
