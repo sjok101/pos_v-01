@@ -2,7 +2,7 @@ import java.util.*;
 import java.time.LocalTime;
  
 
-public class Employee {
+public class employee {
 	
 	int id;
 	String name;
@@ -13,11 +13,11 @@ public class Employee {
 	boolean clocked;
 	String timeIn, timeOut;
 	
-	ArrayList<Employee> EmployeeCalvinList = new ArrayList<>();
+	ArrayList<employee> EmployeeCalvinList = new ArrayList<>();
 	
 	Scanner scan = new Scanner(System.in);
 	
-	Employee(){
+	employee(){
 		name = "";
 		position = "";
 		id = 0; 
@@ -25,7 +25,7 @@ public class Employee {
 		hour = 0;
 		
 	}
-	Employee(String name,String position, int id, double wage, double hour){
+	employee(String name,String position, int id, double wage, double hour){
 		this.name = name;
 		this.position = position;
 		this.id = id;
@@ -94,15 +94,15 @@ public class Employee {
 		return this.hour;
 	}
 	
-	void addEmp(Employee newEmp) {
+	void addEmp(employee newEmp) {
 		EmployeeCalvinList.add(newEmp);
 	}
 	
-	void removeEmp(Employee emp) {
+	void removeEmp(employee emp) {
 		EmployeeCalvinList.remove(emp);
 	}
 	
-	ArrayList<Employee> empList()
+	ArrayList<employee> empList()
 	{
 		return EmployeeCalvinList;
 	}
