@@ -37,6 +37,7 @@ public class employee {
 	employee(String name,String position,String birthday,String address, String email, String dateStarted, int id, double wage, double hour){
 		this.name = name;
 		this.position = position;
+        this.address = address;
         this.email = email;
         this.birthday = birthday;
         this.dateStarted = dateStarted;
