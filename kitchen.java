@@ -1,5 +1,6 @@
 import java.util.*;
 
+//waiting for ui functions to continue
 public class kitchen {
 
     public LinkedList<Ticket> tickets = null;

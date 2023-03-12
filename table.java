@@ -4,7 +4,6 @@ public class table {
     public int tableNumber;
     public int numberOfSeats;
     public Ticket tableTicket;
-     // may change to priority queue for the queue position
 
     public table(int tNum, int sNum) { 
         this.tableNumber = tNum;
@@ -13,7 +12,7 @@ public class table {
     }
 
     public void setTableNumber(int tableNum) {
-        if(tableNum >= 0) {
+        if(tableNum <= 99 && tableNum >= 0) {
             this.tableNumber = tableNum;
             if(this.tableTicket != null){
                 this.tableTicket.setTableNum(tableNum);
@@ -22,28 +21,18 @@ public class table {
     }
 
     public void setNumberOfSeats(int numSeats) {
-        if(numSeats <= 50 && numSeats > 0) {
+        if(numSeats <= 50 && numSeats >= 0) {
             this.numberOfSeats = numSeats;
         }
     }
 
     public void setTicket(Ticket t) {
-        //check viab
-        this.tableTicket = t;
-    }
-
-    public void makeTicket() {
-        try {
-            Ticket newTicket = new Ticket(this.tableNumber); // this.tableNumber <- param
-            //do stuff
-            this.tableTicket = newTicket;
-        }
-        catch(Exception e) {
-            System.out.println(" something when wrong LOL");
+        if(t.tableNum == this.tableNumber) {
+            this.tableTicket = t;
         }
     }
 
-    public Ticket getTicket() { //maybe ask for table number aswell          
+    public Ticket getTicket() {          
         return this.tableTicket;
     }
 

@@ -10,33 +10,16 @@ public class tableTest {
 
     private table t1 = null;
     private table t2 = null;
-    private table t3 = null;
 
 
     @Before
     public void setupTest() { //setup all variations of tables to test each one
         t1 = new table(1,6); // normal table
         t2 = new table(2,1); // 1 seat table
-    }
-
-    
-    @Test
-    public void makeTicketTest1() { //make ticket for table to empty table
-        Ticket t = new Ticket();
-        //do ticket stuff
-        t1.makeTicket();
-        assertEquals(t1.getTicket(), t);
-    }
-
-    @Test
-    public void makeTicketTest2() { //make ticket for table to full table
-        String message = "";
-        Ticket t = new Ticket();
-        //ticket stuff
+        Ticket t = new Ticket(2);
         t2.setTicket(t);
-        t2.makeTicket(); //get error message
-        assertEquals(message, " "); //check message equals
     }
+
 
     @Test
     public void setCorrectTableNumberTest() { //checks table setting correctly   
@@ -71,23 +54,14 @@ public class tableTest {
 
     @Test
     public void tableHasRightTicketTest() { //checks ticket set correctly
-        Ticket t = new Ticket();
-        //do stuff
+        Ticket t = new Ticket(1);
         t1.setTicket(t);
         assertEquals(t, t1.tableTicket);
     }
 
     @Test
-    public void checkForNoTicket() { //checks invalid param with no ticket in it  
-        t1.setTicket();
-        // do stuff to make bad ticket
-        assertEquals(null, t1.tableTicket);
-    }
-
-    @Test
     public void checkForBadTicketVariablesBeforeSettingTicket() { //checks bad ticket param  
-        Ticket t = new Ticket();
-        // do stuff to make bad ticket
+        Ticket t = new Ticket(4);
         t1.setTicket(t);
         assertEquals(null, t1.tableTicket);
     }
@@ -106,9 +80,9 @@ public class tableTest {
 
     @Test
     public void getCorrectTicketTest1() {   //get ticket
-        Ticket t = new Ticket();
-        t1.makeTicket();
-        assertEquals(x, t1.getNumberOfSeats());
+        Ticket t = new Ticket(1);
+        t1.setTicket(t);
+        assertEquals(t1.tableTicket, t1.getTicket());
     }
 
     @Test
