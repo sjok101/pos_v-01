@@ -41,9 +41,30 @@ class employeedTest {
 		employee.setHour(2);
 		assertEquals(2, employee.hour);
 	}
-	
+
+
+	void setAddress() {
+		employee employee = new employee();
+		employee.setAddress("Haymarket");
+		assertEquals("Haymarket", employee.address);
+	}
+    void setEmail() {
+		employee employee = new employee();
+		employee.setEmail("abc@gmail.com");
+		assertEquals("abc@gmail.com", employee.email);
+	}
+    void setDateStarted() {
+		employee employee = new employee();
+		employee.setDateStarted("1/1/2023");
+		assertEquals(2, employee.dateStarted);
+	}
+    void setBirthday() {
+		employee employee = new employee();
+		employee.setBirthday("1/1/2000");
+		assertEquals("1/1/2000", employee.birthday);
+	}
 	//------------------------
-	employee employee = new employee("Calvin", "Waiter", 47, 13.5, 2);
+	employee employee = new employee("Calvin", "Waiter","HayMarket", "abc@gmail.com", "1/1/2023", "1/1/2000", 47, 13.5, 2);
 	@Test
 	void getName() {	
 		assertEquals("Calvin", employee.getName());
@@ -68,6 +89,22 @@ class employeedTest {
 	void getHour() {
 		assertEquals(2, employee.getHour());
 	}
+    @Test
+	void getAddress() {
+		assertEquals("Haymarket", employee.getAddress());
+	}
+    @Test
+	void getBirthday() {
+		assertEquals("1/1/2000", employee.getBirthday());
+	}
+    @Test
+	void getEmail() {
+		assertEquals("abc@gmail.com", employee.getEmail());
+	}
+    @Test
+	void getDateStarted() {
+		assertEquals("1/1/2023", employee.getDateStarted());
+	}
 	
 	@Test
 	void clock_in() {
@@ -79,4 +116,6 @@ class employeedTest {
 		assertTrue(employee.clock_out());
 		assertFalse(employee.clock_out());
 	}
+
+    
 }

@@ -6,9 +6,14 @@ public class employee {
 	
 	int id;
 	String name;
+    String address;
+    String email;
+    String birthday;
+    String dateStarted;
 	String position;
 	double wage;
 	double hour;
+
 
 	boolean clocked;
 	String timeIn, timeOut;
@@ -20,14 +25,21 @@ public class employee {
 	employee(){
 		name = "";
 		position = "";
+        email = "";
+        birthday = "";
+        dateStarted = "";
+        address = "";
 		id = 0; 
 		wage = 0;
 		hour = 0;
 		
 	}
-	employee(String name,String position, int id, double wage, double hour){
+	employee(String name,String position,String birthday,String address, String email, String dateStarted, int id, double wage, double hour){
 		this.name = name;
 		this.position = position;
+        this.email = email;
+        this.birthday = birthday;
+        this.dateStarted = dateStarted;
 		this.id = id;
 		this.wage = wage;
 		this.hour = hour;
@@ -77,6 +89,21 @@ public class employee {
 	{
 		this.hour = hour;
 	}
+    void setBirthday(String birthday)
+    {
+        this.birthday = birthday;
+    }
+    void setAddress(String address){
+        this.address = address;
+    }
+    void setEmail(String email)
+    {
+        this.email = email;
+    }
+    void setDateStarted(String dateStarted)
+    {
+        this.dateStarted = dateStarted;
+    }
 	//GET METHODS -----------------------------------------------------------------
 	String getName() {
 		return this.name;
@@ -93,7 +120,25 @@ public class employee {
 	Double getHour() {
 		return this.hour;
 	}
+    String getBirthday()
+    {
+        return this.birthday; 
+    }
+    String getAddress(){
+        return this.address;
+    }
+    String getEmail()
+    {
+        return this.email; 
+    }
+    String getDateStarted()
+    {
+        return this.dateStarted; 
+    }
 	
+
+
+
 	void addEmp(employee newEmp) {
 		employeeList.add(newEmp);
 	}
@@ -106,6 +151,7 @@ public class employee {
 	{
 		return employeeList;
 	}
+   
 	
 	boolean clock_in() {
 		if(this.clocked == true)
