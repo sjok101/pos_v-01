@@ -22,7 +22,7 @@ public class tableTest {
     
     @Test
     public void makeTicketTest1() { //make ticket for table to empty table
-        ticket t = new ticket();
+        Ticket t = new Ticket();
         //do ticket stuff
         t1.makeTicket();
         assertEquals(t1.getTicket(), t);
@@ -31,7 +31,7 @@ public class tableTest {
     @Test
     public void makeTicketTest2() { //make ticket for table to full table
         String message = "";
-        ticket t = new ticket();
+        Ticket t = new Ticket();
         //ticket stuff
         t2.setTicket(t);
         t2.makeTicket(); //get error message

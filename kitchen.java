@@ -2,11 +2,11 @@ import java.util.*;
 
 public class kitchen {
 
-    public LinkedList<ticket> tickets = null;
+    public LinkedList<Ticket> tickets = null;
 
 
     public kitchen() { //Constructor?
-        this.tickets = new LinkedList<ticket>();
+        this.tickets = new LinkedList<Ticket>();
     }
 
 
@@ -15,7 +15,7 @@ public class kitchen {
         return printedOrders;
     }
 
-    public boolean completeTicket(ticket t) {
+    public boolean completeTicket(Ticket t) {
         //this.tickets.get(t);
         Boolean completed = false;
         return completed;

@@ -41,7 +41,7 @@ public class table {
         }
     }
 
-    public ticket getTicket() { //maybe ask for table number aswell          
+    public Ticket getTicket() { //maybe ask for table number aswell          
         return this.tableTicket;
     }
 

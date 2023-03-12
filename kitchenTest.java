@@ -56,7 +56,7 @@ public class kitchenTest {
     public void completeTicketTest1() { //test kitchen 1 completing edge orders
         String orderString = "";
         boolean complete = false;
-        ticket t = null;
+        Ticket t = null;
         //do stuff
         complete = k1.completeTicket(t);
         orderString = k1.printOrders();
@@ -74,7 +74,7 @@ public class kitchenTest {
         String orderString = "";
         boolean complete = false;
         //do stuff
-        ticket t = null;
+        Ticket t = null;
         complete = k1.completeTicket(t);
         orderString = k1.printOrders();
         assertEquals(orderString, "");
@@ -90,7 +90,7 @@ public class kitchenTest {
     public void completeTicketTest3() { //test kitchen 2 completing
         String orderString = "";
         boolean complete = false;
-        ticket t = null;
+        Ticket t = null;
         //do stuff
         complete = k2.completeTicket(t);
         orderString = k2.printOrders();
@@ -102,7 +102,7 @@ public class kitchenTest {
     public void completeTicketTest4() { //test  kitchen 2 completing no orders and out of bounds
         String orderString = "";
         boolean complete = false;
-        ticket t = null;
+        Ticket t = null;
         //do stuff
         complete = k2.completeTicket(t);
         orderString = k2.printOrders();
@@ -114,7 +114,7 @@ public class kitchenTest {
     public void completeTicketTest5() { //failing/passing orders 3 because it empty
         String orderString = "";
         boolean complete = false;
-        ticket t = null;
+        Ticket t = null;
         //do stuff
         complete = k3.completeTicket(t);
         orderString = k3.printOrders();
