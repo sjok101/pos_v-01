@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.*;
 
 public class json {
     
@@ -14,6 +15,7 @@ public class json {
 
     private static ObjectMapper getDefaultObjectMapper(){
         ObjectMapper defaultObjectMapper = new ObjectMapper();
+        defaultObjectMapper.registerModule(new JavaTimeModule());
         defaultObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return defaultObjectMapper;
     }
@@ -27,15 +29,15 @@ public class json {
         return objectMapper.treeToValue(node, classy);
     }
 
-    public static JsonNode toJson(Object t){
+    public static JsonNode toJson(Object t) throws JsonProcessingException{
         return objectMapper.valueToTree(t);
     }
 
-    public static String toString(JsonNode node) {
+    public static String toString(JsonNode node) throws JsonProcessingException {
         return generateString(node, false);
     }
 
-    public static String toPrettyString(JsonNode node){
+    public static String toPrettyString(JsonNode node) throws JsonProcessingException{
         return generateString(node, true);
     }
 
