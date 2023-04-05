@@ -1,5 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import styled, { createGlobalStyle, keyframes, css } from "styled-components";
+
+const Button = styled.button`
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+`
+;
+// Usage
+
+
+function sayHello() {
+  alert('You clicked me!');
+}
 
 function App() {
   return (
@@ -7,16 +25,12 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          hey guys.
+          <Button onClick={sayHello}>
+            Disabled Button
+          </Button>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        
       </header>
     </div>
   );
