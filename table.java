@@ -28,7 +28,7 @@ public class table {
             this.description = description;
     }
 
-    public void setTableStatus(int status) {
+    public void setTableTicketStatus(int status) {
         if(status >= 0 && status <= 5) {
             this.status = status;
         }
@@ -46,7 +46,7 @@ public class table {
         }
     }
 
-    public int getStatus() {
+    public int getTicketStatus() {
         return this.status;
     }
     
