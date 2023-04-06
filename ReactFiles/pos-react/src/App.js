@@ -1,6 +1,8 @@
 import './App.css';
 import styled, { createGlobalStyle, keyframes, css } from "styled-components";
 import HeaderBar from './HeaderBar';
+import Home from './Home';
+
 
 const Button = styled.button`
   background-color: black;
@@ -27,14 +29,13 @@ function App() {
   return (
     <div className="App">
       <HeaderBar />
-      <div className='header component'>
-        <h1>Ticket Screen</h1>
-      </div>
-        <p>
+        <div className='content'>
+          <Home />
+          <button type="button" onClick={sayHello}>Click Me</button>
           
-        </p>
+          </div>
         
-      <button type="button" onClick={sayHello}>Click Me</button>
+      
     </div>
   );
 }

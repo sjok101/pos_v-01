@@ -1,3 +1,9 @@
+*{
+  margin: 0;
+  color: #333;
+}
+
+
 .App {
   text-align: center;
 }
@@ -22,6 +28,39 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.navbar{
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.navbar h1 {
+  color: #47a2ed;
+}
+
+.navbar .links {
+  margin-left: auto;
+}
+
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+
+.navbar a:hover {
+  color: #f1356d;
+}
+
+.content {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
 }
 
 .App-link {
