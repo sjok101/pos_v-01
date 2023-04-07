@@ -1,11 +1,12 @@
 import Navbar from './Navbar';
-import Home from './Home';
+import Floor from './Floor';
 
 function App() {
   return (
     <div className="App">
+      <Navbar />
       <div className="content">
-        <h1> Table </h1>
+      <Floor />
       </div>
     </div>
   );

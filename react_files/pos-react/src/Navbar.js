@@ -1,14 +1,82 @@
+import {useState} from 'react';
+import Popup from './components/Popups';
+
 const Navbar = () => {
+    let [floorNum,setFloorNum] = useState(1);
+    const handleUp = () => {
+        floorNum++;
+        setFloorNum(floorNum);
+      }
+      const handleDown = () => {
+        floorNum--;
+        setFloorNum(floorNum);
+      }
+
+      const [buttonPopup, setButtonPopup] = useState(false);
+
     return (
       <nav className="navbar">
-        <h1>The Dojo Blog</h1>
         <div className="links">
-          <a href="/">Home</a>
-          <a href="/create" style={{ 
-            color: 'white', 
-            backgroundColor: '#f1356d',
-            borderRadius: '8px' 
-          }}>New Blog</a>
+        <h1> Screens </h1> 
+          <a href="/MainMenu" style={{ 
+            padding: '10px',
+            border: 'solid' ,
+            backgroundColor: '#333333',
+          }}>Main Menu</a>
+          <button onClick ={() => setButtonPopup(true)}  style={{ 
+            padding: '10px',
+            border: 'solid' ,
+            backgroundColor: '#333333', 
+          }}>Edit Layout</button>
+          <Popup trigger ={buttonPopup} setTrigger = {setButtonPopup}>
+            <h3> poppppp</h3>
+          </Popup>
+          <a href="/CheckReserved" style={{ 
+            padding: '10px',
+            border: 'solid' ,
+            backgroundColor: '#333333', 
+          }}> Check Reserved</a>
+          <a href="/Kitchen" style={{ 
+            padding: '10px',
+            border: 'solid' ,
+            backgroundColor: '#333333',
+          }}>Kitchen</a>
+          <a href="/Tables" style={{ 
+            padding: '10px',
+            border: 'solid' ,
+            backgroundColor: '#333333',
+          }}>Tables</a>
+        </div>   
+        <div className="Table">
+        <h3> Tables </h3> 
+        <button onClick ={handleUp} style={{
+                //borderRadius: '20px',
+                border: 'solid' ,
+                padding: '10px',
+                borderColor: '333',
+            }}>addTable</button>
+            <button onClick ={handleUp} style={{
+                //borderRadius: '20px',
+                border: 'solid' ,
+                padding: '10px',
+                borderColor: '333',
+            }}>MoveTable</button>
+        </div>   
+        <div className="MFloor">
+        <h2>Floor {floorNum} </h2> 
+          <button onClick ={handleUp} style={{
+                //borderRadius: '20px',
+                border: 'solid' ,
+                padding: '10px',
+                borderColor: '333',
+            }}>UP</button>
+            <button onClick ={handleDown} style={{
+                //borderRadius: '20px',
+                border: 'solid',
+                padding: '10px',
+                borderColor: '333',
+            }}>DOWN</button>  
+
         </div>
       </nav>
     );
