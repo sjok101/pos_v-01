@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import Popup from './components/Popups';
 
 const Navbar = () => {
@@ -21,30 +21,30 @@ const Navbar = () => {
           <a href="/MainMenu" style={{ 
             padding: '10px',
             border: 'solid' ,
-            backgroundColor: '#333333',
+            backgroundColor: '#333',
           }}>Main Menu</a>
           <button onClick ={() => setButtonPopup(true)}  style={{ 
             padding: '10px',
             border: 'solid' ,
-            backgroundColor: '#333333', 
-          }}>Edit Layout</button>
+            backgroundColor: '#333', 
+          }}>Edit Floor</button>
           <Popup trigger ={buttonPopup} setTrigger = {setButtonPopup}>
             <h3> poppppp</h3>
           </Popup>
           <a href="/CheckReserved" style={{ 
             padding: '10px',
             border: 'solid' ,
-            backgroundColor: '#333333', 
+            backgroundColor: '#333', 
           }}> Check Reserved</a>
           <a href="/Kitchen" style={{ 
             padding: '10px',
             border: 'solid' ,
-            backgroundColor: '#333333',
+            backgroundColor: '#333',
           }}>Kitchen</a>
           <a href="/Tables" style={{ 
             padding: '10px',
             border: 'solid' ,
-            backgroundColor: '#333333',
+            backgroundColor: '#333',
           }}>Tables</a>
         </div>   
         <div className="Table">
