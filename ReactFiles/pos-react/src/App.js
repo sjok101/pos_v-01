@@ -1,7 +1,9 @@
+import React from 'react';
 import './App.css';
 import styled, { createGlobalStyle, keyframes, css } from "styled-components";
 import HeaderBar from './HeaderBar';
 import Home from './Home';
+
 
 
 const Button = styled.button`
@@ -21,22 +23,14 @@ function sayHello() {
   alert('You clicked me!');
 }
 
- <Button onClick={sayHello}>
-Disabled Button
-</Button> 
 
 function App() {
   return (
-    <div className="App">
+    <React.Fragment>
       <HeaderBar />
-        <div className='content'>
-          <Home />
-          <button type="button" onClick={sayHello}>Click Me</button>
-          
-          </div>
-        
+      <Home />
       
-    </div>
+    </React.Fragment>
   );
 }
 
