@@ -1,34 +1,44 @@
-*{
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* *{
   margin: 0;
   color: #333;
+} */
+
+:root{
+  --primary-dark: #44403c;
+  --primary-light: #31475b;
+  ;
 }
 
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@layer base{
+  html{
+    @apply scroll-smooth
   }
+
+  li{
+    @apply p-4 text-sm
+  }
+
+  button{
+    @apply px-4 py-2 border bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary-light)] text-white
+  }
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.centered{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
 }
+
+/* .App {
+  background-color :#8d9091;
+}  */
+
+
 
 .navbar{
   padding: 20px;
@@ -37,6 +47,11 @@
   max-width: 600px;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
+
+}
+
+.home{
+  background-color: #507174;
 }
 
 .navbar h1 {
@@ -55,6 +70,45 @@
 
 .navbar a:hover {
   color: #f1356d;
+} 
+
+.ticket-map{
+  background-color: #44403c;
+}
+
+.menu-itmes{
+  background-color: rgb(68,64,60);
+}
+
+.ticket-preview {
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  
+}
+
+.ticket-preview:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-preview h2 {
+  font-size: 20px;
+  color:  #c1c0c0;
+  margin-bottom: 8px;
+  
+}
+
+.ticket-preview h3 {
+  font-size: 15px;
+  color:  #608cb0;
+  margin-bottom: 6px;
+}
+
+.ticket-preview p {
+  font-size: 15px;
+  color:  #4e8c8c;
+  margin-bottom: 6px;
 }
 
 .content {
@@ -65,13 +119,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
