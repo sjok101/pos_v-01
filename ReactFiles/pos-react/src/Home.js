@@ -1,5 +1,6 @@
 import { useState } from "react";
 import React from 'react';
+import menuitems from "./menuitems";
 
 const Home = () => {
     const [msg, setMsg] = useState('hi guys');
@@ -37,9 +38,14 @@ const Home = () => {
                         </div> 
                     </div>
 
-                    <div className="flex w-full h-100 justify-center md:h-screen">
+                    {/* <div className="flex w-full h-100 justify-center md:h-screen">
                         <div className="menu-items"><p>Menu</p>
                         </div>
+                    </div> */}
+                    <div>
+                        <menuitems/>
+                        <p>test</p>
+                        
                     </div>
                 </div>
             </div>

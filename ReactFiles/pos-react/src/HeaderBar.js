@@ -1,7 +1,7 @@
 const HeaderBar = () => {
     return (  
         <nav className="navbar">
-            <div className="flex items-center px-10">
+            <div className="flex justify-between items-center px-10 absolute ">
             <h1> Ticket screen header</h1>
             <button >press me!</button>
             <div className="links">

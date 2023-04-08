@@ -8,8 +8,8 @@
 } */
 
 :root{
-  --primary-dark: #44403c;
-  --primary-light: #31475b;
+  --primary-dark: #343231;
+  --primary-light: #587a80;
   ;
 }
 
@@ -34,12 +34,6 @@
   
 }
 
-/* .App {
-  background-color :#8d9091;
-}  */
-
-
-
 .navbar{
   padding: 20px;
   display: flex;
@@ -51,7 +45,7 @@
 }
 
 .home{
-  background-color: #507174;
+  background-color: #587a80;
 }
 
 .navbar h1 {
@@ -73,7 +67,7 @@
 } 
 
 .ticket-map{
-  background-color: #44403c;
+  background-color: #343231;
 }
 
 .menu-itmes{
