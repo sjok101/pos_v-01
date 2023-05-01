@@ -1,5 +1,11 @@
 import React from "react";
 const Floor = () => {
+    var floor = document.getElementByID("floor");
+    const addTable = () => {
+      floor.addTable();
+    }
+
+
     return (
       <div className="Floor">
         <h2>Floor</h2>
