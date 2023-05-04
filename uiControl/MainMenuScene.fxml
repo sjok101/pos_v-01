@@ -18,6 +18,7 @@
             <Button layoutX="-1.0" layoutY="655.0" mnemonicParsing="false" onAction="#switchToAnalysisScene" prefHeight="90.0" prefWidth="297.0" text="Analysis" />
             <Button layoutY="745.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="297.0" text="Clockin/Clockout" />
             <Button layoutY="835.0" mnemonicParsing="false" onAction="#closeApp" prefHeight="78.0" prefWidth="297.0" text="Exit" />
+            <Button layoutX="1.0" mnemonicParsing="false" onAction="#logOut" prefHeight="78.0" prefWidth="297.0" text="Logout" />
          </children></AnchorPane>
   </items>
 </SplitPane>

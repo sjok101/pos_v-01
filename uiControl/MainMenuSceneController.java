@@ -4,11 +4,37 @@ import javafx.event.*;
 import javafx.scene.*;
 import javafx.stage.*;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.*;
+import javafx.scene.control.*;
+import java.io.IOException;
 
 public class MainMenuSceneController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    @FXML
+    private Label name;
+    @FXML
+    private Label position;
+
+    public void logOut(ActionEvent event) throws IOException{
+        PosMenu a = new PosMenu();
+        a.changeScene("login.fxml");
+     }
+
+     public void clockInOut(){
+        
+        if (name.getText().isEmpty()){
+            //set clock time
+            name.setText("Foo Man");
+            position.setText("Chef");
+        }else {
+            //set clock time
+            name.setText("");
+            position.setText("");
+        }
+    }
 
     public void switchToDineInScene(ActionEvent event) {
         try {
