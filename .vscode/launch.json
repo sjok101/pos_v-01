@@ -6,38 +6,24 @@
     "configurations": [
         {
             "type": "java",
+            "name": "mainmenu",
+            "request": "launch",
+            "mainClass": "mainmenu",
+            "projectName": "pos_v-01_81cee8af"
+        },
+        {
+            "type": "java",
             "name": "PosMenu",
             "request": "launch",
             "vmArgs": "--module-path C:/Program Files/javafx-sdk-20.0.1/lib --add-modules javafx.controls,javafx.fxml",
-            "mainClass": "PosMenu"
+            "mainClass": "PosMenu",
+            "projectName": "pos_v-01_81cee8af"
         },
         {
             "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
-        }/* ,
-        {
-            "type": "java",
-            "name": "kitchenTest",
-            "request": "launch",
-            "mainClass": "kitchenTest",
-            "projectName": "pos_v-01_b91575cc"
-        },
-        {
-            "type": "java",
-            "name": "mainmenu",
-            "request": "launch",
-            "vmArgs": "--module-path C:/Users/ewalt/OneDrive/Desktop/School/CS321/Project_file/pos_v-01/lib --add-modules javafx.controls",
-            "mainClass": "mainmenu",
-            "projectName": "pos_v-01_b91575cc"
-        },
-        {
-            "type": "java",
-            "name": "tableTest",
-            "request": "launch",
-            "mainClass": "tableTest",
-            "projectName": "pos_v-01_b91575cc"
-        } */
+        }
     ]
 }
