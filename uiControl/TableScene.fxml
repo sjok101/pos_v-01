@@ -14,9 +14,9 @@
               <columns>
                 <TableColumn fx:id="tableNumCol" prefWidth="99.0" text="TableNumber" />
                 <TableColumn fx:id="seatsCol" prefWidth="51.0" text="Seats" />
-                  <TableColumn fx:id="statusCol" prefWidth="75.0" text="Status" />
-                  <TableColumn fx:id="ticketCol" prefWidth="75.0" text="TicketID" />
-                  <TableColumn fx:id="descriptionCol" prefWidth="874.0" text="Description" />
+                  <TableColumn fx:id="ticketCol" prefWidth="89.0" text="TicketID" />
+                  <TableColumn fx:id="descriptionCol" prefWidth="827.0" text="Description" />
+                  <TableColumn fx:id="tableStatusCol" minWidth="0.0" prefWidth="86.0" text="TableStatus" />
               </columns>
             </TableView>
          </children></AnchorPane>

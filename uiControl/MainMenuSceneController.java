@@ -1,4 +1,5 @@
 package uiControl;
+import javafx.application.Platform;
 import javafx.event.*;
 import javafx.scene.*;
 import javafx.stage.*;
@@ -98,6 +99,23 @@ public class MainMenuSceneController {
         catch(Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void switchToTicketHistoryScene(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("TicketHistoryScene.fxml"));
+            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void closeApp(ActionEvent event) {
+        Platform.exit();
     }
 
 }

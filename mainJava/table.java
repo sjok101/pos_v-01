@@ -6,17 +6,17 @@ public class table {
     public int numberOfSeats;
     public String description;
     public int tableTicketID;
-    public int status;
+    public String status;
 
     public table(int tNum, int sNum) { 
         this.tableNumber = tNum;
         this.numberOfSeats = sNum;
-        this.status = 0;
+        this.status = "";
         this.tableTicketID = 0;
         this.description = "";
     }
 
-    public table(int tNum, int sNum,int status,int tableTicketID,String description) { 
+    public table(int tNum, int sNum,String status,int tableTicketID,String description) { 
         this.tableNumber = tNum;
         this.numberOfSeats = sNum;
         this.status = status;
@@ -34,10 +34,9 @@ public class table {
             this.description = description;
     }
 
-    public void setTableTicketStatus(int status) {
-        if(status >= 0 && status <= 5) {
-            this.status = status;
-        }
+    public void setStatus(String status) {
+        this.status = status;
+        
     }
 
     public void setNumberOfSeats(int numSeats) {
@@ -50,7 +49,7 @@ public class table {
         this.tableTicketID = t;
     }
 
-    public int getTicketStatus() {
+    public String getStatus() {
         return this.status;
     }
     

@@ -22,7 +22,7 @@ public class TablesSceneController implements Initializable{
     @FXML private TableView<table> tableview;
     @FXML private TableColumn<table,Integer> tableNumCol;
     @FXML private TableColumn<table,Integer> seatsCol;
-    @FXML private TableColumn<table,Integer> statusCol;
+    @FXML private TableColumn<table,String> tableStatusCol;
     @FXML private TableColumn<table,Integer> ticketCol;
     @FXML private TableColumn<table,String> descriptionCol;
 
@@ -57,16 +57,16 @@ public class TablesSceneController implements Initializable{
     public void initialize(URL location, ResourceBundle rb) {
         tableNumCol.setCellValueFactory(new PropertyValueFactory<table,Integer>("tableNumber"));
         seatsCol.setCellValueFactory(new PropertyValueFactory<table,Integer>("numberOfSeats"));
-        statusCol.setCellValueFactory(new PropertyValueFactory<table,Integer>("status"));
         ticketCol.setCellValueFactory(new PropertyValueFactory<table,Integer>("ticket"));
         descriptionCol.setCellValueFactory(new PropertyValueFactory<table,String>("description"));
+        tableStatusCol.setCellValueFactory(new PropertyValueFactory<table,String>("tablestatus"));
         tableview.setItems(getTables());
     }
 
     public ObservableList<table> getTables() {
         ObservableList<table> tables = FXCollections.observableArrayList();
-        tables.add(new table(1,2,1,1,"1 table"));
-        tables.add(new table(2,2,3,4,"2 table"));
+        tables.add(new table(1,2,"open",1,"1 table"));
+        tables.add(new table(2,2,"full",4,"2 table"));
         return tables;
     }
 }

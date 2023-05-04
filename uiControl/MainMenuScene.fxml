@@ -4,20 +4,20 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.7603833865814696" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="917.0" prefWidth="1254.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="uiControl.MainMenuSceneController">
+<SplitPane dividerPositions="0.7603833865814696" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="917.0" prefWidth="1254.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uiControl.MainMenuSceneController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="788.0" prefWidth="769.0" />
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="521.0" prefWidth="619.0">
          <children>
             <Button layoutY="79.0" mnemonicParsing="false" onAction="#switchToDineInScene" prefHeight="99.0" prefWidth="297.0" text="DineIn" />
-            <Button layoutY="277.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="297.0" text="TicketHistory" />
+            <Button layoutY="277.0" mnemonicParsing="false" onAction="#switchToTicketHistoryScene" prefHeight="99.0" prefWidth="297.0" text="TicketHistory" />
             <Button layoutX="-1.0" layoutY="178.0" mnemonicParsing="false" onAction="#switchToTicketsScene" prefHeight="99.0" prefWidth="297.0" text="Takeout" />
             <Button layoutY="376.0" mnemonicParsing="false" onAction="#switchToKitchenScene" prefHeight="99.0" prefWidth="297.0" text="Kitchen" />
             <Button layoutX="-1.0" layoutY="475.0" mnemonicParsing="false" onAction="#switchToOverviewScene" prefHeight="90.0" prefWidth="297.0" text="Overview" />
             <Button layoutY="565.0" mnemonicParsing="false" onAction="#switchToInventoryScene" prefHeight="90.0" prefWidth="297.0" text="Inventory" />
             <Button layoutX="-1.0" layoutY="655.0" mnemonicParsing="false" onAction="#switchToAnalysisScene" prefHeight="90.0" prefWidth="297.0" text="Analysis" />
             <Button layoutY="745.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="297.0" text="Clockin/Clockout" />
-            <Button layoutY="835.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="297.0" text="Exit" />
+            <Button layoutY="835.0" mnemonicParsing="false" onAction="#closeApp" prefHeight="78.0" prefWidth="297.0" text="Exit" />
          </children></AnchorPane>
   </items>
 </SplitPane>

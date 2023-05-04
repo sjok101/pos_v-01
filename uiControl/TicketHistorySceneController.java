@@ -3,8 +3,8 @@ import javafx.event.*;
 import javafx.scene.*;
 import javafx.stage.*;
 import javafx.fxml.FXMLLoader;
-
-public class TicketSceneController {
+public class TicketHistorySceneController {
+    
     private Stage stage;
     private Scene scene;
     private Parent root;
