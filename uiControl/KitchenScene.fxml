@@ -10,19 +10,20 @@
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <TableView prefHeight="1056.0" prefWidth="1267.0">
+            <TableView fx:id="kitchenview" prefHeight="1056.0" prefWidth="1267.0">
               <columns>
-                <TableColumn prefWidth="117.0" text="Creation Time" />
-                <TableColumn prefWidth="64.0" text="TicketID" />
-                  <TableColumn prefWidth="99.0" text="TableNumber" />
-                  <TableColumn prefWidth="55.0" text="Priority" />
-                  <TableColumn prefWidth="931.0" text="Order" />
+                <TableColumn fx:id="creationTimeCol" prefWidth="117.0" text="Creation Time" />
+                <TableColumn fx:id="ticketidCol" prefWidth="64.0" text="TicketID" />
+                  <TableColumn fx:id="tableNumCol" prefWidth="99.0" text="TableNumber" />
+                  <TableColumn fx:id="priorityCol" prefWidth="55.0" text="Priority" />
+                  <TableColumn fx:id="ordersCol" prefWidth="931.0" text="Order" />
               </columns>
             </TableView>
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <Button layoutX="60.0" layoutY="185.0" mnemonicParsing="false" onAction="#switchToMainMenuInScene" text="Button" />
+            <Button layoutX="-1.0" mnemonicParsing="false" onAction="#switchToMainMenuInScene" prefHeight="68.0" prefWidth="224.0" text="Back to Main Menu" />
+            <Button layoutX="-1.0" layoutY="68.0" mnemonicParsing="false" onAction="#completeTicket" prefHeight="68.0" prefWidth="224.0" text="Complete Selected Ticket" />
          </children></AnchorPane>
   </items>
 </SplitPane>

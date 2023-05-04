@@ -16,6 +16,14 @@ public class kitchenTicket {
         ticketID = 0;
     }
 
+    kitchenTicket(String s, int x, int y, int z,String c) {
+        creationTime = s;
+        priority = x;
+        tableNum = y;
+        ticketID = z;
+        orderString = c;
+    }
+
     public void setOrderString(String s) {
         this.orderString = s;
     }
@@ -28,7 +36,7 @@ public class kitchenTicket {
         this.priority = i;
     }
 
-    public void settableNumber(int i) {
+    public void settableNum(int i) {
         this.tableNum = i;
     }
 
@@ -47,7 +55,7 @@ public class kitchenTicket {
         return this.priority;
     }
 
-    public int gettableNumber() {
+    public int getTableNum() {
         return this.tableNum; 
     }
 

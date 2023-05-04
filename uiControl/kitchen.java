@@ -66,7 +66,7 @@ public class kitchen {
             kitchenTicket k = new kitchenTicket();
             k.setCreationTime(tokenizer.nextToken());
             k.setPriority(Integer.parseInt(tokenizer.nextToken()));
-            k.settableNumber(Integer.parseInt(tokenizer.nextToken()));
+            k.settableNum(Integer.parseInt(tokenizer.nextToken()));
             k.setTicketid(Integer.parseInt(tokenizer.nextToken()));
             k.setOrderString(tokenizer.nextToken());
             this.ktickets.add(k);
