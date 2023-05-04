@@ -37,7 +37,7 @@ public class MainMenuSceneController {
 
     public void switchToTakeoutScene(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("TableScene.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("TicketScene.fxml"));
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -50,7 +50,7 @@ public class MainMenuSceneController {
 
     public void switchToOverviewScene(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("TableScene.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("OverviewScene.fxml"));
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -63,7 +63,7 @@ public class MainMenuSceneController {
 
     public void switchToTicketsScene(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("TableScene.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("TicketScene.fxml"));
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -76,7 +76,7 @@ public class MainMenuSceneController {
 
     public void switchToInventoryScene(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("TableScene.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("InventoryScene.fxml"));
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -89,7 +89,7 @@ public class MainMenuSceneController {
 
     public void switchToAnalysisScene(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("TableScene.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("AnalysisScene.fxml"));
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
