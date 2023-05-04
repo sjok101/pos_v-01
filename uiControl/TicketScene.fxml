@@ -72,11 +72,11 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="377.0" style="-fx-background-color: #343231;">
                            <children>
-                              <Button layoutX="270.0" layoutY="7.0" mnemonicParsing="false" text="Add row" />
-                              <TableView layoutY="39.0" prefHeight="386.0" prefWidth="362.0" style="-fx-background-color: #666666;">
+                              <Button layoutX="270.0" layoutY="7.0" mnemonicParsing="false" onAction="#addRow" text="Add row" />
+                              <TableView fx:id="ticketitems" layoutY="39.0" prefHeight="386.0" prefWidth="362.0" style="-fx-background-color: #666666;">
                                 <columns>
                                   <TableColumn prefWidth="300.0" text="Items" />
-                                  <TableColumn prefWidth="75.0" text="Price" />
+                                  <TableColumn fx:id="total" prefWidth="75.0" text="Price" />
                                 </columns>
                               </TableView>
                            </children>
