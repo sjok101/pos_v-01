@@ -27,11 +27,12 @@ public class TablesSceneController implements Initializable{
     @FXML private TableColumn<table,Integer> ticketCol;
     @FXML private TableColumn<table,String> descriptionCol;
     @FXML private TextField inputTableNumber;
-    @FXML private TextField TableNumberForTicket;
+    @FXML public TextField TableNumberForTicket;
     @FXML private TextField inputSeats;
     @FXML private TextField inputstatus;
     @FXML private TextField inputTicket;
     @FXML private TextArea inputDescription;
+    private int size = 0;
 
     public void switchToMainMenuInScene(ActionEvent event) {
         try {
@@ -74,6 +75,7 @@ public class TablesSceneController implements Initializable{
         ObservableList<table> tables = FXCollections.observableArrayList();
         tables.add(new table(1,2,"open",1,"1 table"));
         tables.add(new table(2,2,"full",4,"2 table"));
+        size = 2;
         return tables;
     }
     
@@ -105,6 +107,14 @@ public class TablesSceneController implements Initializable{
     @FXML
     private void deleteTable(ActionEvent event) {
         tableview.getItems().removeAll(tableview.getSelectionModel().getSelectedItem());
+        size--;
+        tableview.refresh();
+    }
+
+    @FXML
+    private void createTable(ActionEvent event) {
+        size++;   
+        tableview.getItems().add(new table(size,1,"open",0,""));
         tableview.refresh();
     }
 }

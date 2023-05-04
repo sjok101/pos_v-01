@@ -28,7 +28,7 @@
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="824.0" prefWidth="319.0">
          <children>
             <Button layoutY="-1.0" mnemonicParsing="false" onAction="#switchToMainMenuInScene" prefHeight="93.0" prefWidth="318.0" text="Back to Main Menu" />
-            <VBox layoutX="4.0" layoutY="378.0" prefHeight="423.0" prefWidth="310.0">
+            <VBox layoutY="383.0" prefHeight="423.0" prefWidth="310.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TableNumber" wrappingWidth="114.13671875" />
                   <TextField fx:id="inputTableNumber" />
@@ -40,7 +40,7 @@
                   <TextField fx:id="inputTicket" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Table Description" />
                   <TextArea fx:id="inputDescription" prefHeight="200.0" prefWidth="200.0" />
-                  <Button mnemonicParsing="false" onAction="#submit" prefHeight="38.0" prefWidth="308.0" text="Submit changes" />
+                  <Button mnemonicParsing="false" onAction="#submit" prefHeight="38.0" prefWidth="314.0" text="Submit changes" />
                </children>
             </VBox>
             <Text layoutX="6.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Table" textAlignment="CENTER" wrappingWidth="307.9999999999998">
@@ -60,6 +60,7 @@
                   <Button mnemonicParsing="false" onAction="#switchToTicketsScene" prefHeight="38.0" prefWidth="308.0" text="Create/edit Ticket" />
                </children>
             </VBox>
+            <Button layoutX="1.0" layoutY="839.0" mnemonicParsing="false" onAction="#createTable" prefHeight="93.0" prefWidth="318.0" text="Create Table" />
          </children></AnchorPane>
   </items>
 </SplitPane>
