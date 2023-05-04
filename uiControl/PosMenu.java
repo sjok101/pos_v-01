@@ -1,4 +1,5 @@
 package uiControl;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -8,8 +9,7 @@ import javafx.scene.control.Button;
 import javafx.stage.*;
 import javafx.event.*;
 
-
-public class PosMenu extends Application{
+public class PosMenu extends Application {
 
     @Override
     public void start(Stage primaryStage) {
@@ -18,10 +18,11 @@ public class PosMenu extends Application{
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public static void main(String[] args) {
         launch(args);
     }
