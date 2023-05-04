@@ -1,4 +1,3 @@
-package mainJava;
 import java.time.format.DateTimeFormatter;
 import java.math.*;
 import java.time.LocalDateTime;

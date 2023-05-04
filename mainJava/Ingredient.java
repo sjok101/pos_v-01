@@ -1,4 +1,3 @@
-package mainJava;
 public class Ingredient {
     int id;
     String name;
