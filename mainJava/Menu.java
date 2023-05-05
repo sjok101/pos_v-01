@@ -27,7 +27,6 @@ public class Menu {
         }
 
         // Makes a new dish with the information given
-        dish.setId(numDishes);
         dishList.add(dish);
         numDishes++;
         return true;

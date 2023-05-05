@@ -27,11 +27,11 @@ public class TicketTest {
         o2 = new Order(1);
         o2.setOrderID(12);
         //Dish d1 = new Dish("Green Beans", 10);
-        Dish d1 = new Dish(0, "Green Beans", "test", 0);
+        Dish d1 = new Dish("Green Beans",  0);
         d1.setPrice(25.25);
         d1.setDescription("Some tasty green beans");
         //Dish d2 = new Dish("mashed potatoes", 15);
-        Dish d2 = new Dish("mashed potatoes", "test",15);
+        Dish d2 = new Dish("mashed potatoes",15);
         d2.setPrice(50.25);
         d2.setDescription("Some tasty potatoes");
         o1.addDish(d1);
