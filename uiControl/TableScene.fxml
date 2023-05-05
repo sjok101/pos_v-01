@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane dividerPositions="0.7859531772575251" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1035.0" prefWidth="1502.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uiControl.TablesSceneController">
+<SplitPane dividerPositions="0.7859531772575251" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1035.0" prefWidth="1502.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TablesSceneController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <TableView fx:id="tableview" layoutX="-3.0" onMouseClicked="#rowClicked" prefHeight="1033.0" prefWidth="1176.0">
+            <TableView fx:id="tableview" fixedCellSize="100.0" layoutX="-3.0" onMouseClicked="#rowClicked" prefHeight="1033.0" prefWidth="1176.0">
               <columns>
                 <TableColumn fx:id="tableNumCol" prefWidth="99.0" text="TableNumber" />
                 <TableColumn fx:id="seatsCol" prefWidth="51.0" text="Seats" />

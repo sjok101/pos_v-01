@@ -1,8 +1,9 @@
-package uiControl;
+
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.LinkedList;
 
-import mainJava.Order;
+
 
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
@@ -20,7 +21,7 @@ class Ticket {
     private String closingTime;
     private Ticketstatus status;
     private int priority;
-    private Hashtable<Integer, LinkedList<Order>> orders;
+    private HashMap<Integer, LinkedList<Order>> orders;
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
 
     //constructor for Ticket
@@ -28,15 +29,15 @@ class Ticket {
         this.tableNum = tblnum;
         LocalDateTime now = LocalDateTime.now();
         this.creationTime = dtf.format(now);
-        this.orders = new Hashtable<>();
+        this.orders = new HashMap<Integer, LinkedList<Order>>();
     }
 
-    public Ticket(int tblnum, Hashtable<Integer, LinkedList<Order>> ordrs){
+    public Ticket(int tblnum, HashMap<Integer, LinkedList<Order>> ordrs){
         this.tableNum = tblnum;
         LocalDateTime now = LocalDateTime.now();
         this.creationTime = dtf.format(now);
         this.orders = ordrs;
-        this.orders = new Hashtable<>();
+        this.orders = new HashMap<Integer, LinkedList<Order>>();
     }
 
     // getters/setters
@@ -89,7 +90,7 @@ class Ticket {
         return this.closingTime;
     }
 
-    public Hashtable<Integer, LinkedList<Order>> getOrders(){
+    public HashMap<Integer, LinkedList<Order>> getOrders(){
         return this.orders;
     }
 

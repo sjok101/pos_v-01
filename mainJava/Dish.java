@@ -1,4 +1,3 @@
-package mainJava;
 import java.util.ArrayList;
 import java.util.Properties;
 

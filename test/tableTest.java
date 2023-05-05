@@ -1,4 +1,4 @@
-package test;
+
 import java.util.*;
 import java.util.regex.*;
 
@@ -6,8 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.Test.*;
 
-import mainJava.Ticket;
-import mainJava.table;
+
 
 import static org.junit.Assert.*;
 
@@ -19,9 +18,9 @@ public class tableTest {
 
     @Before
     public void setupTest() { //setup all variations of tables to test each one
-        t1 = new table(1,6); // normal table
-        t2 = new table(2,1); // 1 seat table
-        Ticket t = new Ticket(2);
+        t1 = new table(); // normal table
+        t2 = new table(); // 1 seat table
+        Ticket t = new Ticket(1);
         t2.setTicket(t);
     }
 

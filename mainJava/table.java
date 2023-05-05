@@ -1,4 +1,4 @@
-package mainJava;
+
 import java.util.*;
 public class table {
 
@@ -8,9 +8,9 @@ public class table {
     public int tableTicketID;
     public String status;
 
-    public table(int tNum, int sNum) { 
-        this.tableNumber = tNum;
-        this.numberOfSeats = sNum;
+    public table() { 
+        this.tableNumber = 0;
+        this.numberOfSeats = 0;
         this.status = "";
         this.tableTicketID = 0;
         this.description = "";

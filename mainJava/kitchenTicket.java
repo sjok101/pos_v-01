@@ -1,4 +1,4 @@
-package uiControl;
+
 
 
 public class kitchenTicket {

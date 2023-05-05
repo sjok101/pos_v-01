@@ -1,4 +1,4 @@
-package uiControl;
+
 import javafx.event.*;
 import javafx.scene.*;
 import javafx.stage.*;
@@ -10,10 +10,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-import mainJava.table;
+
 
 public class TablesSceneController implements Initializable{
     private Stage stage;
@@ -32,7 +34,9 @@ public class TablesSceneController implements Initializable{
     @FXML private TextField inputstatus;
     @FXML private TextField inputTicket;
     @FXML private TextArea inputDescription;
+    private LinkedList<table> currTables = new LinkedList<table>();
     private int size = 0;
+    private tableJson tj = new tableJson();
 
     public void switchToMainMenuInScene(ActionEvent event) {
         try {
@@ -71,11 +75,17 @@ public class TablesSceneController implements Initializable{
         tableview.setItems(getTables());
     }
 
-    public ObservableList<table> getTables() {
+    public ObservableList<table> getTables(){
         ObservableList<table> tables = FXCollections.observableArrayList();
-        tables.add(new table(1,2,"open",1,"1 table"));
-        tables.add(new table(2,2,"full",4,"2 table"));
-        size = 2;
+        try {
+            currTables = tj.getTablesJson();
+            for(table t:currTables) {
+                tables.add(t);
+            }
+            size = currTables.size();
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
         return tables;
     }
     
@@ -90,6 +100,13 @@ public class TablesSceneController implements Initializable{
                 table.setTableDescription(inputDescription.getText());
                 tableview.setItems(tables);
                 tableview.refresh();
+                LinkedList<table> newTables = new LinkedList<table>(tables);
+                try {
+                    tj.tablesToJson(newTables);
+                }
+                catch(IOException e) {
+                    e.printStackTrace();
+                }
                 break;
             }
         }
@@ -106,15 +123,36 @@ public class TablesSceneController implements Initializable{
 
     @FXML
     private void deleteTable(ActionEvent event) {
+        table t = tableview.getSelectionModel().getSelectedItem();
         tableview.getItems().removeAll(tableview.getSelectionModel().getSelectedItem());
         size--;
         tableview.refresh();
+        for(table ta: currTables) {
+            if(ta.equals(t) == true) {
+                currTables.remove(t);
+                try {
+                    tj.tablesToJson(currTables);
+                }
+                catch(IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+        }
     }
 
     @FXML
     private void createTable(ActionEvent event) {
-        size++;   
-        tableview.getItems().add(new table(size,1,"open",0,""));
+        size++;
+        table t = new table(size,1,"open",0,"");
+        currTables.add(t);
+        try {
+            tj.tablesToJson(currTables);
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+        }   
+        tableview.getItems().add(t);
         tableview.refresh();
     }
 }
