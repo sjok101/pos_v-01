@@ -206,7 +206,7 @@ public class TicketSceneController implements Initializable{
         }
     }
 
-    public void saveTicket() {
+    public void saveTicket(ActionEvent event) {
         try {
             if(tableNumber != 99) {
                 LinkedList<Dish> d = new LinkedList<Dish>(ticketitems.getItems());
@@ -285,6 +285,16 @@ public class TicketSceneController implements Initializable{
                     kj.KitchenTicketsToJson(k.getKitchenTickets());
             }
         } catch(IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("MainMenuScene.fxml"));
+            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch(Exception e) {
             e.printStackTrace();
         }
         //if editticket = true grab ticket and set it
