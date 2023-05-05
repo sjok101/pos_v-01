@@ -1,4 +1,3 @@
-import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -7,9 +6,7 @@ import static org.junit.Assert.*;
 
 
 public class TicketTest {
-    
     private Ticket tik1 = null;
-    private Ticket tik2 = null;
     private LinkedList<Order> ordrs1 = new LinkedList<>();
     private Order o1 = null;
     private Order o2 = null;
@@ -21,7 +18,6 @@ public class TicketTest {
     @Before
     public void setupTest(){
         tik1 = new Ticket(1);
-        tik2 = new Ticket(10);
         o1 = new Order(1);
         o1.setOrderID(11);
         o2 = new Order(1);

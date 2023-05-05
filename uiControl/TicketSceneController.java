@@ -9,11 +9,12 @@ public class TicketSceneController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private int orderno =0;
-    @FXML private TableView<Order> ticketitems;
-    @FXML private TableColumn<Order, Double> total;
+    private int orderno = 0;
+    @FXML private TableView<Dish> ticketitems;
+    @FXML private TableColumn<Dish, Double> total;
+    @FXML private TableColumn<Order, String> name;
 
-    
+
     public void switchToMainMenuScene(ActionEvent event) {
         try {
             PosMenu p = new PosMenu();
@@ -28,12 +29,22 @@ public class TicketSceneController {
     public void addRow(ActionEvent event){
         try{
             Order ordr = new Order(1);
-            ticketitems.getItems().add(ordr);
+            //ticketitems.getItems().add(ordr);
+            ticketitems.refresh();
         }
         catch(Exception e){
-
+            e.printStackTrace();
         }
     }
 
+    public void removeRow(ActionEvent event){
+        try{
+            ticketitems.getItems().remove(ticketitems.getItems().size()-1);
+            ticketitems.refresh();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 
 }
