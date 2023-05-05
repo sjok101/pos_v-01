@@ -61,8 +61,8 @@ public class TicketSceneController implements Initializable{
             try {
                 this.tableNumber = passTicket.tableNum;
                 this.Ticketid = passTicket.ticketId;
-                table.setText(tableNumber+"");
-                ticketID.setText(Ticketid+"");
+                table.setText(String.valueOf(this.Ticketid));
+                ticketID.setText(String.valueOf(this.tableNumber));
             }
             catch(Exception e) {
                 e.printStackTrace();
