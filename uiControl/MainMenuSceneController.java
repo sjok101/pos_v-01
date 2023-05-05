@@ -121,6 +121,7 @@ public class MainMenuSceneController {
 
     public void switchToTicketsScene(ActionEvent event) {
         try {
+            passTicket.tableNum =99;
             Parent root = FXMLLoader.load(getClass().getResource("TicketScene.fxml"));
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);

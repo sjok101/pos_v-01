@@ -28,7 +28,7 @@ public class TablesSceneController implements Initializable{
     @FXML private TableColumn<table,Integer> ticketCol;
     @FXML private TableColumn<table,String> descriptionCol;
     @FXML private TextField inputTableNumber;
-    @FXML public TextField TableNumberForTicket;
+    @FXML private TextField TableNumberForTicket;
     @FXML private TextField inputSeats;
     @FXML private TextField inputstatus;
     @FXML private TextField inputTicket;
@@ -53,11 +53,25 @@ public class TablesSceneController implements Initializable{
 
     public void switchToTicketsScene(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("TicketScene.fxml"));
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            int tn = Integer.parseInt(TableNumberForTicket.getText());
+            boolean match = false;
+            int tick = 0;
+            for(table t:currTables) {
+                if(t.getTableNumber() == tn) {
+                    match = true;
+                    tick = t.getTicket();
+                    break;
+                }
+            }
+            if(match == true) {
+                passTicket.ticketId = tick;
+                passTicket.tableNum = tn;
+                Parent root = FXMLLoader.load(getClass().getResource("TicketScene.fxml"));
+                stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
         }
         catch(Exception e) {
             e.printStackTrace();

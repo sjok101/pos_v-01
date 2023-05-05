@@ -22,15 +22,8 @@ class Ticket{
     private Ticketstatus status;
     private boolean togo;
     private int priority;
-    //private LinkedList<Order> orders;
     private LinkedList<Dish> orders;
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");  
-
-
-    //TODO: MAIN MUST CALCULATE UNIQUE TICKET ID
-
-
-
     //constructor for Ticket
     public Ticket(int tblnum){
         if(tblnum <= 0){
