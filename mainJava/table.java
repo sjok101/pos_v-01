@@ -1,4 +1,3 @@
-package mainJava;
 import java.util.*;
 public class table {
 
