@@ -12,6 +12,8 @@ public class TicketSceneController {
     private int orderno =0;
     @FXML private TableView<Order> ticketitems;
     @FXML private TableColumn<Order, Double> total;
+
+    
     public void switchToMainMenuScene(ActionEvent event) {
         try {
             PosMenu p = new PosMenu();

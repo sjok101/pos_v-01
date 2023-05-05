@@ -1,5 +1,7 @@
 {
     "java.project.sourcePaths": [
-        "uiControl"
+        "uiControl",
+        "test",
+        "mainJava"
     ]
 }
