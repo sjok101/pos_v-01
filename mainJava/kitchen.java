@@ -1,4 +1,4 @@
-package mainJava;
+
 import java.util.*;
 
 //waiting for ui functions to continue

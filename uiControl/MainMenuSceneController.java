@@ -1,4 +1,4 @@
-package uiControl;
+
 import javafx.event.*;
 import javafx.scene.*;
 import javafx.stage.*;
