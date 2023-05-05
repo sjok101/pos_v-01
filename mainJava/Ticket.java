@@ -5,10 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.math.*;
 import java.time.LocalDateTime;
 
-enum Ticketstatus{
-    OPEN,
-    CLOSED;
-}
+
 
 class Ticket{
 
@@ -19,7 +16,6 @@ class Ticket{
     private double total;
     private String creationTime;
     private String closingTime;
-    private Ticketstatus status;
     private boolean togo;
     private int priority;
     private LinkedList<Dish> orders;
@@ -105,10 +101,6 @@ class Ticket{
         this.priority = p;
     }
 
-    public void setStatus(Ticketstatus ts){
-        this.status = ts;
-    }
-
     public int getTableNum(){
         return this.tableNum;
     }
@@ -127,10 +119,6 @@ class Ticket{
 
     public int getPriority(){
         return this.priority;
-    }
-
-    public Ticketstatus getStatus(){
-        return this.status;
     }
 
     public String getClosingTime(){
@@ -170,7 +158,6 @@ class Ticket{
     public void closeTicket(){
         LocalDateTime now = LocalDateTime.now();
         this.closingTime = dtf.format(now);
-        this.status = Ticketstatus.CLOSED;
     }
 
     //helper function to round a price to 2 deciaml palces

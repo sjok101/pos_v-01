@@ -9,9 +9,9 @@ public class Dish {
     double price;
     int type;
 
-    public Dish(String name, int id){
+    public Dish(String name, double price){
         this.name = name;
-        this.id = id;
+        this.price = price;
     }
 
     public Dish(String name, double price, int id){

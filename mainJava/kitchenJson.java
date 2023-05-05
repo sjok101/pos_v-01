@@ -59,17 +59,6 @@ public class kitchenJson {
         }
 
   }
-    public LinkedList<Ticket> getActiveTicketsJson() throws IOException{
-        ObjectMapper objectMapper = new ObjectMapper();
-        List<Ticket> listTickets = objectMapper.readValue(new File("saves/activeTickets.json"), new TypeReference<List<Ticket>>(){});
-        LinkedList<Ticket> activeTickets = new LinkedList<Ticket>(listTickets);
-        return activeTickets;
-      }
-  
-      public void activeTicketsToJson(LinkedList<Ticket> tickets) throws IOException{
-        ObjectMapper activeTicketMapper = new ObjectMapper();
-        activeTicketMapper.writeValue(new File("saves/activeTickets.json"), tickets);
-      }
 
       public LinkedList<kitchenTicket> getKitchenTicketsJson() throws IOException{
         ObjectMapper objectMapper = new ObjectMapper();
