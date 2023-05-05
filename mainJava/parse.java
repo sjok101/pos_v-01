@@ -11,8 +11,16 @@ public class parse {
     private static HashMap<String, String> userLogInfo;
 
 
-    public static void loginParseIn(){
+    public static HashMap<String,String> loginParseIn() throws IOException{
         file = new File("./saves/login.txt");
+        userLogInfo = new HashMap<String, String>();
+        Scanner scan = new Scanner(file);
+        while(scan.hasNextLine()){
+            String s1 = scan.nextLine();
+            String s2 = scan.nextLine();
+            userLogInfo.put(s1, s2);
+        }
+        return userLogInfo;
     }
     
 
@@ -27,22 +35,15 @@ public class parse {
             hashString = hashString.replace(", ", "\n");
         }
         
-        Files.write(Paths.get("./saves/test.txt"), hashString.getBytes());
+        Files.write(Paths.get("./saves/login.txt"), hashString.getBytes());
         return hashString;
     
     }
 
     public static void main(String[]args) throws IOException{
-        loginParseIn();
-        userLogInfo = new HashMap<String, String>();
-        Scanner scan = new Scanner(file);
-        while(scan.hasNextLine()){
-            String s1 = scan.nextLine();
-            String s2 = scan.nextLine();
-            userLogInfo.put(s1, s2);
-        }
-        String test = loginParseOut(userLogInfo);
-        System.out.println(test);
+        HashMap<String,String> testIn = loginParseIn();
+        String testOut = loginParseOut(testIn);
+        System.out.println(testOut);
         
     }
 
