@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 public class clockIO {

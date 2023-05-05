@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
 import java.time.format.DateTimeFormatter;
 import java.math.*;
 import java.time.LocalDateTime;

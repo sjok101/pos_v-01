@@ -1,37 +1,15 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
 import java.util.*;
 public class table {
 
     public int tableNumber;
     public int numberOfSeats;
     public String description;
-<<<<<<< HEAD
-    public Ticket tableTicket;
-    public int status;
-=======
     public int tableTicketID;
     public String status;
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
 
     public table(int tNum, int sNum) { 
         this.tableNumber = tNum;
         this.numberOfSeats = sNum;
-<<<<<<< HEAD
-        this.status = 0;
-        this.tableTicket = null;
-        this.description = "";
-    }
-
-    public void setTableNumber(int tableNum) {
-        if(tableNum <= 99 && tableNum >= 0) {
-            this.tableNumber = tableNum;
-            if(this.tableTicket != null){
-                this.tableTicket.setTableNum(tableNum);
-            }
-=======
         this.status = "";
         this.tableTicketID = 0;
         this.description = "";
@@ -48,7 +26,6 @@ public class table {
     public void setTableNumber(int tableNum) {
         if(tableNum <= 99 && tableNum >= 0) {
             this.tableNumber = tableNum;
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
         }  
     }
 
@@ -56,16 +33,9 @@ public class table {
             this.description = description;
     }
 
-<<<<<<< HEAD
-    public void setTableTicketStatus(int status) {
-        if(status >= 0 && status <= 5) {
-            this.status = status;
-        }
-=======
     public void setStatus(String status) {
         this.status = status;
         
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
     }
 
     public void setNumberOfSeats(int numSeats) {
@@ -74,21 +44,11 @@ public class table {
         }
     }
 
-<<<<<<< HEAD
-    public void setTicket(Ticket t) {
-        if(t.getTableNum() == this.tableNumber) {
-            this.tableTicket = t;
-        }
-    }
-
-    public int getTicketStatus() {
-=======
     public void setTicket(int t) {
         this.tableTicketID = t;
     }
 
     public String getStatus() {
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
         return this.status;
     }
     
@@ -96,13 +56,8 @@ public class table {
         return this.description;
     }
 
-<<<<<<< HEAD
-    public Ticket getTicket() {          
-        return this.tableTicket;
-=======
     public int getTicket() {          
         return this.tableTicketID;
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
     }
 
     public int getTableNumber() {
@@ -112,8 +67,4 @@ public class table {
     public int getNumberOfSeats() {
         return this.numberOfSeats;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c

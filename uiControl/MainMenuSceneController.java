@@ -1,23 +1,4 @@
 
-<<<<<<< HEAD
-import javafx.event.*;
-import javafx.scene.*;
-import javafx.stage.*;
-import javafx.fxml.FXMLLoader;
-
-public class MainMenuSceneController {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
-    public void switchToDineInScene(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("TableScene.fxml"));
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-=======
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -88,7 +69,6 @@ public class MainMenuSceneController {
         try {
             PosMenu p = new PosMenu();
             p.changeScene("TableScene.fxml");
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -98,16 +78,8 @@ public class MainMenuSceneController {
 
     public void switchToKitchenScene(ActionEvent event) {
         try {
-<<<<<<< HEAD
-            Parent root = FXMLLoader.load(getClass().getResource("KitchenScene.fxml"));
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-=======
             PosMenu p = new PosMenu();
             p.changeScene("KitchenScene.fxml");
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
         } catch(Exception e) {
             e.printStackTrace();
         }
@@ -115,16 +87,8 @@ public class MainMenuSceneController {
 
     public void switchToTakeoutScene(ActionEvent event) {
         try {
-<<<<<<< HEAD
-            Parent root = FXMLLoader.load(getClass().getResource("TicketScene.fxml"));
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-=======
             PosMenu p = new PosMenu();
             p.changeScene("TicketScene.fxml");
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -133,16 +97,8 @@ public class MainMenuSceneController {
 
     public void switchToOverviewScene(ActionEvent event) {
         try {
-<<<<<<< HEAD
-            Parent root = FXMLLoader.load(getClass().getResource("OverviewScene.fxml"));
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-=======
             PosMenu p = new PosMenu();
             p.changeScene("OverviewScene.fxml");
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -151,16 +107,8 @@ public class MainMenuSceneController {
 
     public void switchToTicketsScene(ActionEvent event) {
         try {
-<<<<<<< HEAD
-            Parent root = FXMLLoader.load(getClass().getResource("TicketScene.fxml"));
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-=======
             PosMenu p = new PosMenu();
             p.changeScene("TicketScene.fxml");
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -169,16 +117,8 @@ public class MainMenuSceneController {
 
     public void switchToInventoryScene(ActionEvent event) {
         try {
-<<<<<<< HEAD
-            Parent root = FXMLLoader.load(getClass().getResource("InventoryScene.fxml"));
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-=======
             PosMenu p = new PosMenu();
             p.changeScene("InventoryScene.fxml");
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -187,16 +127,8 @@ public class MainMenuSceneController {
 
     public void switchToAnalysisScene(ActionEvent event) {
         try {
-<<<<<<< HEAD
-            Parent root = FXMLLoader.load(getClass().getResource("AnalysisScene.fxml"));
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-=======
             PosMenu p = new PosMenu();
             p.changeScene("AnalysisScene.fxml");
->>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
         }
         catch(Exception e) {
             e.printStackTrace();
