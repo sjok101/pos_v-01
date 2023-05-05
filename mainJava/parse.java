@@ -11,7 +11,7 @@ public class parse {
     private static HashMap<String, String> userLogInfo;
 
 
-    public static HashMap<String,String> loginParseIn() throws IOException{
+    private static HashMap<String,String> loginParseIn() throws IOException{
         file = new File("./saves/login.txt");
         userLogInfo = new HashMap<String, String>();
         Scanner scan = new Scanner(file);
@@ -24,7 +24,7 @@ public class parse {
     }
     
 
-    public static String loginParseOut(HashMap<String,String> updatedHash) throws IOException{
+    private static String loginParseOut(HashMap<String,String> updatedHash) throws IOException{
         String hashString = updatedHash.toString();
         hashString = hashString.replace("{", "");
         hashString = hashString.replace("}", "");
@@ -38,6 +38,23 @@ public class parse {
         Files.write(Paths.get("./saves/login.txt"), hashString.getBytes());
         return hashString;
     
+    }
+
+    public static boolean authUserPass(String user, String pass) throws IOException{
+        if (user.equals("") || pass.equals("")){
+            return false;
+        }
+        HashMap<String, String> listUserPass = loginParseIn();
+        if(listUserPass.get(user)==null){
+            return false;
+        }
+        if (listUserPass.get(user).equals(pass)){
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 
     public static void main(String[]args) throws IOException{

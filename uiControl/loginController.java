@@ -1,24 +1,17 @@
 import java.io.IOException;
+import java.util.HashMap;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class loginController {
+ 
+    private static HashMap<String,String> authUsers;
     
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
-
     public void login(){}
 
     @FXML
@@ -36,9 +29,8 @@ public class loginController {
 
     private void authenticate() throws IOException{
         PosMenu p = new PosMenu();
-        if(user.getText().toString().equals("test") && pass.getText().toString().equals("foo")) {
-            wrongLogin.setText("Success");
-            
+        if (parse.authUserPass(user.getText().toString(), pass.getText().toString())){
+            wrongLogin.setText("Login Success");
             p.changeScene("MainMenuScene.fxml");
         }
         else if (user.getText().isEmpty() && pass.getText().isEmpty()){
@@ -47,5 +39,12 @@ public class loginController {
         else{
             wrongLogin.setText("Wrong user or pass!");
         }
+        
+        
+        // if(user.getText().toString().equals("test") && pass.getText().toString().equals("foo")) {
+        //     wrongLogin.setText("Success");
+            
+        //     p.changeScene("MainMenuScene.fxml");
+        // }
     }    
 }
