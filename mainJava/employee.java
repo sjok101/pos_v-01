@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
 import java.util.*;
 import java.time.LocalTime;
  
@@ -15,7 +18,11 @@ public class employee {
 	boolean clocked;
 	String timeIn, timeOut;
 	
+<<<<<<< HEAD
 	ArrayList<employee> EmployeeCalvinList = new ArrayList<>();
+=======
+	ArrayList<employee> EmployeeList = new ArrayList<>();
+>>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
 	
 	Scanner scan = new Scanner(System.in);
 	
@@ -97,16 +104,28 @@ public class employee {
 	}
 	
 	void addEmp(employee newEmp) {
+<<<<<<< HEAD
 		EmployeeCalvinList.add(newEmp);
 	}
 	
 	void removeEmp(employee emp) {
 		EmployeeCalvinList.remove(emp);
+=======
+		EmployeeList.add(newEmp);
+	}
+	
+	void removeEmp(employee emp) {
+		EmployeeList.remove(emp);
+>>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
 	}
 	
 	ArrayList<employee> empList()
 	{
+<<<<<<< HEAD
 		return EmployeeCalvinList;
+=======
+		return EmployeeList;
+>>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
 	}
 	
 	void clock_in() {
@@ -121,6 +140,7 @@ public class employee {
 		this.timeOut = currentTime.toString();
 
 	}
+<<<<<<< HEAD
 	
 //	public static void main(String[] args) {
 //		EmployeeCalvin A = new EmployeeCalvin();
@@ -135,4 +155,7 @@ public class employee {
 //	}
 	
 	
+=======
+		
+>>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
 }

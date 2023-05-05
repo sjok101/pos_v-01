@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 package test;
+=======
+>>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
 
 import java.util.*;
 import java.util.regex.*;
@@ -7,8 +10,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.Test.*;
 
+<<<<<<< HEAD
 import mainJava.Ticket;
 import mainJava.kitchen;
+=======
+
+>>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
 
 import static org.junit.Assert.*;
 

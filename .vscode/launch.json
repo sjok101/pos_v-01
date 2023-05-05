@@ -6,6 +6,7 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< HEAD
             "name": "testJson",
             "request": "launch",
             "mainClass": "testJson",
@@ -18,12 +19,50 @@
             "vmArgs": "--module-path C:\\Users\\calvi\\Downloads\\openjfx-20.0.1_windows-x64_bin-sdk\\javafx-sdk-20.0.1\\lib --add-modules javafx.controls,javafx.fxml",
             "mainClass": "PosMenu",
             "projectName": "pos_v-01_e0b1c90b"
+=======
+            "name": "JSONwriter",
+            "request": "launch",
+            "mainClass": "JSONwriter",
+            "projectName": "pos_v-01_5f026882"
+        },
+        {
+            "type": "java",
+            "name": "testJson",
+            "request": "launch",
+            "mainClass": "testJson",
+            "projectName": "pos_v-01_5f026882"
+        },
+        {
+            "type": "java",
+            "name": "tableTest",
+            "request": "launch",
+            "mainClass": "tableTest",
+            "projectName": "pos_v-01_5f026882"
+        },
+        {
+            "type": "java",
+            "name": "parse",
+            "request": "launch",
+            "mainClass": "parse",
+            "projectName": "pos_v-01_5f026882"
+>>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
         },
         {
             "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
+<<<<<<< HEAD
+=======
+        },
+        {
+            "type": "java",
+            "name": "PosMenu",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Java/javafx-sdk-20.0.1/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "PosMenu",
+            "projectName": "pos_v-01_5f026882"
+>>>>>>> 9ea4349e93191276310269ea97fbfe3caa4f429c
         }
     ]
 }

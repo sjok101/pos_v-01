@@ -1,0 +1,4 @@
+quaso
+croissant
+numpy
+password
