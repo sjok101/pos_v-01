@@ -58,8 +58,15 @@ public class MainMenuSceneController {
 
     public void switchToTakeoutScene(ActionEvent event) {
         try {
-            PosMenu p = new PosMenu();
-            p.changeScene("TicketScene.fxml");
+            // PosMenu p = new PosMenu();
+            // p.changeScene("TicketScene.fxml");
+            passTicket.tableNum = 4;
+            passTicket.ticketId = 100;
+            Parent root = FXMLLoader.load(getClass().getResource("TicketScene.fxml"));
+            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
         catch(Exception e) {
             e.printStackTrace();

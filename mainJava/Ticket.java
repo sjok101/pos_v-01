@@ -21,7 +21,8 @@ class Ticket{
     private Ticketstatus status;
     private boolean togo;
     private int priority;
-    private LinkedList<Order> orders;
+    //private LinkedList<Order> orders;
+    private LinkedList<Dish> dishes;
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");  
 
 
@@ -44,12 +45,12 @@ class Ticket{
             this.tableNum = tblnum;
             LocalDateTime now = LocalDateTime.now();
             this.creationTime = dtf.format(now);
-            this.orders = new LinkedList<Order>();
+            this.dishes = new LinkedList<Dish>();
             this.total = 0;
         }
     }
 
-    public Ticket(int tblnum, LinkedList<Order> ordrs){
+    public Ticket(int tblnum, LinkedList<Dish> ordrs){
         if(tblnum <= 0){
             throw new IndexOutOfBoundsException("Error: TablenNum must be greater than 0.");
         }
@@ -66,7 +67,7 @@ class Ticket{
             this.tableNum = tblnum;
             LocalDateTime now = LocalDateTime.now();
             this.creationTime = dtf.format(now);
-            this.orders = ordrs;
+            this.dishes = ordrs;
             this.total = 0;
         }
     }
@@ -142,8 +143,8 @@ class Ticket{
         return this.closingTime;
     }
 
-    public LinkedList<Order> getOrders(){
-        return this.orders;
+    public LinkedList<Dish> getDishes(){
+        return this.dishes;
     }
 
     public boolean getTogo(){
@@ -152,20 +153,20 @@ class Ticket{
 
 
     //adds order to ticket
-    public boolean addOrder(Order ordr){
+    public boolean addDish(Dish ordr){
         if(ordr != null){
-            this.orders.add(ordr);
-            this.total += ordr.getTotal();
+            this.dishes.add(ordr);
+            this.total += ordr.getPrice();
             return true;
         }
         return false;
     }
 
     //remove order for ticket (void) TODO: manager verification?
-    public boolean removeOrder(Order ordr){
+    public boolean removeDish(Dish ordr){
         if(ordr != null){
-            this.orders.remove(ordr);
-            this.total -= ordr.getTotal();
+            this.dishes.remove(ordr);
+            this.total -= ordr.getPrice();
             return true;
         }
         return false;
@@ -187,8 +188,8 @@ class Ticket{
         return bd.doubleValue();
     }
 
-    public String ordertostr(){
-        return this.orders.toString();
+    public String dishesToString(){
+        return this.dishes.toString();
     }    
 
 }
