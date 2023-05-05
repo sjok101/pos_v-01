@@ -13,7 +13,7 @@ public class employee {
 	boolean clocked;
 	String timeIn, timeOut;
 	
-	ArrayList<employee> EmployeeCalvinList = new ArrayList<>();
+	ArrayList<employee> EmployeeList = new ArrayList<>();
 	
 	Scanner scan = new Scanner(System.in);
 	
@@ -95,16 +95,16 @@ public class employee {
 	}
 	
 	void addEmp(employee newEmp) {
-		EmployeeCalvinList.add(newEmp);
+		EmployeeList.add(newEmp);
 	}
 	
 	void removeEmp(employee emp) {
-		EmployeeCalvinList.remove(emp);
+		EmployeeList.remove(emp);
 	}
 	
 	ArrayList<employee> empList()
 	{
-		return EmployeeCalvinList;
+		return EmployeeList;
 	}
 	
 	void clock_in() {
@@ -119,18 +119,5 @@ public class employee {
 		this.timeOut = currentTime.toString();
 
 	}
-	
-//	public static void main(String[] args) {
-//		EmployeeCalvin A = new EmployeeCalvin();
-//		A.clock_in();
-//
-//		System.out.println("emplyee");
-//		A.clock_out();
-//		System.out.println(A.timeIn);
-//		System.out.println(A.timeOut);
-//		
-//		
-//	}
-	
-	
+		
 }

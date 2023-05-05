@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "JSONwriter",
+            "request": "launch",
+            "mainClass": "JSONwriter",
+            "projectName": "pos_v-01_5f026882"
+        },
+        {
+            "type": "java",
+            "name": "testJson",
+            "request": "launch",
+            "mainClass": "testJson",
+            "projectName": "pos_v-01_5f026882"
+        },
+        {
+            "type": "java",
+            "name": "tableTest",
+            "request": "launch",
+            "mainClass": "tableTest",
+            "projectName": "pos_v-01_5f026882"
+        },
+        {
+            "type": "java",
             "name": "parse",
             "request": "launch",
             "mainClass": "parse",

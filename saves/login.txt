@@ -1,4 +1,0 @@
-quaso
-croissant
-numpy
-password

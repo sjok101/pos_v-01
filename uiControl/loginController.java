@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 
 public class loginController {
  
-    private static HashMap<String,String> authUsers;
     
     public void login(){}
 
@@ -40,11 +39,6 @@ public class loginController {
             wrongLogin.setText("Wrong user or pass!");
         }
         
-        
-        // if(user.getText().toString().equals("test") && pass.getText().toString().equals("foo")) {
-        //     wrongLogin.setText("Success");
-            
-        //     p.changeScene("MainMenuScene.fxml");
-        // }
+    
     }    
 }

@@ -1,4 +1,3 @@
-package test;
 import java.util.*;
 import java.util.regex.*;
 
@@ -6,8 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.Test.*;
 
-import mainJava.Ticket;
-import mainJava.table;
 
 import static org.junit.Assert.*;
 
