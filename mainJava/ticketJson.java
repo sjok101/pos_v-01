@@ -8,14 +8,32 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ticketJson {
+    public static void main(String[]args) throws IOException{
+        Dish d2 = new Dish("orange", 0);
+        Dish d3 = new Dish("banna", 0);
+        LinkedList<Dish> d = new LinkedList<Dish>();
+        d.add(d2);
+        d.add(d3);
+        Ticket t1 = new Ticket(1, d);
+        LinkedList<Ticket> tickets = new LinkedList<Ticket>();
+        LinkedList<Ticket> ticketsJson = new LinkedList<Ticket>();
+        ticketJson tj = new ticketJson();
+        tickets.add(t1);
+        tj.ticketsToJson(tickets);
+        ticketsJson = tj.getTicketsJson();
+        System.out.println(ticketsJson.get(0).getCreationTime() + "    " + ticketsJson.get(0).getTicketID());
+       
+
+  }
+
     public LinkedList<Ticket> getTicketsJson() throws IOException{
         ObjectMapper ticketMapper = new ObjectMapper();
         List<jsonTicket> listTickets = ticketMapper.readValue(new File("saves/activeTickets.json"), new TypeReference<List<jsonTicket>>(){});
         LinkedList<Ticket> tickets = new LinkedList<Ticket>();
         String order = "";
         for(jsonTicket jt: listTickets) {
-            Ticket t = new Ticket(0);
-            t.setTableNum(Integer.parseInt(jt.getTablenum()));
+            Ticket t = new Ticket(1);
+            t.setTableNum(Integer.parseInt(jt.getTableNum()));
             t.setTicketID(Integer.parseInt(jt.getTicketID()));
             jt.setCreationTime(t.getCreationTime());
             order = jt.getOrders();

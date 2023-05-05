@@ -9,7 +9,7 @@ public class jsonTicket {
     private String priority;
     private String orders;
 
-    public String getTablenum(){
+    public String getTableNum(){
         return this.tableNum;
     }
 
