@@ -63,6 +63,8 @@ class Ticket{
             this.creationTime = dtf.format(now);
             this.orders = ordrs;
             this.total = 0;
+            Random r = new Random();
+            this.ticketID = r.nextInt(100);
         }
     }
 

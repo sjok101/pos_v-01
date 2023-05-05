@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -30,14 +31,14 @@
             <Button layoutY="-1.0" mnemonicParsing="false" onAction="#switchToMainMenuInScene" prefHeight="93.0" prefWidth="318.0" text="Back to Main Menu" />
             <VBox layoutY="383.0" prefHeight="423.0" prefWidth="310.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TableNumber" wrappingWidth="114.13671875" />
-                  <TextField fx:id="inputTableNumber" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Table Number:" wrappingWidth="83.13671875" />
+                  <Label fx:id="lTableNumber" prefHeight="17.0" prefWidth="54.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Table Ticket ID:" wrappingWidth="87.455078125" />
+                  <Label fx:id="lTicket" prefHeight="17.0" prefWidth="67.0" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SeatCount" wrappingWidth="110.13671875" />
                   <TextField fx:id="inputSeats" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Table Status" />
                   <TextField fx:id="inputstatus" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Table Ticket ID" />
-                  <TextField fx:id="inputTicket" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Table Description" />
                   <TextArea fx:id="inputDescription" prefHeight="200.0" prefWidth="200.0" />
                   <Button mnemonicParsing="false" onAction="#submit" prefHeight="38.0" prefWidth="314.0" text="Submit changes" />

@@ -52,7 +52,7 @@ public class TicketSceneController implements Initializable{
         try {
             LinkedList<Ticket> tickets = tj.getTicketsJson();
             for(Ticket t: tickets) {
-                if(t.getTableNum() == tableNumber && t.getTicketID() == Ticketid) {
+                if(t.getTableNum() == tableNumber && t.getTicketID() == Ticketid && 0 != Ticketid) {
                     editTicket = true;
                     d = t.getOrders();
                     break;
@@ -264,25 +264,15 @@ public class TicketSceneController implements Initializable{
             else {
                 LinkedList<Dish> d = new LinkedList<Dish>(ticketitems.getItems());
                 Ticket ti = new Ticket(tableNumber,d);
-                    LinkedList<Ticket> tickets = tj.getTicketsJson();
-                    tickets.add(ti);
-                    tableJson tja = new tableJson();
-                    LinkedList<table> tabs = tja.getTablesJson();
-                    for(table t: tabs) {
-                        if(t.getTableNumber() == tableNumber) {
-                            tabs.remove(t);
-                            t.setTicket(ti.getTicketID());
-                            tabs.add(t);
-                            tja.tablesToJson(tabs);
-                            break;
-                        }
-                    }
-                    kitchenJson kj = new kitchenJson();
-                    kitchen k = new kitchen(kj.getKitchenTicketsJson());
-                    LinkedList<Ticket> tempList = new LinkedList<Ticket>();
-                    tempList.add(ti);
-                    k.ticketsToKitchenTickets(tempList);
-                    kj.KitchenTicketsToJson(k.getKitchenTickets());
+                LinkedList<Ticket> tickets = tj.getTicketsJson();
+                tickets.add(ti);
+                tj.ticketsToJson(tickets);
+                kitchenJson kj = new kitchenJson();
+                kitchen k = new kitchen(kj.getKitchenTicketsJson());
+                LinkedList<Ticket> tempList = new LinkedList<Ticket>();
+                tempList.add(ti);
+                k.ticketsToKitchenTickets(tempList);
+                kj.KitchenTicketsToJson(k.getKitchenTickets());
             }
         } catch(IOException e) {
             e.printStackTrace();

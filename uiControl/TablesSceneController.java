@@ -27,11 +27,11 @@ public class TablesSceneController implements Initializable{
     @FXML private TableColumn<table,String> statusCol;
     @FXML private TableColumn<table,Integer> ticketCol;
     @FXML private TableColumn<table,String> descriptionCol;
-    @FXML private TextField inputTableNumber;
+    @FXML private Label lTableNumber;
     @FXML private TextField TableNumberForTicket;
     @FXML private TextField inputSeats;
     @FXML private TextField inputstatus;
-    @FXML private TextField inputTicket;
+    @FXML private Label lTicket;
     @FXML private TextArea inputDescription;
     private LinkedList<table> currTables = new LinkedList<table>();
     private int size = 0;
@@ -104,12 +104,12 @@ public class TablesSceneController implements Initializable{
     
     @FXML void submit(ActionEvent event) {
         ObservableList<table> tables = tableview.getItems();
-        int currentTableNum = Integer.parseInt(inputTableNumber.getText());
+        int currentTableNum = Integer.parseInt(lTableNumber.getText());
         for(table table: tables) {
             if(table.getTableNumber() == currentTableNum) {
                 table.setNumberOfSeats(Integer.parseInt(inputSeats.getText()));
                 table.setStatus(inputstatus.getText());
-                table.setTicket(Integer.parseInt(inputTicket.getText()));
+                table.setTicket(Integer.parseInt(lTicket.getText()));
                 table.setTableDescription(inputDescription.getText());
                 tableview.setItems(tables);
                 tableview.refresh();
@@ -127,10 +127,10 @@ public class TablesSceneController implements Initializable{
 
     @FXML void rowClicked(MouseEvent event) {
         table selectedTable = tableview.getSelectionModel().getSelectedItem();
-        inputTableNumber.setText(String.valueOf(selectedTable.getTableNumber()));
+        lTableNumber.setText(String.valueOf(selectedTable.getTableNumber()));
         inputSeats.setText(String.valueOf(selectedTable.getNumberOfSeats()));
         inputstatus.setText(String.valueOf(selectedTable.getStatus()));
-        inputTicket.setText(String.valueOf(selectedTable.getTicket()));
+        lTicket.setText(String.valueOf(selectedTable.getTicket()));
         inputDescription.setText(String.valueOf(selectedTable.getDescription()));
     }
 
