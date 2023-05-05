@@ -21,7 +21,7 @@ class Ticket{
     private Ticketstatus status;
     private boolean togo;
     private int priority;
-    private Hashtable<Integer, LinkedList<Order>> orders;
+    private LinkedList<Order> orders;
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");  
 
 
@@ -42,12 +42,12 @@ class Ticket{
             this.tableNum = tblnum;
             LocalDateTime now = LocalDateTime.now();
             this.creationTime = dtf.format(now);
-            this.orders = new Hashtable<>();
+            this.orders = new LinkedList<Order>();
             this.total = 0;
         }
     }
 
-    public Ticket(int tblnum, Hashtable<Integer, LinkedList<Order>> ordrs){
+    public Ticket(int tblnum, LinkedList<Order> ordrs){
         if(tblnum <= 0){
             throw new IndexOutOfBoundsException("Error: TablenNum must be greater than 0.");
         }
@@ -140,7 +140,7 @@ class Ticket{
         return this.closingTime;
     }
 
-    public Hashtable<Integer, LinkedList<Order>> getOrders(){
+    public LinkedList<Order> getOrders(){
         return this.orders;
     }
 
@@ -150,26 +150,19 @@ class Ticket{
 
 
     //adds order to ticket
-    public boolean addOrder(int seatnum, Order ordr){
-        if(this.orders.get(seatnum) == null){
-            LinkedList<Order> orderlist = new LinkedList<>();
+    public boolean addOrder(Order ordr){
+        if(ordr != null){
+            this.orders.add(ordr);
             this.total += ordr.getTotal();
-            if(orderlist.add(ordr)){
-                this.orders.put(seatnum, orderlist);
-                return true;
-            }
-            return false;
+            return true;
         }
-        this.total += ordr.getTotal();
-        return this.orders.get(seatnum).add(ordr);
+        return false;
     }
 
     //remove order for ticket (void) TODO: manager verification?
-    public boolean removeOrder(int seatnum, Order ordr){
-        if(this.orders.get(seatnum) == null){
-            return false;
-        }
-        if(this.orders.get(seatnum).remove(ordr) == true){
+    public boolean removeOrder(Order ordr){
+        if(ordr != null){
+            this.orders.remove(ordr);
             this.total -= ordr.getTotal();
             return true;
         }

@@ -10,7 +10,6 @@ public class TicketTest {
     private LinkedList<Order> ordrs1 = new LinkedList<>();
     private Order o1 = null;
     private Order o2 = null;
-    private Hashtable<Integer, LinkedList<Order>> ticket_orders1 = new Hashtable<>();
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
     private LocalDateTime now = LocalDateTime.now();
     private String timenow = dtf.format(now);
@@ -59,14 +58,11 @@ public class TicketTest {
     public void ticketConstuctorTest3(){
         Order o1 = new Order(2);
 
-        LinkedList<Order> seat1orders = new LinkedList<>();
-        Hashtable<Integer, LinkedList<Order>> ht1 = new Hashtable<>();
-        seat1orders.add(o1);
-        ticket_orders1.put(1, seat1orders);
-        ht1.put(1, seat1orders);
-        tik1 = new Ticket(2,ht1);
+        LinkedList<Order> orders = new LinkedList<>();
+        orders.add(o1);
+        tik1 = new Ticket(2,orders);
         if(tik1.getTableNum() == 2){
-            assertEquals(tik1.getOrders(), ht1);
+            assertEquals(tik1.getOrders(), orders);
         }
     }
 
@@ -76,16 +72,13 @@ public class TicketTest {
         Order o1 = new Order(2);
         Order o2 = new Order(2);
         Order o3 = new Order(2);
-        LinkedList<Order> seat1orders = new LinkedList<>();
-        Hashtable<Integer, LinkedList<Order>> ht1 = new Hashtable<>();
-        seat1orders.add(o1);
-        seat1orders.add(o2);
-        seat1orders.add(o3);
-        ticket_orders1.put(1, seat1orders);
-        ht1.put(1, seat1orders);
-        tik1 = new Ticket(5,ht1);
+        LinkedList<Order> orders = new LinkedList<>();
+        orders.add(o1);
+        orders.add(o2);
+        orders.add(o3);
+        tik1 = new Ticket(5,orders);
         if(tik1.getTableNum() == 5){
-            assertEquals(tik1.getOrders(), ht1);
+            assertEquals(tik1.getOrders(), orders);
         }
     }
 
@@ -264,7 +257,7 @@ public class TicketTest {
     @Test 
     public void addOrder2(){
         Ticket t = new Ticket(10);
-        t.addOrder(1, o1);
+        t.addOrder(o1);
         assertEquals(t.getTotal(),25.25, 0);
     }
 
@@ -272,8 +265,8 @@ public class TicketTest {
     @Test 
     public void addOrder3(){
         Ticket t = new Ticket(10);
-        t.addOrder(1, o1);
-        t.addOrder(2, o2);
+        t.addOrder(o1);
+        t.addOrder(o2);
         assertEquals(t.getTotal(),75.50, 0);
     }
 
@@ -281,9 +274,9 @@ public class TicketTest {
     @Test 
     public void removeOrder1(){
         Ticket t = new Ticket(10);
-        t.addOrder(1, o1);
-        t.addOrder(2, o2);
-        t.removeOrder(1, o1);
+        t.addOrder(o1);
+        t.addOrder(o2);
+        t.removeOrder(o1);
         assertEquals(t.getTotal(),50.25, 0);
     }
 
@@ -291,9 +284,9 @@ public class TicketTest {
     @Test 
     public void removeOrder2(){
         Ticket t = new Ticket(10);
-        t.addOrder(1, o1);
-        t.addOrder(2, o2);
-        t.removeOrder(1, o1);
+        t.addOrder(o1);
+        t.addOrder(o2);
+        t.removeOrder(o1);
         assertEquals(t.getTotal(),50.25, 0);
     }
 
@@ -301,8 +294,8 @@ public class TicketTest {
      @Test 
      public void removeOrder3(){
          Ticket t = new Ticket(10);
-         t.addOrder(1, o1);
-         t.removeOrder(1, o1);
+         t.addOrder(o1);
+         t.removeOrder(o1);
          assertEquals(t.getTotal(),0.0, 0);
      }
 
