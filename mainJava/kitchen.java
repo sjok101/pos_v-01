@@ -39,26 +39,17 @@ public class kitchen {
                 k.setPriority(t.getPriority());
                 k.settableNum(t.getTableNum());
                 k.setTicketid(t.getTicketID());
-                LinkedList<Order> o = t.getOrders();
-                for(Order order: o) {
-                    if(order.getDishes() != null) {
-                        LinkedList<Dish> d = order.getDishes();
-                        for(Dish dish: d) {
-                            if(dish.getName() != null) {
-                                if(firstIteration == false) {
-                                    printedOrders +=";";
-                                }
-                                if(dish.getDescription() != "") {
-                                    printedOrders += dish.getName() + "," + dish.getDescription();
-                                }
-                                else {
-                                    printedOrders += dish.getName();
-                                }
-                            }
-                            firstIteration = false;
+                LinkedList<Dish> d = t.getOrders();
+                for(Dish dish: d) {
+                    if(dish.getName() != null) {
+                        if(firstIteration == false) {
+                            printedOrders +=",";
                         }
+                        printedOrders += dish.getName();
+                        
                     }
-                }
+                    firstIteration = false;
+                }   
                 firstIteration = true;
                 k.setOrderString(printedOrders);
                 printedOrders = "";

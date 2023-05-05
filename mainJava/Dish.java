@@ -1,64 +1,37 @@
 import java.util.ArrayList;
 
+import java.util.ArrayList;
 public class Dish {
-    /**
-     * Automatically assigned by the PC. User will not be able to update this value.
-     */
-    int id;
 
-    /**
-     * The name of the dish.
-     */
-    String name;
-
-    /**
-     * The description of the dish.
-     */
-    String description;
-
-    /**
-     * List of ingredients.
-     */
     ArrayList<Ingredient> ingredients;
-
-    /**
-     * The price of the dish.
-     */
+    int id;
+    String description;
+    String name;
     double price;
-
-    /**
-     * Stores if its an special, appetizer, main entree, dessert
-     */
     int type;
 
-    public Dish(String name, String desc, double price){
+    public Dish(String name, int id){
         this.name = name;
-        this.description = desc;
+        this.id = id;
+    }
+
+    public Dish(String name, double price, int id){
+        this.name = name;
         this.price = price;
+        this.id = id;
+    }
+
+    public Dish(String name, int id, ArrayList<Ingredient> ingredients){
+        this.name = name;
+        this.id = id;
         this.ingredients = new ArrayList<>();
     }
 
-    public Dish(int id, String name, String desc, double price){
-        this.id = id;
+    public Dish(String name, int id, ArrayList<Ingredient> ingredients, int price){
         this.name = name;
-        this.description = desc;
-        this.price = price;
+        this.id = id;
         this.ingredients = new ArrayList<>();
-    }
-
-    public Dish(String name, String desc, double price, ArrayList<Ingredient> ingredients){
-        this.name = name;
-        this.description = desc;
         this.price = price;
-        this.ingredients = ingredients;
-    }
-
-    public Dish(int id, String name, String desc, double price, ArrayList<Ingredient> ingredients){
-        this.id = id;
-        this.name = name;
-        this.description = desc;
-        this.price = price;
-        this.ingredients = ingredients;
     }
 
     public void updateDesc(String desc){
@@ -87,10 +60,6 @@ public class Dish {
         return id;
     }
 
-    public void setId(int id){
-        this.id = id;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -98,7 +67,6 @@ public class Dish {
     public void setDescription(String description) {
         this.description = description;
     }
-
     public String getName() {
         return name;
     }

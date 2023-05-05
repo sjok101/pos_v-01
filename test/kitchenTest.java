@@ -21,53 +21,36 @@ public class kitchenTest {
     public void setupTest() {
        
         tickets = new LinkedList<Ticket>();
-        Order o1 = new Order(1);
-        Order o2 = new Order(1);
-        Order o3 = new Order(1);
-        Order o4 = new Order(1);
-        Order o5 = new Order(2);
-        Order o6 = new Order(2);
-        Order o7 = new Order(2);
-        Order o8 = new Order(2);
-        Dish d1 = new Dish("apples", "", 0);
-        Dish d2 = new Dish("orange", "", 0);
-        Dish d3 = new Dish("banna", "", 0);
-        Dish d4 = new Dish("pie", "cherry", 0);
-        Dish d5 = new Dish("steak", "medium", 0);
-        Dish d6 = new Dish("steak", "well done", 0);
-        Dish d7 = new Dish("apples", "", 0);
-        Dish d8 = new Dish("orange", "", 0);
+        Dish d1 = new Dish("apples", 0);
+        Dish d2 = new Dish("orange", 0);
+        Dish d3 = new Dish("banna", 0);
+        Dish d4 = new Dish("pie", 0);
+        Dish d5 = new Dish("steak", 0);
+        Dish d6 = new Dish("steak", 0);
+        Dish d7 = new Dish("apples", 0);
+        Dish d8 = new Dish("orange", 0);
         //ticket 1
         t1 = new Ticket(1);
-        o1.addDish(d1);
-        o1.addDish(d2);
-        t1.addOrder(o1);
-        o2.addDish(d3);
-        t1.addOrder(o2);
-        o3.addDish(d4);
-        o3.addDish(d5);
-        t1.addOrder(o3);
-  
-        o4.addDish(d6);
-        o4.addDish(d7);
-        t1.addOrder(o4); 
+        t1.addDish(d1);
+        t1.addDish(d2);
+        t1.addDish(d3);
+        t1.addDish(d4);
+        t1.addDish(d5);
+        t1.addDish(d6);
+        t1.addDish(d7);
   
         //ticket 2
         t2 = new Ticket(2);
-        o5.addDish(d8);
-        o5.addDish(d4);
-        t2.addOrder(o5);
-        o6.addDish(d3);
-        t2.addOrder( o6);
-        o7.addDish(d5);
-        o7.addDish(d2);
-        t2.addOrder(o7);
-        o8.addDish(d1);
-        o8.addDish(d2);
-        t2.addOrder(o8);
+        t2.addDish(d8);
+        t2.addDish(d4);
+        t2.addDish(d3);
+        t2.addDish(d5);
+        t2.addDish(d2);
+        t2.addDish(d1);
+        t2.addDish(d2);
         //ticket 3
         t3 = new Ticket(4);
-        t3.addOrder(o8);
+        t3.addDish(d2);
         //ticket 4
         t4 = new Ticket(3);
     }
@@ -84,11 +67,11 @@ public class kitchenTest {
         for(int i = 0; kit.size() > i; i++) {
             if(i == 0) {
                 orderString = kit.get(i).getOrderString();
-                assertEquals(orderString, "apples;orange;banna;pie,cherry;steak,medium;steak,well done;apples");
+                assertEquals(orderString, "apples,orange,banna,pie,steak,steak,apples");
             }
             else if(i == 1) {
                 orderString = kit.get(i).getOrderString();
-                assertEquals(orderString, "orange;pie,cherry;banna;steak,medium;orange;apples;orange");
+                assertEquals(orderString, "orange,pie,banna,steak,orange,apples,orange");
             }
         }
     }
@@ -101,7 +84,7 @@ public class kitchenTest {
         k.ticketsToKitchenTickets(tickets);
         LinkedList<kitchenTicket> kit = k.getKitchenTickets();
         orderString = kit.get(0).getOrderString();
-        assertEquals(orderString, "apples;orange");
+        assertEquals(orderString, "orange");
     }
 
     @Test
