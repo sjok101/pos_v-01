@@ -94,7 +94,7 @@ class Ticket {
     }
 
     //adds order to ticket
-    public boolean addOrder(int seatnum, Order ordr){
+    public boolean addOrder(Order ordr){
         this.total += ordr.getTotal();
         return this.orders.add(ordr);
     }

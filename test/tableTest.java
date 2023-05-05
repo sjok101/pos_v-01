@@ -18,10 +18,8 @@ public class tableTest {
 
     @Before
     public void setupTest() { //setup all variations of tables to test each one
-        t1 = new table(); // normal table
-        t2 = new table(); // 1 seat table
-        Ticket t = new Ticket(1);
-        t2.setTicket(t);
+        t1 = new table(1,4,"open",1,"round"); // normal table
+        t2 = new table(); // empty
     }
 
 
@@ -57,20 +55,6 @@ public class tableTest {
     }
 
     @Test
-    public void tableHasRightTicketTest() { //checks ticket set correctly
-        Ticket t = new Ticket(1);
-        t1.setTicket(t);
-        assertEquals(t, t1.tableTicket);
-    }
-
-    @Test
-    public void checkForBadTicketVariablesBeforeSettingTicket() { //checks bad ticket param  
-        Ticket t = new Ticket(4);
-        t1.setTicket(t);
-        assertEquals(null, t1.tableTicket);
-    }
-
-    @Test
     public void getCorrectTableNumberTest() { //gets correct table#  
         int x = 1;
         assertEquals(x, t1.getTableNumber());
@@ -80,13 +64,6 @@ public class tableTest {
     public void getCorrectNumberOfSeatsTest() { //  gets correct number of seats 
         int x = 6;
         assertEquals(x, t1.getNumberOfSeats());
-    }
-
-    @Test
-    public void getCorrectTicketTest1() {   //get ticket
-        Ticket t = new Ticket(1);
-        t1.setTicket(t);
-        assertEquals(t1.tableTicket, t1.getTicket());
     }
 
     @Test

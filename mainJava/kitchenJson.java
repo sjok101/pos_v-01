@@ -14,8 +14,6 @@ import java.io.File;
 
 public class kitchenJson {
     public static void main(String[]args) throws IOException{
-        HashMap<Integer, LinkedList<Order>> order1 = new HashMap<Integer, LinkedList<Order>>();
-        HashMap<Integer, LinkedList<Order>> order2 = new HashMap<Integer, LinkedList<Order>>();
         LinkedList<Ticket> tickets = new LinkedList<Ticket>();
         Order o1 = new Order(1);
         Order o2 = new Order(1);
@@ -37,30 +35,30 @@ public class kitchenJson {
         Ticket t1 = new Ticket(1);
         o1.addDish(d1);
         o1.addDish(d2);
-        t1.addOrder(1, o1);
+        t1.addOrder(o1);
         o2.addDish(d3);
-        t1.addOrder(2, o2);
+        t1.addOrder(o2);
         o3.addDish(d4);
         o3.addDish(d5);
-        t1.addOrder(3, o3);
+        t1.addOrder(o3);
   
         o4.addDish(d6);
         o4.addDish(d7);
-        t1.addOrder(4, o4); 
+        t1.addOrder(o4); 
   
         //ticket 2
         Ticket t2 = new Ticket(2);
         o5.addDish(d8);
         o5.addDish(d4);
-        t2.addOrder(1, o5);
+        t2.addOrder(o5);
         o6.addDish(d3);
-        t2.addOrder(2, o6);
+        t2.addOrder(o6);
         o7.addDish(d5);
         o7.addDish(d2);
-        t2.addOrder(3, o7);
+        t2.addOrder(o7);
         o8.addDish(d1);
         o8.addDish(d2);
-        t2.addOrder(4, o8);
+        t2.addOrder(o8);
         LinkedList<kitchenTicket> kitchenJson = new LinkedList<kitchenTicket>();
         kitchen k = new kitchen();
         tickets.add(t1);

@@ -40,13 +40,15 @@ public class table {
     }
 
     public void setNumberOfSeats(int numSeats) {
-        if(numSeats <= 50 && numSeats >= 0) {
+        if(numSeats <= 100 && numSeats >= 0) {
             this.numberOfSeats = numSeats;
         }
     }
 
     public void setTicket(int t) {
-        this.tableTicketID = t;
+        if(t >= 0) {
+            this.tableTicketID = t;
+        }
     }
 
     public String getStatus() {
