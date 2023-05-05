@@ -97,7 +97,7 @@ class Ticket {
         return this.orders.add(ordr);
     }
 
-    //remove order for ticket (void) TODO: manager verification?
+    //remove order for ticket (void)
     public boolean removeOrder(int seatnum, Order ordr){
         if(this.orders == null){
             return false;

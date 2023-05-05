@@ -15,11 +15,12 @@ class tableJson {
           table t3 = new table(3, 3, "yo", 5, "afaf");
           LinkedList<table> tables = new LinkedList<table>();
           LinkedList<table> tablesJson = new LinkedList<table>();
+          tableJson tj = new tableJson();
           tables.add(t1);
           tables.add(t2);
           tables.add(t3);
-          tablesToJson(tables);
-          tablesJson = getTablesJson();
+          tj.tablesToJson(tables);
+          tablesJson = tj.getTablesJson();
           
           System.out.println(tablesJson.get(1).description);
           System.out.println(tablesJson.get(0).description);
@@ -27,14 +28,14 @@ class tableJson {
 
     }
 
-    public static LinkedList<table> getTablesJson() throws IOException{
+    public LinkedList<table> getTablesJson() throws IOException{
       ObjectMapper objectMapper = new ObjectMapper();
       List<table> listtables = objectMapper.readValue(new File("mainJava/tables.json"), new TypeReference<List<table>>(){});
       LinkedList<table> tables = new LinkedList<table>(listtables);
       return tables;
     }
 
-    public static void tablesToJson(LinkedList<table> tables) throws IOException{
+    public void tablesToJson(LinkedList<table> tables) throws IOException{
       ObjectMapper tableMapper = new ObjectMapper();
       tableMapper.writeValue(new File("mainJava/tables.json"), tables);
     }

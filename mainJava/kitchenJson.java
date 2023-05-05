@@ -1,19 +1,16 @@
 
 import java.io.IOException;
 
-import java.io.FileNotFoundException;
-
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import java.util.*;
-import java.util.Scanner;
 import java.io.File;
 
 public class kitchenJson {
     public static void main(String[]args) throws IOException{
+        kitchenJson kj = new kitchenJson();
         LinkedList<Ticket> tickets = new LinkedList<Ticket>();
         Order o1 = new Order(1);
         Order o2 = new Order(1);
@@ -68,8 +65,8 @@ public class kitchenJson {
         for(int i = 0; kit.size() > i; i++) {
             System.out.println(kit.get(i).getOrderString());
         }
-        KitchenTicketsToJson(k.getKitchenTickets());
-        kitchenJson = getKitchenTicketsJson();
+        kj.KitchenTicketsToJson(k.getKitchenTickets());
+        kitchenJson = kj.getKitchenTicketsJson();
         if(kitchenJson.size() > 0) {
             System.out.println(kitchenJson.get(0).getOrderString());
             System.out.println(kitchenJson.get(1).getOrderString());
@@ -79,26 +76,26 @@ public class kitchenJson {
         }
 
   }
-    public static LinkedList<Ticket> getActiveTicketsJson() throws IOException{
+    public LinkedList<Ticket> getActiveTicketsJson() throws IOException{
         ObjectMapper objectMapper = new ObjectMapper();
         List<Ticket> listTickets = objectMapper.readValue(new File("mainJava/activeTickets.json"), new TypeReference<List<Ticket>>(){});
         LinkedList<Ticket> activeTickets = new LinkedList<Ticket>(listTickets);
         return activeTickets;
       }
   
-      public static void activeTicketsToJson(LinkedList<Ticket> tickets) throws IOException{
+      public void activeTicketsToJson(LinkedList<Ticket> tickets) throws IOException{
         ObjectMapper activeTicketMapper = new ObjectMapper();
         activeTicketMapper.writeValue(new File("mainJava/activeTickets.json"), tickets);
       }
 
-      public static LinkedList<kitchenTicket> getKitchenTicketsJson() throws IOException{
+      public LinkedList<kitchenTicket> getKitchenTicketsJson() throws IOException{
         ObjectMapper objectMapper = new ObjectMapper();
         List<kitchenTicket> listTickets = objectMapper.readValue(new File("mainJava/kitchenTickets.json"), new TypeReference<List<kitchenTicket>>(){});
         LinkedList<kitchenTicket> KitchenTickets = new LinkedList<kitchenTicket>(listTickets);
         return KitchenTickets;
       }
   
-      public static void KitchenTicketsToJson(LinkedList<kitchenTicket> tickets) throws IOException{
+      public void KitchenTicketsToJson(LinkedList<kitchenTicket> tickets) throws IOException{
         ObjectMapper activeTicketMapper = new ObjectMapper();
         activeTicketMapper.writeValue(new File("mainJava/kitchenTickets.json"), tickets);
       }
