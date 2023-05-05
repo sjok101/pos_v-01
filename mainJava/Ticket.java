@@ -21,7 +21,7 @@ class Ticket {
     private String closingTime;
     private Ticketstatus status;
     private int priority;
-    private HashMap<Integer, LinkedList<Order>> orders;
+    private LinkedList<Order> orders;
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
 
     //constructor for Ticket
@@ -29,15 +29,14 @@ class Ticket {
         this.tableNum = tblnum;
         LocalDateTime now = LocalDateTime.now();
         this.creationTime = dtf.format(now);
-        this.orders = new HashMap<Integer, LinkedList<Order>>();
+        this.orders = new LinkedList<Order>();
     }
 
-    public Ticket(int tblnum, HashMap<Integer, LinkedList<Order>> ordrs){
+    public Ticket(int tblnum, LinkedList<Order> ordrs){
         this.tableNum = tblnum;
         LocalDateTime now = LocalDateTime.now();
         this.creationTime = dtf.format(now);
         this.orders = ordrs;
-        this.orders = new HashMap<Integer, LinkedList<Order>>();
     }
 
     // getters/setters
@@ -90,27 +89,22 @@ class Ticket {
         return this.closingTime;
     }
 
-    public HashMap<Integer, LinkedList<Order>> getOrders(){
+    public LinkedList<Order> getOrders(){
         return this.orders;
     }
 
     //adds order to ticket
     public boolean addOrder(int seatnum, Order ordr){
-        if(this.orders.get(seatnum).size() == 0){
-            LinkedList<Order> orderlist = new LinkedList<>();
-            this.total += ordr.getTotal();
-            return orderlist.add(ordr);
-        }
         this.total += ordr.getTotal();
-        return this.orders.get(seatnum).add(ordr);
+        return this.orders.add(ordr);
     }
 
     //remove order for ticket (void) TODO: manager verification?
     public boolean removeOrder(int seatnum, Order ordr){
-        if(this.orders.get(seatnum) == null){
+        if(this.orders == null){
             return false;
         }
-        if(this.orders.get(seatnum).remove(ordr) == true){
+        if(this.orders.remove(ordr) == true){
             this.total -= ordr.getTotal();
             return true;
         }

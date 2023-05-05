@@ -30,31 +30,28 @@ public class kitchen {
             k.setPriority(t.getPriority());
             k.settableNum(t.getTableNum());
             k.setTicketid(t.getTicketID());
-            HashMap<Integer,LinkedList<Order>> o = t.getOrders();
+            LinkedList<Order> o = t.getOrders();
             System.out.println("here 2  " + o.size());
-            for(LinkedList<Order> orders: o.values()) {
-                System.out.println("here 3  " + orders.size());
-                for(Order order: orders) {
-                System.out.println("here 4");
-                    if(order.getDishes() != null) {
-                        LinkedList<Dish> d = order.getDishes();
-                        for(Dish dish: d) {
-                            System.out.println("here 5");
-                            if(dish.getName() != null) {
-                                if(firstIteration == false) {
-                                    printedOrders +=";";
-                                }
-                                if(dish.getDescription() != null) {
-                                    printedOrders += dish.getName() + "," + dish.getDescription();
-                                }
-                                else {
-                                    printedOrders += dish.getName();
-                                }
+            for(Order order: o) {
+            System.out.println("here 4");
+                if(order.getDishes() != null) {
+                    LinkedList<Dish> d = order.getDishes();
+                    for(Dish dish: d) {
+                        System.out.println("here 5");
+                        if(dish.getName() != null) {
+                            if(firstIteration == false) {
+                                printedOrders +=";";
                             }
-                            firstIteration = false;
+                            if(dish.getDescription() != "") {
+                                printedOrders += dish.getName() + "," + dish.getDescription();
+                            }
+                            else {
+                                printedOrders += dish.getName();
+                            }
                         }
+                        firstIteration = false;
                     }
-               }
+                }
             }
             firstIteration = true;
             k.setOrderString(printedOrders);
@@ -63,15 +60,4 @@ public class kitchen {
         }  
         
     }
-
-    public void completeTicket(int ticketID) {
-        for(kitchenTicket k: ktickets) {
-            if(k.getTicketid() == ticketID) {
-                this.ktickets.remove(k);
-                break; 
-            }
-        }
-    }
-
-
 }
