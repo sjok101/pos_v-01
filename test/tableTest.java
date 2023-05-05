@@ -1,10 +1,7 @@
 
-import java.util.*;
-import java.util.regex.*;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.Test.*;
 
 
 
@@ -13,13 +10,11 @@ import static org.junit.Assert.*;
 public class tableTest {
 
     private table t1 = null;
-    private table t2 = null;
 
 
     @Before
     public void setupTest() { //setup all variations of tables to test each one
-        t1 = new table(1,4,"open",1,"round"); // normal table
-        t2 = new table(); // empty
+        t1 = new table(1,4,"open",1,"round"); 
     }
 
 

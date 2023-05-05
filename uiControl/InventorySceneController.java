@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 public class InventorySceneController {
     private Stage stage;
     private Scene scene;
-    private Parent root;
 
     public void switchToMainMenuInScene(ActionEvent event) {
         try {

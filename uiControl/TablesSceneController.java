@@ -20,7 +20,6 @@ import java.util.*;
 public class TablesSceneController implements Initializable{
     private Stage stage;
     private Scene scene;
-    private Parent root;
 
     @FXML private TableView<table> tableview;
     @FXML private TableColumn<table,Integer> tableNumCol;

@@ -11,7 +11,6 @@ import java.io.IOException;
 public class MainMenuSceneController {
     private Stage stage;
     private Scene scene;
-    private Parent root;
 
     @FXML
     private Label name;
