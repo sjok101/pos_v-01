@@ -27,6 +27,8 @@ class Ticket{
 
     //TODO: MAIN MUST CALCULATE UNIQUE TICKET ID
 
+
+
     //constructor for Ticket
     public Ticket(int tblnum){
         if(tblnum <= 0){
@@ -185,6 +187,8 @@ class Ticket{
         return bd.doubleValue();
     }
 
-    
+    public String ordertostr(){
+        return this.orders.toString();
+    }    
 
 }
