@@ -11,7 +11,7 @@ class testJson {
     public static void main(String[]args) throws IOException{
         String test = "";
         try {
-            File myObj = new File("test.json");
+            File myObj = new File("mainJava/test.json");
             Scanner myReader = new Scanner(myObj);
             myReader.useDelimiter("\n");
             while (myReader.hasNext()) {
