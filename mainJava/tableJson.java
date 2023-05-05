@@ -30,14 +30,14 @@ class tableJson {
 
     public LinkedList<table> getTablesJson() throws IOException{
       ObjectMapper objectMapper = new ObjectMapper();
-      List<table> listtables = objectMapper.readValue(new File("mainJava/tables.json"), new TypeReference<List<table>>(){});
+      List<table> listtables = objectMapper.readValue(new File("saves/tables.json"), new TypeReference<List<table>>(){});
       LinkedList<table> tables = new LinkedList<table>(listtables);
       return tables;
     }
 
     public void tablesToJson(LinkedList<table> tables) throws IOException{
       ObjectMapper tableMapper = new ObjectMapper();
-      tableMapper.writeValue(new File("mainJava/tables.json"), tables);
+      tableMapper.writeValue(new File("saves/tables.json"), tables);
     }
     
 }

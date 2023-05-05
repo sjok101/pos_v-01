@@ -1,6 +1,6 @@
-
-
 import java.io.IOException;
+import java.util.HashMap;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,8 +9,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class loginController {
-
-
+ 
+    
     public void login(){}
 
     @FXML
@@ -27,11 +27,10 @@ public class loginController {
     }
 
     private void authenticate() throws IOException{
-        PosMenu a = new PosMenu();
-        if(user.getText().toString().equals("test") && pass.getText().toString().equals("foo")) {
-            wrongLogin.setText("Success");
-            
-            a.changeScene("MainMenuScene.fxml");
+        PosMenu p = new PosMenu();
+        if (parse.authUserPass(user.getText().toString(), pass.getText().toString())){
+            wrongLogin.setText("Login Success");
+            p.changeScene("MainMenuScene.fxml");
         }
         else if (user.getText().isEmpty() && pass.getText().isEmpty()){
             wrongLogin.setText("Please enter your data!");
@@ -39,5 +38,7 @@ public class loginController {
         else{
             wrongLogin.setText("Wrong user or pass!");
         }
+        
+    
     }    
 }

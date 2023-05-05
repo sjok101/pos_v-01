@@ -78,25 +78,25 @@ public class kitchenJson {
   }
     public LinkedList<Ticket> getActiveTicketsJson() throws IOException{
         ObjectMapper objectMapper = new ObjectMapper();
-        List<Ticket> listTickets = objectMapper.readValue(new File("mainJava/activeTickets.json"), new TypeReference<List<Ticket>>(){});
+        List<Ticket> listTickets = objectMapper.readValue(new File("saves/activeTickets.json"), new TypeReference<List<Ticket>>(){});
         LinkedList<Ticket> activeTickets = new LinkedList<Ticket>(listTickets);
         return activeTickets;
       }
   
       public void activeTicketsToJson(LinkedList<Ticket> tickets) throws IOException{
         ObjectMapper activeTicketMapper = new ObjectMapper();
-        activeTicketMapper.writeValue(new File("mainJava/activeTickets.json"), tickets);
+        activeTicketMapper.writeValue(new File("saves/activeTickets.json"), tickets);
       }
 
       public LinkedList<kitchenTicket> getKitchenTicketsJson() throws IOException{
         ObjectMapper objectMapper = new ObjectMapper();
-        List<kitchenTicket> listTickets = objectMapper.readValue(new File("mainJava/kitchenTickets.json"), new TypeReference<List<kitchenTicket>>(){});
+        List<kitchenTicket> listTickets = objectMapper.readValue(new File("saves/kitchenTickets.json"), new TypeReference<List<kitchenTicket>>(){});
         LinkedList<kitchenTicket> KitchenTickets = new LinkedList<kitchenTicket>(listTickets);
         return KitchenTickets;
       }
   
       public void KitchenTicketsToJson(LinkedList<kitchenTicket> tickets) throws IOException{
         ObjectMapper activeTicketMapper = new ObjectMapper();
-        activeTicketMapper.writeValue(new File("mainJava/kitchenTickets.json"), tickets);
+        activeTicketMapper.writeValue(new File("saves/kitchenTickets.json"), tickets);
       }
 }

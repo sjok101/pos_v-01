@@ -7,6 +7,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import java.io.IOException;
+import java.io.File;
+import java.util.LinkedList;
+import java.util.List;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import com.fasterxml.jackson.core.exc.StreamReadException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DatabindException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.scene.control.Label;
+import javafx.fxml.FXML;
 
 public class MainMenuSceneController {
     private Stage stage;
@@ -22,18 +35,37 @@ public class MainMenuSceneController {
         a.changeScene("login.fxml");
      }
 
-     public void clockInOut(){
+     public void clockInOut() throws StreamReadException, DatabindException, IOException{
+        final JFrame parent = new JFrame();
+        String pin = JOptionPane.showInputDialog(parent, "Enter your pin.", null);
+            
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<employeeJson> listLog = objectMapper.readValue(new File("saves/employee.json"), new TypeReference<List<employeeJson>>(){});
+        LinkedList<employeeJson> logJ = new LinkedList<employeeJson>(listLog);
         
-        if (name.getText().isEmpty()){
-            //set clock time
-            name.setText("Foo Man");
-            position.setText("Chef");
-        }else {
-            //set clock time
-            name.setText("");
-            position.setText("");
+        for (int i = 0; i<logJ.size(); i++){
+        
+            if (logJ.get(i).getPin().equals(pin) ){
+                if(!logJ.get(i).getClocked()){
+                    name.setText(logJ.get(i).getFirstName() + " " + logJ.get(i).getLastName());
+                    position.setText(logJ.get(i).getPosition() );
+                    logJ.get(i).setClocked(true);
+                    System.out.println(logJ.get(i).getClocked());
+
+            }
+                else{
+                logJ.get(i).setClocked(false);
+                name.setText("");
+                position.setText("");
+            }
+            }
         }
+
+        ObjectMapper tableMapper = new ObjectMapper();
+        tableMapper.writeValue(new File("saves/employee.json"), logJ);
+        
     }
+
 
     public void switchToDineInScene(ActionEvent event) {
         try {
