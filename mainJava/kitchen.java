@@ -39,7 +39,7 @@ public class kitchen {
                 k.setPriority(t.getPriority());
                 k.settableNum(t.getTableNum());
                 k.setTicketid(t.getTicketID());
-                LinkedList<Dish> d = t.getOrders();
+                LinkedList<Dish> d = t.getDishes();
                 for(Dish dish: d) {
                     if(dish.getName() != null) {
                         if(firstIteration == false) {
