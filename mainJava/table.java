@@ -1,11 +1,11 @@
 
 public class table {
 
-    public int tableNumber;
-    public int numberOfSeats;
-    public String description;
-    public int tableTicketID;
-    public String status;
+    private int tableNumber;
+    private int numberOfSeats;
+    private String description;
+    private int tableTicketID;
+    private String status;
 
     public table() { 
         this.tableNumber = 0;

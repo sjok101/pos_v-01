@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "kitchenJsonTest",
+            "request": "launch",
+            "mainClass": "kitchenJsonTest",
+            "projectName": "pos_v-01_b91575cc"
+        },
+        {
+            "type": "java",
+            "name": "tableJsonTest",
+            "request": "launch",
+            "mainClass": "tableJsonTest",
+            "projectName": "pos_v-01_b91575cc"
+        },
+        {
+            "type": "java",
             "name": "ticketJson",
             "request": "launch",
             "mainClass": "ticketJson",

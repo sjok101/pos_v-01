@@ -22,9 +22,9 @@ class tableJson {
           tj.tablesToJson(tables);
           tablesJson = tj.getTablesJson();
           
-          System.out.println(tablesJson.get(1).description);
-          System.out.println(tablesJson.get(0).description);
-          System.out.println(tablesJson.get(2).description);
+          System.out.println(tablesJson.get(1).getDescription());
+          System.out.println(tablesJson.get(0).getDescription());
+          System.out.println(tablesJson.get(2).getDescription());
 
     }
 

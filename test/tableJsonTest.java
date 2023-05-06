@@ -33,14 +33,14 @@ public class tableJsonTest {
             assertEquals(4,tables.size());
             tj.tablesToJson(tables); 
             tablesJson = tj.getTablesJson();
-            assertEquals("available", tablesJson.get(0).description);
-            assertEquals("open", tablesJson.get(0).status);
-            assertEquals("occupied", tablesJson.get(1).description);
-            assertEquals("full", tablesJson.get(1).status);
-            assertEquals("reserved", tablesJson.get(2).description);
-            assertEquals("reserved for a family", tablesJson.get(2).status);
-            assertEquals("broken", tablesJson.get(3).description);
-            assertEquals("broken table", tablesJson.get(3).status);
+            assertEquals("available", tablesJson.get(0).getDescription());
+            assertEquals("open", tablesJson.get(0).getStatus());
+            assertEquals("occupied", tablesJson.get(1).getDescription());
+            assertEquals("full", tablesJson.get(1).getStatus());
+            assertEquals("reserved for a family", tablesJson.get(2).getDescription());
+            assertEquals("reserved", tablesJson.get(2).getStatus());
+            assertEquals("broken table", tablesJson.get(3).getDescription());
+            assertEquals("broken", tablesJson.get(3).getStatus());
         }catch(IOException e) {
             e.printStackTrace();
         }
@@ -55,8 +55,8 @@ public class tableJsonTest {
             tables.add(t2);
             tj.tablesToJson(tables); 
             tablesJson = tj.getTablesJson();
-            assertEquals("occupied", tablesJson.get(0).description);
-            assertEquals("full", tablesJson.get(0).status);
+            assertEquals("occupied", tablesJson.get(0).getDescription());
+            assertEquals("full", tablesJson.get(0).getStatus());
         }catch(IOException e) {
             e.printStackTrace();
         } 
@@ -75,4 +75,8 @@ public class tableJsonTest {
         }
         assertEquals(0, tablesJson.size());
     }
+
+    public static void main(String args[]) {
+		org.junit.runner.JUnitCore.main("tableJsonTest");
+	}
 }
