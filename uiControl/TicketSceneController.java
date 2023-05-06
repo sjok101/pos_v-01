@@ -18,7 +18,6 @@ import javafx.fxml.Initializable;
 public class TicketSceneController implements Initializable{
     private Stage stage;
     private Scene scene;
-    private Ticket tik = new Ticket(99);
     private int tableNumber = 0;
     private int Ticketid = 0;
     private boolean editTicket = false;

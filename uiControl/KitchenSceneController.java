@@ -70,9 +70,13 @@ public class KitchenSceneController implements Initializable{
         kitchenTicket k = kitchenview.getSelectionModel().getSelectedItem();
         kitchenview.getItems().removeAll(kitchenview.getSelectionModel().getSelectedItem());
         kitchenview.refresh();
+        int kTable = 0;
+        int tickID = 0;
         for(kitchenTicket ta: currTickets) {
             if(ta.equals(k) == true) {
                 currTickets.remove(k);
+                kTable = ta.getTableNum();
+                tickID = ta.getTicketid();
                 try {
                     kj.KitchenTicketsToJson(currTickets);
                 }
@@ -81,6 +85,35 @@ public class KitchenSceneController implements Initializable{
                 }
                 break;
             }
+        }
+        ticketJson tj = new ticketJson();
+        try {
+            LinkedList<Ticket> tickets = tj.getTicketsJson();
+            LinkedList<Ticket> oldTickets = tj.getDoneTicketsJson();
+            for(Ticket t: tickets) {
+                if(t.getTicketID() == tickID && t.getTableNum() == kTable) {
+                    tickets.remove(t);
+                    t.closeTicket();
+                    oldTickets.add(t);
+                    tj.doneTicketsToJson(oldTickets);
+                    tj.ticketsToJson(tickets);
+                    break;
+                }
+            }
+            tableJson tja = new tableJson();
+            LinkedList<table> tables = tja.getTablesJson();
+            for(table t: tables) {
+                if(t.getTicket() == tickID && t.getTableNumber() == kTable) {
+                    tables.remove(t);
+                    t.setTicket(0);
+                    tables.add(t);
+                    tja.tablesToJson(tables);
+                    break;
+                }
+            }
+
+        } catch(IOException e) {
+            e.printStackTrace();
         }
     }
 }

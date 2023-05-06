@@ -107,6 +107,14 @@ class Ticket{
         this.priority = p;
     }
 
+    public void setClosingTime(String s){
+         this.closingTime = s;
+    }
+
+    public void setCreationTime(String s){
+         this.creationTime = s;
+    }
+
     public int getTableNum(){
         return this.tableNum;
     }
