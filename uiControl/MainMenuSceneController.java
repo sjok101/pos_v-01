@@ -36,6 +36,7 @@ public class MainMenuSceneController {
         final JFrame parent = new JFrame();
         String pin = JOptionPane.showInputDialog(parent, "Enter your pin.", null);
             
+        //read
         ObjectMapper objectMapper = new ObjectMapper();
         List<employeeJson> listLog = objectMapper.readValue(new File("saves/employee.json"), new TypeReference<List<employeeJson>>(){});
         LinkedList<employeeJson> logJ = new LinkedList<employeeJson>(listLog);
@@ -57,7 +58,7 @@ public class MainMenuSceneController {
             }
             }
         }
-
+        //write
         ObjectMapper tableMapper = new ObjectMapper();
         tableMapper.writeValue(new File("saves/employee.json"), logJ);
         
