@@ -1,4 +1,3 @@
-import java.util.*;
 public class table {
 
     public int tableNumber;
@@ -7,9 +6,9 @@ public class table {
     public int tableTicketID;
     public String status;
 
-    public table(int tNum, int sNum) { 
-        this.tableNumber = tNum;
-        this.numberOfSeats = sNum;
+    public table() { 
+        this.tableNumber = 0;
+        this.numberOfSeats = 0;
         this.status = "";
         this.tableTicketID = 0;
         this.description = "";
@@ -39,13 +38,15 @@ public class table {
     }
 
     public void setNumberOfSeats(int numSeats) {
-        if(numSeats <= 50 && numSeats >= 0) {
+        if(numSeats <= 100 && numSeats >= 0) {
             this.numberOfSeats = numSeats;
         }
     }
 
     public void setTicket(int t) {
-        this.tableTicketID = t;
+        if(t >= 0) {
+            this.tableTicketID = t;
+        }
     }
 
     public String getStatus() {

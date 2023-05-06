@@ -1,11 +1,9 @@
 
-import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.stage.*;
-
+import java.io.IOException;
 
 
 public class PosMenu extends Application{

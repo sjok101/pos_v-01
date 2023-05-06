@@ -1,6 +1,11 @@
 
-import java.io.File;
+import javafx.application.Platform;
+import javafx.event.*;
+import javafx.scene.*;
+import javafx.stage.*;
+import javafx.fxml.FXMLLoader;
 import java.io.IOException;
+import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,32 +16,27 @@ import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import javafx.event.*;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 
-
 public class MainMenuSceneController {
-
-
-
+    private Stage stage;
+    private Scene scene;
 
     @FXML
     private Label name;
     @FXML
     private Label position;
-    
-    public void logOut(ActionEvent event) throws IOException{
-       PosMenu p = new PosMenu();
-       p.changeScene("login.fxml");
-    }
 
-    public void clockInOut() throws StreamReadException, DatabindException, IOException{
+    public void logOut(ActionEvent event) throws IOException{
+        PosMenu a = new PosMenu();
+        a.changeScene("login.fxml");
+     }
+
+     public void clockInOut() throws StreamReadException, DatabindException, IOException{
         final JFrame parent = new JFrame();
         String pin = JOptionPane.showInputDialog(parent, "Enter your pin.", null);
             
-        //read
         ObjectMapper objectMapper = new ObjectMapper();
         List<employeeJson> listLog = objectMapper.readValue(new File("saves/employee.json"), new TypeReference<List<employeeJson>>(){});
         LinkedList<employeeJson> logJ = new LinkedList<employeeJson>(listLog);
@@ -58,7 +58,6 @@ public class MainMenuSceneController {
             }
             }
         }
-        //write
         ObjectMapper tableMapper = new ObjectMapper();
         tableMapper.writeValue(new File("saves/employee.json"), logJ);
         

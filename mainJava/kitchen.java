@@ -1,62 +1,60 @@
+
 import java.util.*;
+
 
 //waiting for ui functions to continue
 public class kitchen {
+    private LinkedList<kitchenTicket> ktickets = null;
 
-    public LinkedList<Ticket> tickets = null;
 
-
-    public kitchen() { //Constructor?
-        this.tickets = new LinkedList<Ticket>();
+    public kitchen() { 
+        this.ktickets = new LinkedList<kitchenTicket>();
     }
 
-    public void addTicket(Ticket t) {
-        this.tickets.add(t);
+    public kitchen(LinkedList<kitchenTicket> kt) { 
+        this.ktickets = kt;
+    }
+    
+    public LinkedList<kitchenTicket> getKitchenTickets() {
+        if(this.ktickets == null) {
+            return null;
+        }
+        else if(this.ktickets.size() <= 0) {
+            return null;
+        }
+        return this.ktickets;
     }
 
-    public ArrayList<String> printTickets() {
-        ArrayList<String> printedTickets = new ArrayList<String>();
-        String printedOrders = "";
-        boolean validOrder = false;
-        for(Ticket t: tickets) {
-            validOrder = false;
-            printedOrders = t.getCreationTime() + ":" + t.getPriority() +":" +t.getTableNum() + ":" + t.getTotal();
-            Hashtable<Integer,LinkedList<Order>> o = t.getOrders();
-            Set<Integer> orderNumSet = o.keySet();
-            for(int oNum: orderNumSet) {
-               LinkedList<Order> orders = o.get(oNum);
-               for(Order order: orders) {
-                    if(order.getDishes() != null) {
-                        printedOrders +=":" + order.getOrderID();
-                        LinkedList<Dish> d = order.getDishes();
-                        for(Dish dish: d) {
-                            if(dish.getName() != null) {
-                                validOrder = true;
-                                printedOrders +=";";
-                                if(dish.getDescription() == null) {
-                                    printedOrders += dish.getName() + "," + dish.getDescription();
-                                }
-                                else {
-                                    printedOrders += dish.getName();
-                                }
-                            }
+    public void setKitchenTickets(LinkedList<kitchenTicket> k) {
+        this.ktickets = k;
+    }
 
+    public void ticketsToKitchenTickets(LinkedList<Ticket> tickets) {
+        if(tickets != null) {
+            String printedOrders = "";
+            boolean firstIteration = true;
+            for(Ticket t: tickets) {
+                kitchenTicket k = new kitchenTicket();
+                k.setCreationTime(t.getCreationTime().toString());
+                k.setPriority(t.getPriority());
+                k.settableNum(t.getTableNum());
+                k.setTicketid(t.getTicketID());
+                LinkedList<Dish> d = t.getDishes();
+                for(Dish dish: d) {
+                    if(dish.getName() != null) {
+                        if(firstIteration == false) {
+                            printedOrders +=",";
                         }
+                        printedOrders += dish.getName();
+                        
                     }
-               }
+                    firstIteration = false;
+                }   
+                firstIteration = true;
+                k.setOrderString(printedOrders);
+                printedOrders = "";
+                this.ktickets.add(k);
             }
-            if(validOrder == true) {
-                printedTickets.add(printedOrders);
-            }
-            printedOrders = "";
-        }  
-        return printedTickets;
+        }      
     }
-
-    public boolean completeTicket(Ticket t) {
-        Boolean completed = this.tickets.remove(t);
-        return completed;
-    }
-
-
 }
