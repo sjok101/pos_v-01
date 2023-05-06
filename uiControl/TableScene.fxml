@@ -22,7 +22,7 @@
                 <TableColumn fx:id="seatsCol" prefWidth="51.0" text="Seats" />
                   <TableColumn fx:id="ticketCol" prefWidth="89.0" text="TicketID" />
                   <TableColumn fx:id="descriptionCol" prefWidth="827.0" text="Description" />
-                  <TableColumn fx:id="statusCol" minWidth="0.0" prefWidth="86.0" text="TableStatus" />
+                  <TableColumn fx:id="statusCol" minWidth="0.0" prefWidth="109.0" text="TableStatus" />
               </columns>
             </TableView>
          </children></AnchorPane>
