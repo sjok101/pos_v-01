@@ -53,7 +53,7 @@ public class TicketSceneController implements Initializable{
             for(Ticket t: tickets) {
                 if(t.getTableNum() == tableNumber && t.getTicketID() == Ticketid && 0 != Ticketid) {
                     editTicket = true;
-                    d = t.getOrders();
+                    d = t.getDishes();
                     break;
                 }
             }

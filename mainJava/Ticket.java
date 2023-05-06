@@ -18,7 +18,7 @@ class Ticket{
     private String closingTime;
     private boolean togo;
     private int priority;
-    private LinkedList<Dish> orders;
+    private LinkedList<Dish> dishes;
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");  
     //constructor for Ticket
     public Ticket(int tblnum){
@@ -35,7 +35,7 @@ class Ticket{
             this.tableNum = tblnum;
             LocalDateTime now = LocalDateTime.now();
             this.creationTime = dtf.format(now);
-            this.orders = new LinkedList<Dish>();
+            this.dishes = new LinkedList<Dish>();
             this.total = 0;
             Random r = new Random();
             this.ticketID = r.nextInt(100);
@@ -59,7 +59,7 @@ class Ticket{
             this.tableNum = tblnum;
             LocalDateTime now = LocalDateTime.now();
             this.creationTime = dtf.format(now);
-            this.orders = ordrs;
+            this.dishes = ordrs;
             this.total = 0;
             Random r = new Random();
             this.ticketID = r.nextInt(100);
@@ -137,8 +137,8 @@ class Ticket{
         return this.closingTime;
     }
 
-    public LinkedList<Dish> getOrders(){
-        return this.orders;
+    public LinkedList<Dish> getDishes(){
+        return this.dishes;
     }
 
     public boolean getTogo(){
@@ -149,7 +149,7 @@ class Ticket{
     //adds order to ticket
     public boolean addDish(Dish ordr){
         if(ordr != null){
-            this.orders.add(ordr);
+            this.dishes.add(ordr);
             this.total += ordr.getPrice();
             return true;
         }
@@ -159,7 +159,7 @@ class Ticket{
     //remove order for ticket (void)
     public boolean removeDish(Dish ordr){
         if(ordr != null){
-            this.orders.remove(ordr);
+            this.dishes.remove(ordr);
             this.total -= ordr.getPrice();
             return true;
         }
@@ -179,10 +179,5 @@ class Ticket{
         BigDecimal bd = BigDecimal.valueOf(value);
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
-    }
-
-    public String ordertostr(){
-        return this.orders.toString();
-    }    
-
+    }  
 }

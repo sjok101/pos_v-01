@@ -60,7 +60,7 @@ public class ticketJson {
             jt.setTableNum(String.valueOf(t.getTableNum()));
             jt.setTicketID(String.valueOf(t.getTicketID()));
             jt.setCreationTime(String.valueOf(t.getCreationTime()));
-            LinkedList<Dish> dishs = t.getOrders();
+            LinkedList<Dish> dishs = t.getDishes();
             int counter = dishs.size();
             for(Dish d: dishs) {
                 order += d.name + ":";
@@ -116,7 +116,7 @@ public class ticketJson {
             jt.setTicketID(String.valueOf(t.getTicketID()));
             jt.setCreationTime(String.valueOf(t.getCreationTime()));
             jt.setClosingTime(t.getClosingTime());
-            LinkedList<Dish> dishs = t.getOrders();
+            LinkedList<Dish> dishs = t.getDishes();
             int counter = dishs.size();
             for(Dish d: dishs) {
                 order += d.name + ":";
