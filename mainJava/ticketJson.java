@@ -139,7 +139,9 @@ public class ticketJson {
       public LinkedList<jsonTicket> getTicketsHistory() throws IOException{
         ObjectMapper objectMapper = new ObjectMapper();
         List<jsonTicket> listtables = objectMapper.readValue(new File("saves/oldTickets.json"), new TypeReference<List<jsonTicket>>(){});
-        LinkedList<jsonTicket> tables = new LinkedList<jsonTicket>(listtables);
-        return tables;
+        if(listtables == null) {
+            return new LinkedList<jsonTicket>();
+        } 
+        return new LinkedList<jsonTicket>(listtables);
       }
 }
