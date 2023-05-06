@@ -1,123 +1,85 @@
-import java.util.*;
-import java.time.LocalTime;
- 
 
-public class employee {
-	
-	int id;
-	String name;
-	String position;
-	double wage;
-	double hour;
-	
-	boolean clocked;
-	String timeIn, timeOut;
-	
-	ArrayList<employee> EmployeeList = new ArrayList<>();
-	
-	Scanner scan = new Scanner(System.in);
-	
-	employee(){
-		name = "";
-		position = "";
-		id = 0; 
-		wage = 0;
-		hour = 0;
-		
-	}
-	employee(String name,String position, int id, double wage, double hour){
-		this.name = name;
-		this.position = position;
-		this.id = id;
-		this.wage = wage;
-		this.hour = hour;
-		
-	}
-	
-	void updateProfile() {
-		
-		String newName, newPosition, newID, newWage;
-		
-		System.out.println("Update empolyee's name:");
-		newName = scan.nextLine();
-		
-		System.out.println("Update empolyee's position:");
-		newPosition = scan.nextLine();
-		
-		System.out.println("Update empolyee's ID:");
-		newID = scan.nextLine();
-		
-		System.out.println("Update empolyee's wage:");
-		newWage = scan.nextLine();
-		
-		if(newName != "")
-			this.name = newName;
-		if(newPosition != "")
-			this.position = newPosition;
-		if(newID != "")
-			this.id = Integer.parseInt(newID);
-		if(newWage != "")
-			this.wage = Double.parseDouble(newWage);
 
-	//SET METHODS----------------------------------------------------------------
-	}
-	void setName(String name){
-		this.name = name;
-	}
-	void setID(int id) {
-		this.id = id;
-	}
-	void setPosition(String position) {
-		this.position = position;
-	}
-	void setWage(double wage) {
-		this.wage = wage;
-	}
-	void setHour(double hour)
-	{
-		this.hour = hour;
-	}
-	//GET METHODS -----------------------------------------------------------------
-	String getName() {
-		return this.name;
-	}
-	int getID() {
-		return this.id;
-	}
-	String getPosition() {
-		return this.position;
-	}
-	Double getWage() {
-		return this.wage;
-	}
-	Double getHour() {
-		return this.hour;
-	}
-	
-	void addEmp(employee newEmp) {
-		EmployeeList.add(newEmp);
-	}
-	
-	void removeEmp(employee emp) {
-		EmployeeList.remove(emp);
-	}
-	
-	ArrayList<employee> empList()
-	{
-		return EmployeeList;
-	}
-	
-	void clock_in() {
-		this.clocked = true;
-		LocalTime currentTime = LocalTime.now();
-		this.timeIn = currentTime.toString();
+import javafx.beans.property.SimpleStringProperty;
 
-	}
-	void clock_out() {
-		this.clocked = false;
-		LocalTime currentTime = LocalTime.now();
-		this.timeOut = currentTime.toString();
+import java.util.UUID;
 
-	}
-		
+public class Employee {
+    public String id;
+    public  String first;
+    public  String last;
+    public  String position;
+    public  String phone;
+    public  String email;
+    public  String address;
+
+    public Employee(){
+        
+    }
+
+    public Employee(String id,String first, String last, String position, String phone, String email, String address) {
+        this.id = id;
+        this.first =  first;
+        this.last = last;
+        this.position =  position;
+        this.phone =  phone;
+        this.email =  email;
+        this.address =  address;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getFirst() {
+        return first;
+    }
+
+    public void setFirst(String first) {
+        this.first = first;
+    }
+
+    public String getLast() {
+        return last;
+    }
+
+    public void setLast(String last) {
+        this.last = last;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }

@@ -14,6 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javafx.event.*;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.fxml.FXML;
 
 
@@ -26,6 +27,7 @@ public class MainMenuSceneController {
     private Label name;
     @FXML
     private Label position;
+    
     
     public void logOut(ActionEvent event) throws IOException{
        PosMenu p = new PosMenu();
@@ -96,6 +98,7 @@ public class MainMenuSceneController {
     }
 
     public void switchToOverviewScene(ActionEvent event) {
+        System.out.println("Hello");
         try {
             PosMenu p = new PosMenu();
             p.changeScene("OverviewScene.fxml");
