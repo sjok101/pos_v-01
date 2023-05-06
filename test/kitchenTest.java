@@ -16,10 +16,11 @@ public class kitchenTest {
     Ticket t2 = null;
     Ticket t3 = null;
     Ticket t4 = null;
+    kitchenTicket kt = null;
 
     @Before
     public void setupTest() {
-       
+        kt = new kitchenTicket("9:00", 1, 2, 3, "fries,burger");
         tickets = new LinkedList<Ticket>();
         Dish d1 = new Dish("apples", 0);
         Dish d2 = new Dish("orange", 0);
@@ -111,6 +112,56 @@ public class kitchenTest {
         k.ticketsToKitchenTickets(tickets);
         assertNull(k.getKitchenTickets());
     }
+
+    @Test
+    public void kitchenTicketGetAndCreationTime() {
+        assertEquals("9:00", kt.getCreationTime());
+        kt.setCreationTime("5:00");
+        assertEquals("", kt.getCreationTime());
+    }
+
+    @Test
+    public void kitchenTicketGetAndSetorderString() {
+        assertEquals("fries,burger", kt.getOrderString());
+        kt.setOrderString("water");
+        assertEquals("water", kt.getOrderString());
+    }
+
+    @Test
+    public void kitchenTicketGetAndSetPriority() {
+        assertEquals(1, kt.getPriority());
+        kt.setPriority(5);
+        assertEquals(5, kt.getPriority());
+    }
+
+    @Test
+    public void kitchenTicketGetAndSetTicketID() {
+        assertEquals(3, kt.getTicketid());
+        kt.setTicketid(1);
+        assertEquals(1, kt.getTicketid());
+    }
+
+    @Test
+    public void kitchenTicketGetAndSetTableNumber() {
+        assertEquals(2, kt.getTableNum());
+        kt.settableNum(1);
+        assertEquals(1, kt.getTableNum());
+    }
+
+    @Test
+    public void kitchenTicketBadGetAndSetCreationTime() {
+        assertEquals("9:00", kt.getCreationTime());
+        kt.setCreationTime(null);
+        assertEquals("", kt.getCreationTime());
+    }
+
+    @Test
+    public void kitchenTicketBadGetAndSetorderString() {
+        assertEquals("fries,burger", kt.getCreationTime());
+        kt.setCreationTime(null);
+        assertEquals("", kt.getCreationTime());
+    }
+
 
     public static void main(String args[]) {
 		org.junit.runner.JUnitCore.main("kitchenTest");

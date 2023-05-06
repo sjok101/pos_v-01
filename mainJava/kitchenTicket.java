@@ -25,11 +25,21 @@ public class kitchenTicket {
     }
 
     public void setOrderString(String s) {
-        this.orderString = s;
+        if(s == null) {
+            this.orderString = "";
+        }
+        else {
+            this.orderString = s; 
+        }
     }
 
     public void setCreationTime(String s) {
-        this.creationTime = s;
+        if(s == null) {
+            this.creationTime = "";
+        }
+        else {
+            this.creationTime = s; 
+        }
     }
 
     public void setPriority(int i) {
