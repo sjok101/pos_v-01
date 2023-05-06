@@ -18,7 +18,6 @@ class Ticket{
     private double total;
     private String creationTime;
     private String closingTime;
-    private Ticketstatus status;
     private boolean togo;
     private int priority;
     //private LinkedList<Order> orders;
@@ -111,10 +110,6 @@ class Ticket{
         this.priority = p;
     }
 
-    public void setStatus(Ticketstatus ts){
-        this.status = ts;
-    }
-
     public int getTableNum(){
         return this.tableNum;
     }
@@ -133,10 +128,6 @@ class Ticket{
 
     public int getPriority(){
         return this.priority;
-    }
-
-    public Ticketstatus getStatus(){
-        return this.status;
     }
 
     public String getClosingTime(){
@@ -187,9 +178,4 @@ class Ticket{
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
-
-    public String dishesToString(){
-        return this.dishes.toString();
-    }    
-
 }
