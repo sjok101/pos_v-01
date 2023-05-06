@@ -92,8 +92,20 @@ public class JSONwriter {
         tableMapper.writeValue(new File("saves/employeeTest.json"), log);
     }
 
+    private static void writeTwoMonthOfTickets() throws IOException{
+        LinkedList<jsonTicket> log = new LinkedList<jsonTicket>();
+        jsonTicket ticket;
+        for (int i = 0; i<4; i++){
+            ticket = new jsonTicket();
+            ticket.setTicketID(String.valueOf(i));
+            log.add(ticket);    
+        }
+        ObjectMapper tableMapper = new ObjectMapper();
+        tableMapper.writeValue(new File("saves/ticketTest.json"), log);
+    }
+
     public static void main(String[]args) throws IOException{
-       writeEmployeesJsonTest();
-  }
+       writeTwoMonthOfTickets();
+     }
 
 }

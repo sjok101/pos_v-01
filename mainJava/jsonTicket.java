@@ -7,21 +7,12 @@ public class jsonTicket {
     private String togo;
     private String priority;
     private String orders;
-    private String date;
     private String employee;
-
-    public String getDate(){
-        return this.date;
-    }
 
     public String getEmployee(){
         return this.employee;
     }
-
-    public void setDate(String date){
-        this.date = date;
-    }
-
+    
     public void setEmployee(String employee){
         this.employee = employee;
     }

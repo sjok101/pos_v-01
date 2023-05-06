@@ -4,13 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "java",
-            "name": "PosMenu",
-            "request": "launch",
-            "mainClass": "PosMenu",
-            "projectName": "pos_v-01"
-        },
+        
         {
             "type": "java",
             "name": "JSONwriter",
