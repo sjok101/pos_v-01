@@ -2,14 +2,27 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <SplitPane dividerPositions="0.8407134071340714" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="972.0" prefWidth="1628.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TicketHistorySceneController">
   <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <Button layoutX="107.0" layoutY="80.0" mnemonicParsing="false" onAction="#switchToMainMenuInScene" text="Button" />
+            <TableView fx:id="historyview" prefHeight="970.0" prefWidth="1364.0">
+              <columns>
+                <TableColumn fx:id="ticketidCol" prefWidth="70.0" text="TicketID" />
+                <TableColumn fx:id="closingTimeCol" prefWidth="118.0" text="Closing Time" />
+                  <TableColumn fx:id="creationTimeCol" prefWidth="105.0" text="Creation Time" />
+                  <TableColumn fx:id="totalCol" prefWidth="100.0" text="Total" />
+                  <TableColumn fx:id="ordersCol" prefWidth="970.0" text="Orders" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <Button layoutX="-2.0" layoutY="-3.0" mnemonicParsing="false" onAction="#switchToMainMenuInScene" prefHeight="85.0" prefWidth="256.0" text="Back to Main Menu" />
          </children></AnchorPane>
   </items>
 </SplitPane>
