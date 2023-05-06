@@ -4,7 +4,6 @@ public class jsonTicket {
     private String total;
     private String creationTime;
     private String closingTime;
-    private String status;
     private String togo;
     private String priority;
     private String orders;

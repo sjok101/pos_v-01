@@ -4,8 +4,6 @@ import javafx.event.*;
 import javafx.scene.*;
 import javafx.stage.*;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.*;
-import javafx.scene.control.*;
 import java.io.IOException;
 import java.io.File;
 import java.util.LinkedList;
