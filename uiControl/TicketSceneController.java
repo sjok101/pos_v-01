@@ -287,17 +287,6 @@ public class TicketSceneController implements Initializable{
         catch(Exception e) {
             e.printStackTrace();
         }
-        //if editticket = true grab ticket and set it
-        //else add ticket to linked list
-        //putticketbackintojson
 
     }
-    /*
-    public void setLabels() {
-        this.tableNumber = passTicket.tableNum;
-        this.Ticketid = passTicket.ticketId;
-        ticketID.setText(String.valueOf(this.Ticketid));
-        table.setText(String.valueOf(this.tableNumber));
-    }
-    */
 }
