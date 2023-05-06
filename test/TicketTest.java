@@ -8,8 +8,8 @@ import static org.junit.Assert.*;
 public class TicketTest {
     private Ticket tik1 = null;
     private LinkedList<Dish> dishes1 = new LinkedList<Dish>();
-    private Dish d1 = null;
-    private Dish d2 = null;
+    private Dish d1 = new Dish("Green Beans",  0);
+    private Dish d2 = new Dish("mashed potatoes",15);
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
     private LocalDateTime now = LocalDateTime.now();
     private String timenow = dtf.format(now);
@@ -17,10 +17,8 @@ public class TicketTest {
     @Before
     public void setupTest(){
         tik1 = new Ticket(1);
-        Dish d1 = new Dish("Green Beans",  0);
         d1.setPrice(25.25);
         d1.setDescription("Some tasty green beans");
-        Dish d2 = new Dish("mashed potatoes",15);
         d2.setPrice(50.25);
         d2.setDescription("Some tasty potatoes");
         dishes1.add(d1);
@@ -251,7 +249,7 @@ public class TicketTest {
     public void addOrder2(){
         Ticket t = new Ticket(10);
         t.addDish(d1);
-        assertEquals(t.getTotal(),25.25, 0);
+        assertEquals(25.25, t.getTotal(), 0);
     }
 
     //order with one dish inside
@@ -260,7 +258,7 @@ public class TicketTest {
         Ticket t = new Ticket(10);
         t.addDish(d1);
         t.addDish(d2);
-        assertEquals(t.getTotal(),75.50, 0);
+        assertEquals(75.50, t.getTotal(), 0);
     }
 
     //remove one order
@@ -270,7 +268,7 @@ public class TicketTest {
         t.addDish(d1);
         t.addDish(d2);
         t.removeDish(d1);
-        assertEquals(t.getTotal(),50.25, 0);
+        assertEquals(50.25, t.getTotal(), 0);
     }
 
     //remove other order
@@ -280,7 +278,7 @@ public class TicketTest {
         t.addDish(d1);
         t.addDish(d2);
         t.removeDish(d2);
-        assertEquals(t.getTotal(),25.25, 0);
+        assertEquals(25.25, t.getTotal(), 0);
     }
 
      //remove last order
@@ -289,7 +287,7 @@ public class TicketTest {
         Ticket t = new Ticket(10);
         t.addDish(d1);
         t.removeDish(d1);
-        assertEquals(t.getTotal(),0.0, 0);
+        assertEquals(0.0, t.getTotal(), 0);
      }
 
      //test closing time

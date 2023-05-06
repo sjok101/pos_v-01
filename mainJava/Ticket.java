@@ -153,20 +153,20 @@ class Ticket{
 
 
     //adds order to ticket
-    public boolean addDish(Dish ordr){
-        if(ordr != null){
-            this.dishes.add(ordr);
-            this.total += ordr.getPrice();
+    public boolean addDish(Dish dish){
+        if(dish != null){
+            this.dishes.add(dish);
+            this.total += dish.getPrice();
             return true;
         }
         return false;
     }
 
     //remove order for ticket (void) TODO: manager verification?
-    public boolean removeDish(Dish ordr){
-        if(ordr != null){
-            this.dishes.remove(ordr);
-            this.total -= ordr.getPrice();
+    public boolean removeDish(Dish dish){
+        if(dish != null){
+            this.dishes.remove(dish);
+            this.total -= dish.getPrice();
             return true;
         }
         return false;
