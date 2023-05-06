@@ -38,7 +38,7 @@ class Ticket{
             this.dishes = new LinkedList<Dish>();
             this.total = 0;
             Random r = new Random();
-            this.ticketID = r.nextInt(100);
+            this.ticketID = r.nextInt(99) + 1;
         }
     }
 
@@ -62,7 +62,7 @@ class Ticket{
             this.dishes = ordrs;
             this.total = 0;
             Random r = new Random();
-            this.ticketID = r.nextInt(100);
+            this.ticketID = r.nextInt(99) + 1;
         }
     }
 
