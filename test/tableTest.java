@@ -1,16 +1,11 @@
-
-
 import org.junit.Before;
 import org.junit.Test;
-
-
 
 import static org.junit.Assert.*;
 
 public class tableTest {
 
     private table t1 = null;
-
 
     @Before
     public void setupTest() { //setup all variations of tables to test each one

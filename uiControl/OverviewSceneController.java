@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 
 import javafx.event.*;
@@ -40,7 +39,5 @@ public class OverviewSceneController {
         catch(Exception e) {
             e.printStackTrace();
         }
-
-        
     }
 }

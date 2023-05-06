@@ -1,4 +1,3 @@
-
 import javafx.event.*;
 import javafx.scene.*;
 import javafx.stage.*;
@@ -77,7 +76,7 @@ public class TablesSceneController implements Initializable{
             e.printStackTrace();
         }
     }
-    
+
     @Override
     public void initialize(URL location, ResourceBundle rb) {
         tableNumCol.setCellValueFactory(new PropertyValueFactory<table,Integer>("tableNumber"));

@@ -1,4 +1,3 @@
-
 import javafx.event.*;
 import javafx.scene.*;
 import javafx.stage.*;
@@ -25,7 +24,6 @@ public class KitchenSceneController implements Initializable{
     @FXML private TableColumn<kitchenTicket,String> ordersCol;
     private LinkedList<kitchenTicket> currTickets = new LinkedList<kitchenTicket>();
     private kitchenJson kj = new kitchenJson();
-    
 
     public void switchToMainMenuInScene(ActionEvent event) {
         try {
@@ -40,7 +38,6 @@ public class KitchenSceneController implements Initializable{
         }
 
     }
-
     @Override
     public void initialize(URL location, ResourceBundle rb) {
         creationTimeCol.setCellValueFactory(new PropertyValueFactory<kitchenTicket,String>("creationTime"));

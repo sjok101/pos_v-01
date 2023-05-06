@@ -1,4 +1,3 @@
-
 public class table {
 
     public int tableNumber;

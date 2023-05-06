@@ -1,4 +1,3 @@
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
@@ -22,7 +21,6 @@ public class PosMenu extends Application{
             e.printStackTrace();
         }
     }
-
     public void changeScene(String fxml) throws IOException{
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
         Scene scene = new Scene(pane);

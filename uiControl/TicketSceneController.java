@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
@@ -292,12 +291,4 @@ public class TicketSceneController implements Initializable{
         //putticketbackintojson
 
     }
-    /*
-    public void setLabels() {
-        this.tableNumber = passTicket.tableNum;
-        this.Ticketid = passTicket.ticketId;
-        ticketID.setText(String.valueOf(this.Ticketid));
-        table.setText(String.valueOf(this.tableNumber));
-    }
-    */
 }

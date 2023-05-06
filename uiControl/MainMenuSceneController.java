@@ -1,4 +1,3 @@
-
 import javafx.application.Platform;
 import javafx.event.*;
 import javafx.scene.*;
@@ -22,7 +21,6 @@ import javafx.fxml.FXML;
 public class MainMenuSceneController {
     private Stage stage;
     private Scene scene;
-
     @FXML
     private Label name;
     @FXML
@@ -63,7 +61,6 @@ public class MainMenuSceneController {
         tableMapper.writeValue(new File("saves/employee.json"), logJ);
         
     }
-
 
     public void switchToDineInScene(ActionEvent event) {
         try {
@@ -122,6 +119,7 @@ public class MainMenuSceneController {
     public void switchToTicketsScene(ActionEvent event) {
         try {
             passTicket.tableNum =99;
+
             Parent root = FXMLLoader.load(getClass().getResource("TicketScene.fxml"));
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
