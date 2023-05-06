@@ -1,7 +1,9 @@
 {
     "java.project.sourcePaths": [
         "uiControl",
+        "test",
+        "saves",
         "mainJava",
-        "test"
+        "lib"
     ]
 }

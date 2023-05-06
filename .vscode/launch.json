@@ -9,21 +9,21 @@
             "name": "ticketJson",
             "request": "launch",
             "mainClass": "ticketJson",
-            "projectName": "pos_v-01_b91575cc"
+            "projectName": "pos_v-01_81cee8af"
         },
         {
             "type": "java",
             "name": "kitchenJson",
             "request": "launch",
             "mainClass": "kitchenJson",
-            "projectName": "pos_v-01_b91575cc"
+            "projectName": "pos_v-01_81cee8af"
         },
         {
             "type": "java",
             "name": "tableJson",
             "request": "launch",
             "mainClass": "tableJson",
-            "projectName": "pos_v-01_b91575cc"
+            "projectName": "pos_v-01_81cee8af"
         },
         {
             "type": "java",
@@ -31,14 +31,14 @@
             "request": "launch",
             "vmArgs": "--module-path C:/javafx-sdk-20.0.1/lib --add-modules javafx.controls,javafx.fxml",
             "mainClass": "PosMenu",
-            "projectName": "pos_v-01_b91575cc"
+            "projectName": "pos_v-01_81cee8af"
         },
         {
             "type": "java",
             "name": "tableJson",
             "request": "launch",
             "mainClass": "mainJava.tableJson",
-            "projectName": "pos_v-01_b91575cc"
+            "projectName": "pos_v-01_81cee8af"
         },
         {
             "type": "java",
@@ -51,14 +51,14 @@
             "name": "kitchenTest",
             "request": "launch",
             "mainClass": "kitchenTest",
-            "projectName": "pos_v-01_b91575cc"
+            "projectName": "pos_v-01_81cee8af"
         },
         {
             "type": "java",
             "name": "tableTest",
             "request": "launch",
             "mainClass": "tableTest",
-            "projectName": "pos_v-01_b91575cc"
+            "projectName": "pos_v-01_81cee8af"
         }
     ]
 }
