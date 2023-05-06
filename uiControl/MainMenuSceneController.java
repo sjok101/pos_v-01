@@ -93,6 +93,8 @@ public class MainMenuSceneController {
 
     public void switchToTakeoutScene(ActionEvent event) {
         try {
+            passTicket.tableNum = 99;
+            passTicket.ticketId = 0;
             Parent root = FXMLLoader.load(getClass().getResource("TicketScene.fxml"));
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
