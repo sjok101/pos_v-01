@@ -241,6 +241,7 @@ public class TicketSceneController implements Initializable{
                     Ticket ti = new Ticket(tableNumber,d);
                     LinkedList<Ticket> tickets = tj.getTicketsJson();
                     tickets.add(ti);
+                    tj.ticketsToJson(tickets);
                     tableJson tja = new tableJson();
                     LinkedList<table> tabs = tja.getTablesJson();
                     for(table t: tabs) {
