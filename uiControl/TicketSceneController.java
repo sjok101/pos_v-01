@@ -224,11 +224,12 @@ public class TicketSceneController implements Initializable{
                         }
                     }
                     kitchenJson kj = new kitchenJson();
-                    LinkedList<kitchenTicket> kts = kj.getKitchenTicketsJson();
+                    kitchen k = new kitchen(kj.getKitchenTicketsJson());
+                    LinkedList<kitchenTicket> kts = k.getKitchenTickets();
                     for(kitchenTicket kt: kts) {
                         if(kt.getTableNum() == tableNumber && kt.getTicketid() == Ticketid) {
                             kts.remove(kt);
-                            kitchen k = new kitchen(kts);
+                            k.setKitchenTickets(kts);
                             LinkedList<Ticket> tempList = new LinkedList<Ticket>();
                             tempList.add(ti);
                             k.ticketsToKitchenTickets(tempList);
