@@ -1,9 +1,6 @@
 
 import javafx.application.Platform;
 import javafx.event.*;
-import javafx.scene.*;
-import javafx.stage.*;
-import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 import java.io.File;
 import java.util.LinkedList;
@@ -20,8 +17,7 @@ import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 
 public class MainMenuSceneController {
-    private Stage stage;
-    private Scene scene;
+
 
     @FXML
     private Label name;
@@ -133,6 +129,20 @@ public class MainMenuSceneController {
         catch(Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void switchToTicketHistoryScene(ActionEvent event) {
+        try {
+            PosMenu p = new PosMenu();
+            p.changeScene("TicketHistoryScene.fxml");
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void closeApp(ActionEvent event){
+        Platform.exit();
     }
 
 }
