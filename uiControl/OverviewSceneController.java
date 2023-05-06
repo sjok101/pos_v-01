@@ -2,19 +2,11 @@
 import java.io.IOException;
 
 import javafx.event.*;
-import javafx.scene.*;
-import javafx.stage.*;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 
 
 
 
 public class OverviewSceneController {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
   
 
