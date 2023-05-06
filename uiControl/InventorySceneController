@@ -1,0 +1,274 @@
+package uiControl;
+import mainJava.*;
+
+import java.util.*;
+
+import javafx.application.Application;
+import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+
+public class InventorySceneController extends Application {
+    private List<Label> invlist;
+    private GridPane gridPane;
+    private List<GridPane> paneList;
+    private int numItems = 0;
+    private int rows = 0;
+    private int cols = 0;
+    private int id = 0;
+    private final int MAXCOLUMNS = 5;
+    private final int SIDE_LENGTH = 50;
+    private final Color HOVER_COLOR = Color.rgb(0, 0, 0, 0.5);
+
+    @Override
+    public void start(Stage stage) {
+        invlist = new ArrayList<>();
+
+        gridPane = new GridPane();
+        gridPane.setAlignment(Pos.CENTER);
+        gridPane.setHgap(10);
+        gridPane.setVgap(10);
+        gridPane.setGridLinesVisible(false);
+
+        addSquareWithPlusSign();
+
+        Scene scene = new Scene(gridPane, 500, 600);
+        stage.setScene(scene);
+        stage.setTitle("Inventory");
+        stage.show();
+    }
+
+    // /**
+    //  * Creates inventory from the given list.
+    //  */
+    // private void createInv(){
+    //     for(int i = 0; i < invlist.length; i++){
+    //         addItemList(invlist[i].getName(), invlist[i].getQuantity(), invlist[i].getId());
+    //     }
+    // }
+
+    /**
+     * Adds item from the list.
+     */
+    // private void addItemList(String name, int amnt, int id){
+    //     Rectangle square = new Rectangle(50, 50, Color.WHITE);
+
+    //     Label nameLabel = new Label("Item name: " + name);
+    //     nameLabel.setAlignment(Pos.CENTER);
+
+    //     String sId = Integer.toString(id);
+
+    //     Label idLabel = new Label("Quantity" + sId);
+    //     idLabel.setAlignment(Pos.BASELINE_LEFT);
+
+    //     StackPane stackPane = new StackPane();
+    //     stackPane.getChildren().addAll(square, nameLabel, idLabel);
+    
+    // }
+
+    private void addSquareWithPlusSign() {
+        Rectangle square = new Rectangle(100, 100, Color.WHITE);
+        square.setStroke(Color.BLACK);
+        square.setStrokeWidth(2);
+
+        Label label = new Label("Add new item");
+        label.setAlignment(Pos.CENTER);
+
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().addAll(square, label);
+
+        stackPane.setOnMouseClicked(e -> {
+            if (e.getClickCount() == 1) {
+                showInputDialog(stackPane);
+            }
+        });
+
+        stackPane.setOnMouseEntered(e -> {
+            square.setFill(HOVER_COLOR);
+        });
+        stackPane.setOnMouseExited(e -> {
+            square.setFill(Color.WHITE);
+        });
+
+        gridPane.add(stackPane, cols, rows);
+
+        cols++;
+        if (cols > MAXCOLUMNS) {
+            cols = 0;
+            rows++;
+        }
+    }
+
+    private void showInputDialog(StackPane stackPane) {
+        Label nameLabel = new Label("Name: ");
+        String idString = Integer.toString(id);
+        Label idLabel = new Label(idString);
+
+        TextField nameTextField = new TextField();
+        Button confirmButton = new Button("Confirm");
+        Button cancelButton = new Button("Cancel");
+
+        GridPane inputGridPane = new GridPane();
+        inputGridPane.setAlignment(Pos.CENTER);
+        inputGridPane.setHgap(10);
+        inputGridPane.setVgap(10);
+        inputGridPane.addRow(0, nameLabel, nameTextField, idLabel);
+        inputGridPane.addRow(1, confirmButton, cancelButton);
+
+        Scene inputScene = new Scene(inputGridPane, 250, 100);
+        Stage inputStage = new Stage();
+        inputStage.setScene(inputScene);
+        inputStage.setTitle("Add Inventory");
+        inputStage.show();
+
+        confirmButton.setOnAction(e -> {
+            String name = nameTextField.getText();
+            addSquareWithName(name, idString, stackPane);
+            id++;
+            inputStage.close();
+        });
+
+        cancelButton.setOnAction(e -> {
+            inputStage.close();
+        });
+
+    }
+
+    /**
+     * Shows information of the ingredient
+     * TODO: Update quantity
+     * @param previousStackPane
+     */
+    private void showInformation(StackPane previousStackPane){
+        Label nameLabel = new Label("Name: ");
+        Label idLabel = new Label("ID: ");
+        Label quantityLabel = new Label("Quantity: ");
+        Button closeButton = new Button("Close");
+        Button updateQuantity = new Button("Update Quantity");
+
+        GridPane infoGridPane = new GridPane();
+        infoGridPane.setAlignment(Pos.CENTER);
+        infoGridPane.setHgap(10);
+        infoGridPane.setVgap(10);
+        infoGridPane.addRow(0, nameLabel);
+        infoGridPane.addRow(1, idLabel);
+        infoGridPane.addRow(2, quantityLabel);
+        infoGridPane.addRow(3, closeButton, updateQuantity);
+
+        Scene inputScene = new Scene(infoGridPane, 350, 300);
+        Stage inputStage = new Stage();
+        inputStage.setScene(inputScene);
+        inputStage.setTitle("Ingredient Information");
+        inputStage.show();
+
+        // Set this to update the quantity
+        updateQuantity.setOnAction(e -> {
+            inputStage.close();
+        });
+
+        closeButton.setOnAction(e -> {
+            inputStage.close();
+        });
+    }
+
+    private void addSquareWithName(String name, String id, StackPane previousStackPane) {
+        Rectangle square = new Rectangle(100, 100, Color.WHITE);
+        // square.setStroke(Color.BLACK);
+        // square.setStrokeWidth(2);
+
+        Label namLabel = new Label(name);
+        Label idLabel = new Label("ID: " + id);
+
+        invlist.add(namLabel);
+
+        VBox vbox = new VBox(namLabel, idLabel); // create a VBox to stack the two labels vertically
+        vbox.setAlignment(Pos.CENTER); // set the alignment of the VBox to the center
+        vbox.setMaxWidth(square.getWidth() - 10); // set the maximum width of the VBox to be slightly smaller than the square
+        vbox.setSpacing(5); // set the spacing between the two labels
+        
+
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().addAll(square, vbox);
+
+        stackPane.setOnMouseClicked(e -> {
+            if (e.getClickCount() == 1) {
+                showInformation(stackPane);
+            }
+        });
+
+        stackPane.setOnMouseEntered(e -> {
+            square.setFill(HOVER_COLOR);
+        });
+        stackPane.setOnMouseExited(e -> {
+            square.setFill(Color.WHITE);
+        });
+
+        // Collections.sort(textFields, (tf1, tf2) -> tf1.getText().compareTo(tf2.getText()));
+        gridPane.add(stackPane, cols, rows);
+        // GridPane pane = new GridPane();
+        // pane.add(stackPane, cols, rows);
+        // paneList.add(pane);
+        // if(numItems > 0){
+        //     render();
+        // }
+        
+        cols++;
+        numItems++;
+        if (cols > MAXCOLUMNS) {
+            cols = 0;
+            rows++;
+        }
+    }
+
+    // private void render(){
+    //     // get the list of children from the grid pane
+    //     List<GridPane> children = paneList;
+
+    //     // sort the children based on the text content of their labels
+    //     Collections.sort(children, new Comparator<Node>() {
+    //         @Override
+    //         public int compare(Node node1, Node node2) {
+    //             Label label1 = (Label) node1.lookup("#name");
+    //             Label label2 = (Label) node2.lookup("#name");
+    //             String name1 = label1.getText();
+    //             String name2 = label2.getText();
+    //             return name1.compareTo(name2);
+    //         }
+    //     });
+
+    //     // remove all children from the grid pane
+    //     gridPane.getChildren().clear();
+
+    //     // re-add the children to the grid pane in sorted order
+    //     for (Node child : children) {
+    //         gridPane.add(child, GridPane.getColumnIndex(child), GridPane.getRowIndex(child));
+    //     }
+    // }
+
+    /**
+     * Reorders the boxes to be in alphabetical order
+     */
+    private void reOrder(){
+        ObservableList<Node> children = gridPane.getChildren();
+        for (Node node : children) {
+            if (node instanceof Label) {
+                
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
