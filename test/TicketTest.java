@@ -7,9 +7,9 @@ import static org.junit.Assert.*;
 
 public class TicketTest {
     private Ticket tik1 = null;
-    private LinkedList<Order> ordrs1 = new LinkedList<>();
-    private Order o1 = null;
-    private Order o2 = null;
+    private LinkedList<Dish> dishes1 = new LinkedList<Dish>();
+    private Dish d1 = null;
+    private Dish d2 = null;
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
     private LocalDateTime now = LocalDateTime.now();
     private String timenow = dtf.format(now);
@@ -17,21 +17,14 @@ public class TicketTest {
     @Before
     public void setupTest(){
         tik1 = new Ticket(1);
-        o1 = new Order(1);
-        o1.setOrderID(11);
-        o2 = new Order(1);
-        o2.setOrderID(12);
-        //Dish d1 = new Dish("Green Beans", 10);
         Dish d1 = new Dish("Green Beans",  0);
         d1.setPrice(25.25);
         d1.setDescription("Some tasty green beans");
-        //Dish d2 = new Dish("mashed potatoes", 15);
         Dish d2 = new Dish("mashed potatoes",15);
         d2.setPrice(50.25);
         d2.setDescription("Some tasty potatoes");
-        o1.addDish(d1);
-        o2.addDish(d2);
-        ordrs1.add(o1);
+        dishes1.add(d1);
+        dishes1.add(d2);
     }
 
     //normal constructor normal tablenum
@@ -56,29 +49,29 @@ public class TicketTest {
     //normal constructor with tablenum and one order
     @Test 
     public void ticketConstuctorTest3(){
-        Order o1 = new Order(2);
+        Dish d1 = new Dish("beans", 1);
 
-        LinkedList<Order> orders = new LinkedList<>();
-        orders.add(o1);
-        tik1 = new Ticket(2,orders);
+        LinkedList<Dish> orders = new LinkedList<>();
+        orders.add(d1);
+        tik1 = new Ticket(2, orders);
         if(tik1.getTableNum() == 2){
-            assertEquals(tik1.getOrders(), orders);
+            assertEquals(tik1.getDishes(), orders);
         }
     }
 
     //normal constructor with tablenum and many orders
     @Test 
     public void ticketConstuctorTest4(){
-        Order o1 = new Order(2);
-        Order o2 = new Order(2);
-        Order o3 = new Order(2);
-        LinkedList<Order> orders = new LinkedList<>();
-        orders.add(o1);
-        orders.add(o2);
-        orders.add(o3);
+        Dish d1 = new Dish("beans", 1);
+        Dish d2 = new Dish("fires", 2);
+        Dish d3 = new Dish("soda", 3);
+        LinkedList<Dish> orders = new LinkedList<>();
+        orders.add(d1);
+        orders.add(d2);
+        orders.add(d3);
         tik1 = new Ticket(5,orders);
         if(tik1.getTableNum() == 5){
-            assertEquals(tik1.getOrders(), orders);
+            assertEquals(tik1.getDishes(), orders);
         }
     }
 
@@ -257,7 +250,7 @@ public class TicketTest {
     @Test 
     public void addOrder2(){
         Ticket t = new Ticket(10);
-        t.addOrder(o1);
+        t.addDish(d1);
         assertEquals(t.getTotal(),25.25, 0);
     }
 
@@ -265,8 +258,8 @@ public class TicketTest {
     @Test 
     public void addOrder3(){
         Ticket t = new Ticket(10);
-        t.addOrder(o1);
-        t.addOrder(o2);
+        t.addDish(d1);
+        t.addDish(d2);
         assertEquals(t.getTotal(),75.50, 0);
     }
 
@@ -274,9 +267,9 @@ public class TicketTest {
     @Test 
     public void removeOrder1(){
         Ticket t = new Ticket(10);
-        t.addOrder(o1);
-        t.addOrder(o2);
-        t.removeOrder(o1);
+        t.addDish(d1);
+        t.addDish(d2);
+        t.removeDish(d1);
         assertEquals(t.getTotal(),50.25, 0);
     }
 
@@ -284,19 +277,19 @@ public class TicketTest {
     @Test 
     public void removeOrder2(){
         Ticket t = new Ticket(10);
-        t.addOrder(o1);
-        t.addOrder(o2);
-        t.removeOrder(o1);
-        assertEquals(t.getTotal(),50.25, 0);
+        t.addDish(d1);
+        t.addDish(d2);
+        t.removeDish(d2);
+        assertEquals(t.getTotal(),25.25, 0);
     }
 
      //remove last order
      @Test 
      public void removeOrder3(){
-         Ticket t = new Ticket(10);
-         t.addOrder(o1);
-         t.removeOrder(o1);
-         assertEquals(t.getTotal(),0.0, 0);
+        Ticket t = new Ticket(10);
+        t.addDish(d1);
+        t.removeDish(d1);
+        assertEquals(t.getTotal(),0.0, 0);
      }
 
      //test closing time
