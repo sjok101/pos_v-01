@@ -1,1 +1,42 @@
-[{"tableNum":"2","ticketID":"55","total":"17.0","creationTime":"05/05/2023 20:31","closingTime":"05/05/2023 20:31","togo":"false","priority":"0","orders":"Burger:10.25,Fries:5.75,Water:1.0"},{"tableNum":"1","ticketID":"74","total":"15.5","creationTime":"05/05/2023 20:32","closingTime":"05/05/2023 20:32","togo":"false","priority":"0","orders":"Water:1.0,Queso:10.0,Chips + Salsa:4.5"},{"tableNum":"2","ticketID":"32","total":"17.0","creationTime":"05/05/2023 20:39","closingTime":"05/05/2023 20:39","togo":"false","priority":"0","orders":"Burger:10.25,Fries:5.75,Water:1.0"},{"tableNum":"2","ticketID":"11","total":"45.83","creationTime":"05/05/2023 21:34","closingTime":"05/05/2023 21:35","togo":"false","priority":"0","orders":"Burger:10.25,Fries:5.75,Soda:2.0,Chicken Soup:9.33,Water:1.0,Queso:10.0,Chips + Salsa:4.5,Salad:3.0"}]
+[
+    {
+        "tableNum": "2",
+        "ticketID": "55",
+        "total": "17.0",
+        "creationTime": "05/05/2023 20:31",
+        "closingTime": "05/05/2023 20:31",
+        "togo": "false",
+        "priority": "0",
+        "orders": "Burger:10.25,Fries:5.75,Water:1.0"
+    },
+    {
+        "tableNum": "1",
+        "ticketID": "74",
+        "total": "15.5",
+        "creationTime": "05/05/2023 20:32",
+        "closingTime": "05/05/2023 20:32",
+        "togo": "false",
+        "priority": "0",
+        "orders": "Water:1.0,Queso:10.0,Chips + Salsa:4.5"
+    },
+    {
+        "tableNum": "2",
+        "ticketID": "32",
+        "total": "17.0",
+        "creationTime": "05/05/2023 20:39",
+        "closingTime": "05/05/2023 20:39",
+        "togo": "false",
+        "priority": "0",
+        "orders": "Burger:10.25,Fries:5.75,Water:1.0"
+    },
+    {
+        "tableNum": "2",
+        "ticketID": "11",
+        "total": "45.83",
+        "creationTime": "05/05/2023 21:34",
+        "closingTime": "05/05/2023 21:35",
+        "togo": "false",
+        "priority": "0",
+        "orders": "Burger:10.25,Fries:5.75,Soda:2.0,Chicken Soup:9.33,Water:1.0,Queso:10.0,Chips + Salsa:4.5,Salad:3.0"
+    }
+]

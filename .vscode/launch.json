@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PosMenu",
+            "request": "launch",
+            "mainClass": "PosMenu",
+            "projectName": "pos_v-01"
+        },
+        {
+            "type": "java",
             "name": "JSONwriter",
             "request": "launch",
             "mainClass": "JSONwriter",
