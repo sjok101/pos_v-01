@@ -117,7 +117,7 @@ public class kitchenTest {
     public void kitchenTicketGetAndCreationTime() {
         assertEquals("9:00", kt.getCreationTime());
         kt.setCreationTime("5:00");
-        assertEquals("", kt.getCreationTime());
+        assertEquals("5:00", kt.getCreationTime());
     }
 
     @Test
@@ -157,9 +157,9 @@ public class kitchenTest {
 
     @Test
     public void kitchenTicketBadGetAndSetorderString() {
-        assertEquals("fries,burger", kt.getCreationTime());
-        kt.setCreationTime(null);
-        assertEquals("", kt.getCreationTime());
+        assertEquals("fries,burger", kt.getOrderString());
+        kt.setOrderString(null);
+        assertEquals("", kt.getOrderString());
     }
 
 
