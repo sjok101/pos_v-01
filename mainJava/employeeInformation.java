@@ -1,5 +1,3 @@
-package mainJava;
-
 public class employeeInformation {
     String name;
     int id;

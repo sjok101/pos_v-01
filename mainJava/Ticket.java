@@ -1,61 +1,115 @@
-package mainJava;
-import java.util.Hashtable;
 import java.util.LinkedList;
+import java.util.Random;
 import java.time.format.DateTimeFormatter;
+import java.math.*;
 import java.time.LocalDateTime;
 
-enum Ticketstatus{
-    OPEN,
-    CLOSED;
-}
 
-class Ticket {
+
+class Ticket{
+
+    static final int TOGOTABLENUM = 99;
+
     private int tableNum;
     private int ticketID;
     private double total;
     private String creationTime;
     private String closingTime;
-    private Ticketstatus status;
+    private boolean togo;
     private int priority;
-    private Hashtable<Integer, LinkedList<Order>> orders;
-    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
-
+    private LinkedList<Dish> dishes;
+    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");  
     //constructor for Ticket
     public Ticket(int tblnum){
-        this.tableNum = tblnum;
-        LocalDateTime now = LocalDateTime.now();
-        this.creationTime = dtf.format(now);
-        this.orders = new Hashtable<>();
+        if(tblnum <= 0){
+            throw new IndexOutOfBoundsException("Error: TablenNum must be greater than 0.");
+        }
+        else{
+            if(tblnum != TOGOTABLENUM){
+                togo = false;
+            }
+            else{
+                togo = true;
+            }
+            this.tableNum = tblnum;
+            LocalDateTime now = LocalDateTime.now();
+            this.creationTime = dtf.format(now);
+            this.dishes = new LinkedList<Dish>();
+            this.total = 0;
+            Random r = new Random();
+            this.ticketID = r.nextInt(100);
+        }
     }
 
-    public Ticket(int tblnum, Hashtable<Integer, LinkedList<Order>> ordrs){
-        this.tableNum = tblnum;
-        LocalDateTime now = LocalDateTime.now();
-        this.creationTime = dtf.format(now);
-        this.orders = ordrs;
-        this.orders = new Hashtable<>();
+    public Ticket(int tblnum, LinkedList<Dish> ordrs){
+        if(tblnum <= 0){
+            throw new IndexOutOfBoundsException("Error: TablenNum must be greater than 0.");
+        }
+        if(ordrs == null){
+            throw new NullPointerException("Error: order passed to constructor is null");
+        }
+        else{
+            if(tblnum != TOGOTABLENUM){
+                togo = false;
+            }
+            else{
+                togo = true;
+            }
+            this.tableNum = tblnum;
+            LocalDateTime now = LocalDateTime.now();
+            this.creationTime = dtf.format(now);
+            this.dishes = ordrs;
+            this.total = 0;
+            Random r = new Random();
+            this.ticketID = r.nextInt(100);
+        }
     }
 
     // getters/setters
 
     public void setTableNum(int tn){
-        this.tableNum = tn;
+        if(tn > 0){
+            this.tableNum = tn;
+            if(tn == TOGOTABLENUM){
+                this.togo = true;
+            }
+            else{
+                this.togo = false;
+            }
+        }
+        else{
+            throw new IndexOutOfBoundsException("Error: TablenNum must be greater than 0.");
+        }
     }
 
     public void setTicketID(int id){
-        this.ticketID = id;
+        if(id >= 0){
+            this.ticketID = id; 
+        }
+        else{
+            throw new IndexOutOfBoundsException("Error: TicketID must be greater than or equal to 0.");
+        }
     }
 
     public void setTotal(double tot){
-        this.total = tot;
+        if(tot >= 0){
+            this.total = round(tot, 2);
+        }
+        else{
+            throw new IndexOutOfBoundsException("Error: Total must be greater than or equal to 0.");
+        }
     }
 
-    public void setpriority(int p){
+    public void setPriority(int p){
         this.priority = p;
     }
 
-    public void setStatus(Ticketstatus ts){
-        this.status = ts;
+    public void setClosingTime(String s){
+         this.closingTime = s;
+    }
+
+    public void setCreationTime(String s){
+         this.creationTime = s;
     }
 
     public int getTableNum(){
@@ -78,36 +132,34 @@ class Ticket {
         return this.priority;
     }
 
-    public Ticketstatus getStatus(){
-        return this.status;
-    }
-
     public String getClosingTime(){
         return this.closingTime;
     }
 
-    public Hashtable<Integer, LinkedList<Order>> getOrders(){
-        return this.orders;
+    public LinkedList<Dish> getDishes(){
+        return this.dishes;
     }
+
+    public boolean getTogo(){
+        return this.togo;
+    }
+
 
     //adds order to ticket
-    public boolean addOrder(int seatnum, Order ordr){
-        if(this.orders.get(seatnum).size() == 0){
-            LinkedList<Order> orderlist = new LinkedList<>();
-            this.total += ordr.getTotal();
-            return orderlist.add(ordr);
+    public boolean addDish(Dish ordr){
+        if(ordr != null){
+            this.dishes.add(ordr);
+            this.total += ordr.getPrice();
+            return true;
         }
-        this.total += ordr.getTotal();
-        return this.orders.get(seatnum).add(ordr);
+        return false;
     }
 
-    //remove order for ticket (void) TODO: manager verification?
-    public boolean removeOrder(int seatnum, Order ordr){
-        if(this.orders.get(seatnum) == null){
-            return false;
-        }
-        if(this.orders.get(seatnum).remove(ordr) == true){
-            this.total -= ordr.getTotal();
+    //remove order for ticket (void)
+    public boolean removeDish(Dish ordr){
+        if(ordr != null){
+            this.dishes.remove(ordr);
+            this.total -= ordr.getPrice();
             return true;
         }
         return false;
@@ -117,7 +169,14 @@ class Ticket {
     public void closeTicket(){
         LocalDateTime now = LocalDateTime.now();
         this.closingTime = dtf.format(now);
-        this.status = Ticketstatus.CLOSED;
     }
 
+    //helper function to round a price to 2 deciaml palces
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+    
+        BigDecimal bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }  
 }

@@ -1,4 +1,3 @@
-package uiControl;
 import javafx.event.*;
 import javafx.scene.*;
 import javafx.stage.*;
@@ -7,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 public class AnalysisSceneController {
     private Stage stage;
     private Scene scene;
-    private Parent root;
 
     public void switchToMainMenuInScene(ActionEvent event) {
         try {
