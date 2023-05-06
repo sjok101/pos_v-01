@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Properties;
 
 public class Dish {
 
@@ -8,15 +7,11 @@ public class Dish {
     String description;
     String name;
     double price;
-
-    /**
-     * Stores if its an special, appetizer, main entree, dessert
-     */
     int type;
 
-    public Dish(String name, int id){
+    public Dish(String name, double price){
         this.name = name;
-        this.id = id;
+        this.price = price;
     }
 
     public Dish(String name, double price, int id){
@@ -31,9 +26,6 @@ public class Dish {
         this.ingredients = new ArrayList<>();
     }
 
-    /**
-     * Default constructor for dish.
-     */
     public Dish(String name, int id, ArrayList<Ingredient> ingredients, int price){
         this.name = name;
         this.id = id;
@@ -98,7 +90,4 @@ public class Dish {
     public void setType(int type) {
         this.type = type;
     }
-
-
-
 }

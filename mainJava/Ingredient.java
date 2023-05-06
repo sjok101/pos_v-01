@@ -1,5 +1,4 @@
 public class Ingredient {
-
     int id;
     String name;
     int quantity;
@@ -29,5 +28,4 @@ public class Ingredient {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
 }

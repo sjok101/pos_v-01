@@ -1,3 +1,4 @@
+package mainJava;
 import java.time.format.DateTimeFormatter;
 import java.math.*;
 import java.time.LocalDateTime;
@@ -14,7 +15,7 @@ public class Order {
     private LinkedList<Dish> dishes;
 
     //constructor for Ticket
-    public Order(int tblnum){
+    public Order(int tblnum) {
         if(tblnum < 0){
             throw new IndexOutOfBoundsException("Error! tablenum for order must be >= 0");
         }
@@ -100,5 +101,3 @@ public class Order {
         return bd.doubleValue();
     }
 }
-
-
