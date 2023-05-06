@@ -34,7 +34,6 @@ public class TablesSceneController implements Initializable{
     @FXML private Label lTicket;
     @FXML private TextArea inputDescription;
     private LinkedList<table> currTables = new LinkedList<table>();
-    private int size = 0;
     private tableJson tj = new tableJson();
 
     public void switchToMainMenuInScene(ActionEvent event) {
@@ -95,7 +94,6 @@ public class TablesSceneController implements Initializable{
             for(table t:currTables) {
                 tables.add(t);
             }
-            size = currTables.size();
         }catch(IOException e) {
             e.printStackTrace();
         }
@@ -138,7 +136,6 @@ public class TablesSceneController implements Initializable{
     private void deleteTable(ActionEvent event) {
         table t = tableview.getSelectionModel().getSelectedItem();
         tableview.getItems().removeAll(tableview.getSelectionModel().getSelectedItem());
-        size--;
         tableview.refresh();
         for(table ta: currTables) {
             if(ta.equals(t) == true) {
@@ -156,16 +153,32 @@ public class TablesSceneController implements Initializable{
 
     @FXML
     private void createTable(ActionEvent event) {
-        size++;
-        table t = new table(size,1,"open",0,"");
-        currTables.add(t);
+        int tbnum = 0;
+        boolean inserted = false;
+        table tab = null;
+        while(inserted == false) {
+            tbnum++;
+            if(tbnum != 99) {
+                inserted = true;
+                for(table t: currTables) {
+                    if(t.getTableNumber() == tbnum) {
+                        inserted = false;
+                        break;
+                    }
+                }
+                if(inserted == true) {
+                    tab = new table(tbnum,1,"open",0,"");
+                    currTables.add(tab);
+                }
+            }
+        }
         try {
             tj.tablesToJson(currTables);
         }
         catch(IOException e) {
             e.printStackTrace();
         }   
-        tableview.getItems().add(t);
+        tableview.getItems().add(tab);
         tableview.refresh();
     }
 }
