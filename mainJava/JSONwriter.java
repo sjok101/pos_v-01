@@ -16,6 +16,13 @@ public class JSONwriter {
         return logJ;
     }
 
+    public static LinkedList<loginJson> readUsers() throws IOException{
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<loginJson> listLog = objectMapper.readValue(new File("C:\\Users\\Joon\\Desktop\\pos_v-01\\saves\\user.json"), new TypeReference<List<loginJson>>(){});
+        LinkedList<loginJson> logJ = new LinkedList<loginJson>(listLog);
+        return logJ;
+    }
+
     private static void writeUsersJson() throws IOException{                
         LinkedList<loginJson> log = new LinkedList<loginJson>();
         loginJson login = new loginJson();
