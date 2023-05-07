@@ -74,7 +74,7 @@ public class TicketSceneController implements Initializable{
 
     public void addBurger(ActionEvent event){
         try{
-            Dish d = new Dish("Burger", 10.25, 1);
+            Dish d = new Dish("Burger", 10.25);
             ticketitems.getItems().add(d);
             ticketitems.refresh();
             Double newtot = Double.parseDouble(this.totallabel.getText());
@@ -88,7 +88,7 @@ public class TicketSceneController implements Initializable{
 
     public void addSalad(ActionEvent event){
         try{
-            Dish d = new Dish("Salad", 3, 2);
+            Dish d = new Dish("Salad", 3);
             ticketitems.getItems().add(d);
             ticketitems.refresh();
             Double newtot = Double.parseDouble(this.totallabel.getText());
@@ -101,7 +101,7 @@ public class TicketSceneController implements Initializable{
     }
     public void addChipsSalsa(ActionEvent event){
         try{
-            Dish d = new Dish("Chips + Salsa", 4.50, 2);
+            Dish d = new Dish("Chips + Salsa", 4.50);
             ticketitems.getItems().add(d);
             ticketitems.refresh();
             Double newtot = Double.parseDouble(this.totallabel.getText());
@@ -114,7 +114,7 @@ public class TicketSceneController implements Initializable{
     }
     public void addQueso(ActionEvent event){
         try{
-            Dish d = new Dish("Queso", 10, 2);
+            Dish d = new Dish("Queso", 10);
             ticketitems.getItems().add(d);
             ticketitems.refresh();
             Double newtot = Double.parseDouble(this.totallabel.getText());
@@ -127,7 +127,7 @@ public class TicketSceneController implements Initializable{
     }
     public void addWater(ActionEvent event){
         try{
-            Dish d = new Dish("Water", 1, 2);
+            Dish d = new Dish("Water", 1);
             ticketitems.getItems().add(d);
             ticketitems.refresh();
             Double newtot = Double.parseDouble(this.totallabel.getText());
@@ -140,7 +140,7 @@ public class TicketSceneController implements Initializable{
     }
     public void addFries(ActionEvent event){
         try{
-            Dish d = new Dish("Fries", 5.75, 2);
+            Dish d = new Dish("Fries", 5.75);
             ticketitems.getItems().add(d);
             ticketitems.refresh();
             Double newtot = Double.parseDouble(this.totallabel.getText());
@@ -154,7 +154,7 @@ public class TicketSceneController implements Initializable{
 
     public void addSoda(ActionEvent event){
         try{
-            Dish d = new Dish("Soda", 2.00, 3);
+            Dish d = new Dish("Soda", 2.00);
             ticketitems.getItems().add(d);
             ticketitems.refresh();
             Double newtot = Double.parseDouble(this.totallabel.getText());
@@ -168,7 +168,7 @@ public class TicketSceneController implements Initializable{
 
     public void addChickenSoup(ActionEvent event){
         try{
-            Dish d = new Dish("Chicken Soup", 9.33, 2);
+            Dish d = new Dish("Chicken Soup", 9.33);
             ticketitems.getItems().add(d);
             ticketitems.refresh();
             Double newtot = Double.parseDouble(this.totallabel.getText());

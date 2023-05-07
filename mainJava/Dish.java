@@ -3,38 +3,25 @@ import java.util.ArrayList;
 public class Dish {
 
     ArrayList<Ingredient> ingredients;
-    int id;
     String description;
     String name;
     double price;
-    int type;
 
     public Dish(String name, double price){
         this.name = name;
         this.price = price;
     }
 
-    public Dish(String name, double price, int id){
-        this.name = name;
-        this.price = price;
-        this.id = id;
-    }
 
-    public Dish(String name, int id, ArrayList<Ingredient> ingredients){
+    public Dish(String name, ArrayList<Ingredient> ingredients){
         this.name = name;
-        this.id = id;
         this.ingredients = new ArrayList<>();
     }
 
-    public Dish(String name, int id, ArrayList<Ingredient> ingredients, int price){
+    public Dish(String name, ArrayList<Ingredient> ingredients, int price){
         this.name = name;
-        this.id = id;
         this.ingredients = new ArrayList<>();
         this.price = price;
-    }
-
-    public void updateDesc(String desc){
-        this.description = desc;
     }
 
     public void printDesc(){
@@ -51,14 +38,6 @@ public class Dish {
         this.ingredients = ingredients;
     }
 
-    /**
-     * Gets the id of the dish.
-     * @return
-     */
-    public int getId() {
-        return id;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -71,7 +50,9 @@ public class Dish {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if(name != null) {
+            this.name = name;
+        }
     }
 
     public double getPrice() {
@@ -79,14 +60,8 @@ public class Dish {
     }
 
     public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
+        if(price >= 0) {
+            this.price = price;
+        }
     }
 }
