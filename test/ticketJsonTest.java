@@ -5,8 +5,6 @@ import org.junit.*;
 public class ticketJsonTest {
     private Ticket t1;
     private Ticket t2;
-    private Ticket t3;
-    private Ticket t4;
     private Dish d1;
     private Dish d2;
     private Dish d3;
@@ -19,12 +17,10 @@ public class ticketJsonTest {
     public void setupTest(){
         t1 = new Ticket(1);
         t2 = new Ticket(2);
-        t3 = new Ticket(3);
-        t4 = new Ticket(4);
-        d1 = new Dish("potato", 5.0, 1);
-        d2 = new Dish("bean", 1.20, 2);
-        d3 = new Dish("rice", 0.5, 3);
-        d4 = new Dish("ice", 0.0,4);
+        d1 = new Dish("potato", 5.0);
+        d2 = new Dish("bean", 1.20);
+        d3 = new Dish("rice", 0.5);
+        d4 = new Dish("ice", 0.0);
 
     }
 

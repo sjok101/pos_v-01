@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DishTest",
+            "request": "launch",
+            "mainClass": "DishTest",
+            "projectName": "pos_v-01_b91575cc"
+        },
+        {
+            "type": "java",
             "name": "ticketJsonTest",
             "request": "launch",
             "mainClass": "ticketJsonTest",
