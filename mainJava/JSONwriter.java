@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -95,10 +96,21 @@ public class JSONwriter {
     private static void writeTwoMonthOfTickets() throws IOException{
         LinkedList<jsonTicket> log = new LinkedList<jsonTicket>();
         jsonTicket ticket;
-        for (int i = 0; i<4; i++){
+        int i = 0;
+        Random rand = new Random(0);
+        int randomInt1 = rand.nextInt(8)+1;
+        int randomInt2 = rand.nextInt(8)+1;
+        while(i<3000){
+            randomInt1 = rand.nextInt(8)+1;
+            randomInt2 = rand.nextInt(8)+1;
             ticket = new jsonTicket();
-            ticket.setTicketID(String.valueOf(i));
-            log.add(ticket);    
+            ticket.setTicketID(String.valueOf(randomInt1));
+            ticket.setCreationTime("0"+randomInt1 + "/0" + randomInt2);
+            randomInt1 = rand.nextInt(8)+1;
+            randomInt2 = rand.nextInt(8)+1;
+            ticket.setTotal("1"+String.valueOf(randomInt2));
+            log.add(ticket);
+            i++;
         }
         ObjectMapper tableMapper = new ObjectMapper();
         tableMapper.writeValue(new File("saves/ticketTest.json"), log);

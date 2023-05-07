@@ -44,14 +44,14 @@
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
             <Button layoutY="976.0" mnemonicParsing="false" onAction="#switchToMainMenuInScene" prefHeight="73.0" prefWidth="237.0" text="Return to Main" />
-            <Button fx:id="showSales" layoutX="-5.0" layoutY="216.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="243.0" text="Product Sales" />
-            <Button fx:id="showCustomers" layoutX="-5.0" layoutY="132.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="243.0" text="Customers" />
+            <Button layoutX="-5.0" layoutY="216.0" mnemonicParsing="false" onAction="#displaySalesAnalytics" prefHeight="73.0" prefWidth="243.0" text="Product Sales" />
+            <Button layoutX="-5.0" layoutY="132.0" mnemonicParsing="false" onAction="#testReturn" prefHeight="73.0" prefWidth="243.0" text="Customers" />
             <Text layoutX="17.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistics" wrappingWidth="198.13671875">
                <font>
                   <Font size="36.0" />
                </font>
             </Text>
-            <ComboBox fx:id="monthCombo" layoutX="12.0" layoutY="62.0" prefHeight="25.0" prefWidth="214.0" promptText="Month" style="-fx-background-color: transparent;" />
+            <ComboBox fx:id="monthCombo" editable="true" layoutX="12.0" layoutY="62.0" prefHeight="25.0" prefWidth="214.0" promptText="Month" style="-fx-background-color: transparent;" visibleRowCount="12" />
          </children></AnchorPane>
   </items>
 </SplitPane>

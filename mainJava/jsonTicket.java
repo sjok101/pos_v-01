@@ -1,3 +1,4 @@
+import java.util.List;
 public class jsonTicket {
     private String tableNum;
     private String ticketID;
@@ -8,6 +9,16 @@ public class jsonTicket {
     private String priority;
     private String orders;
     private String employee;
+    private List<String> orderList;
+
+    public List<String> getOrderList(){
+        return this.orderList;
+    }
+
+    public void setOrderList(List<String> orderList){
+        this.orderList = orderList;
+    }
+
 
     public String getEmployee(){
         return this.employee;
