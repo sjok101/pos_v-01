@@ -21,7 +21,7 @@ public class kitchenJsonTest {
     kitchen k = null;
 
     @Test
-    public void normalMultipleKitchenTicketTest() {
+    public void normalMultipleKitchenTicketTest() { //test kitchen json interaction with multiple tickets types of tickets
         try{
             d1 = new Dish("apples", 0);
             d2 = new Dish("orange", 0);
@@ -62,7 +62,7 @@ public class kitchenJsonTest {
     }
 
     @Test
-    public void normalSingleKitchenTicketTest1() {
+    public void normalSingleKitchenTicketTest1() {  //test kitchen json interaction with 1 ticket that has multiple dishes
         try{
             kitchenJson kj = new kitchenJson();
             tickets = new LinkedList<Ticket>();
@@ -89,7 +89,7 @@ public class kitchenJsonTest {
     }
 
     @Test
-    public void normalSingleKitchenTicketTest2() {
+    public void normalSingleKitchenTicketTest2() { //test kitchen json interaction with 1 ticket that has 1 dish
         try{
             kitchenJson kj = new kitchenJson();
             tickets = new LinkedList<Ticket>();
@@ -114,7 +114,7 @@ public class kitchenJsonTest {
     }
 
     @Test
-    public void nokitchenTicketsTest() {
+    public void nokitchenTicketsTest() { //test kitchen json interaction with no tickets
         try{
             kitchenJson kj = new kitchenJson();
             tickets = new LinkedList<Ticket>();

@@ -57,8 +57,8 @@ public class kitchenTest {
     }
 
     @Test
-    public void normalKitchenTest() { //print out orders 1
-        //gets printed out order string and compares it to expected printout
+    public void normalKitchenTest() { 
+    
         String orderString = "";
         k = new kitchen();
         tickets.add(t1);
@@ -78,7 +78,7 @@ public class kitchenTest {
     }
 
     @Test
-    public void singleOrderTest() { //printout kitchen 2
+    public void singleOrderTest() { 
         String orderString = "";
         k = new kitchen();
         tickets.add(t3);
@@ -89,7 +89,7 @@ public class kitchenTest {
     }
 
     @Test
-    public void noOrderTest() { //printout kitchen 3
+    public void noOrderTest() { 
         String orderString = "";
         k = new kitchen();
         tickets.add(t4);
