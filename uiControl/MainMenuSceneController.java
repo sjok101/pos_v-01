@@ -173,7 +173,7 @@ public class MainMenuSceneController {
     }
 
     public void closeApp(ActionEvent event) {
-        Platform.exit();
+        System.exit(0);
     }
 
 }
